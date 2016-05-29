@@ -115,6 +115,13 @@ module.exports = function (grunt) {
 		          	spawn: false,
 		          	livereload: true
 		        }
+		    },
+		    utility: {
+		    	files: ['Gruntfile.js', 'index.html'],
+		    	options: {
+		    		spawn: false,
+		    		livereload: true
+		    	}
 		    }
 
 		},
