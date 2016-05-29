@@ -21,10 +21,44 @@
 	function Menu($http) {
 		// Sample code.
 
-		var menu = [{
-			link: '.',
-			name: 'This is a Placeholder menu. It disappears when the first module has been created.'
-		}];
+		var menu = [
+			{
+				link: '.',
+				name: 'Sega Genesis'
+			},
+			{
+				link: '.',
+				name: 'Gamecube'
+			},
+			{
+				link: '.',
+				name: 'NES'
+			},
+			{
+				link: '.',
+				name: 'N64'
+			},
+			{
+				link: '.',
+				name: 'PS2'
+			},
+			{
+				link: '.',
+				name: 'PS3'
+			},
+			{
+				link: '.',
+				name: 'PC'
+			},
+			{
+				link: '.',
+				name: 'Wii U'
+			},
+			{
+				link: '.',
+				name: 'Wii'
+			}
+		];
 
 		return {
 			listMenu: function () {
