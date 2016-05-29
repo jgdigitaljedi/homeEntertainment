@@ -24,8 +24,8 @@
 	function Home(homeService) {
 		/*jshint validthis: true */
 		var vm = this;
-		vm.title = "Hello, home-control!";
-		vm.version = "1.0.0";
+		vm.title = "Gauthier Family Entertainment Center Guide";
+		vm.version = "0.0.1";
 		vm.listFeatures = homeService.getFeaturesList();
 
 	}

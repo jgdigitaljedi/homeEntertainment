@@ -17,17 +17,13 @@
 	function homeService($http) {
 
 		var list = [
-			{"feature": "Implemented Best Practices, following: John Papa's Guide"},
-			{"feature": "Using Controller AS syntax"},
-			{"feature": "Wrap Angular components in an Immediately Invoked Function Expression (IIFE)"},
-			{"feature": "Declare modules without a variable using the setter syntax"},
-			{"feature": "Using named functions"},
-			{"feature": "Including Unit test with Karma"},
-			{"feature": "Including UI options for Bootstrap or Angular-Material"},
-			{"feature": "Including Angular-Material-Icons for Angular-Material UI"},
-			{"feature": "Dynamic Menu generator for both themes"},
-			{"feature": "Grunt task for Production and Development"}
-		];
+			{"feature": "Volume buttons always adjust volume on surround sound system."},
+			{"feature": "When I refer to the AV switch I'm talking about the 8 port switch on top of the game cubbies."},
+			{"feature": "All instructions are for the Logitech Harmony universal remote."},
+			{"feature": "Handle game cartridges with care."},
+			{"feature": "Do not fingerprint discs of any sort."},
+			{"feature": "Instructions assume basic knowledge of general electronics."},
+			{"feature": "If you don't have any common sense then don't touch my stuff!"}		];
 
 		return {
 			getFeaturesList: getFeaturesList

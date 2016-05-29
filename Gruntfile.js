@@ -109,12 +109,19 @@ module.exports = function (grunt) {
 				}
 			},
 			styles: {
-		        files: ['app/assets/less/*.less'], // which files to watch
+		        files: ['app/assets/less/*.less'],
 		        tasks: ['less'],
 		        options: {
 		          	spawn: false,
 		          	livereload: true
 		        }
+		    },
+		    html: {
+		    	files: ['app/modules/**/*.html'],
+		    	options: {
+		    		spawn: false,
+		    		livereload: true
+		    	}
 		    },
 		    utility: {
 		    	files: ['Gruntfile.js', 'index.html'],

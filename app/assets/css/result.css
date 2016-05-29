@@ -2,15 +2,22 @@ body,
 md-content.md-blue-grey-theme {
   background-color: #eee;
 }
+html {
+  color: white;
+}
 md-toolbar:not(.md-hue-1),
 .md-fab {
   fill: #fff;
 }
 md-sidenav {
   fill: #737373;
+  color: white;
 }
 .user-avatar {
   border-radius: 99%;
+}
+md-card {
+  margin: 0;
 }
 md-toolbar.md-tall {
   height: 64px;
@@ -29,4 +36,8 @@ code {
 }
 ul {
   list-style: none;
+}
+.welcome-screen {
+  height: calc(100vh - 64px);
+  background-color: #37474f;
 }
