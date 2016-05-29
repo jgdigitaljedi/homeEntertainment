@@ -1,0 +1,14 @@
+{
+  "generator-angm": {
+    "appName": "home-control",
+    "angularCookies": true,
+    "angularAnimate": true,
+    "angularSanitize": true,
+    "angularMaterial": true,
+    "directives": [
+      {
+        "name": "remotevisual"
+      }
+    ]
+  }
+}
