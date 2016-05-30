@@ -1,4 +1,7 @@
-<div>
-<h1>You made it here, yo!</h1>
-<p>{{cs.console}}</p>
+<div layout-fill layout-padding>
+	<h1>{{cs.console}}</h1>
+	<md-divider></md-divider>
+	<md-list-item ng-repeat="item in cs.consoleInstructions">
+		<p>{{item.ins}}</p>
+	</md-list-item>
 </div>
