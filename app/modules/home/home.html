@@ -10,17 +10,18 @@
                 </div>
             </div>
         </md-toolbar>
-        <md-list>
+        <!-- <md-list> -->
             <!-- <md-list-item ui-sref="home.dashboard">
                 <div class="inset">
                     <ng-md-icon icon="apps"></ng-md-icon>
                 </div>
                 <p> Dashboard </p>
             </md-list-item> -->
-            <md-list-item class="console-list" ng-repeat="item in vm.menu" ng-click="vm.navigateTo('home.' + item.link)">
-                <div class="inset" ng-show="item.icon">
+            <!-- <md-list-item class="console-list" ng-repeat="item in vm.menu" ng-click="vm.navigateTo('home.console({console: item.link})')"> -->
+            <md-list-item class="console-list" ng-repeat="item in vm.menu" ui-sref="home.console({console: item.link})">
+<!--                 <div class="inset" ng-show="item.icon">
                     <ng-md-icon icon="{{item.icon}}"></ng-md-icon>
-                </div>
+                </div> -->
                 <!-- <p > {{ item.name }}</p> -->
                 <img class="console-image" ng-src="{{item.image}}" />
                 <md-divider></md-divider>
@@ -33,7 +34,7 @@
                 </div>
                 <p> {{ item.title }}</p>
             </md-list-item> -->
-        </md-list>
+        <!-- </md-list> -->
     </div>
 </md-sidenav>
 
@@ -48,7 +49,7 @@
             <md-button aria-label="Search" ng-click="showSearch = !showSearch">
                 <ng-md-icon icon="search"></ng-md-icon>
             </md-button>
-            <md-menu>
+<!--             <md-menu>
                 <md-button aria-label="Open Settings" ng-click="layout.openMenu($mdOpenMenu, $event)">
                     <md-icon> more_vert </md-icon>
                 </md-button>
@@ -73,7 +74,7 @@
                         </md-button>
                     </md-menu-item>
                 </md-menu-content>
-            </md-menu>
+            </md-menu> -->
         </div>
     </md-toolbar>
     <md-toolbar class="md-hue-1" ng-show="showSearch">
@@ -90,7 +91,7 @@
             </md-input-container>
         </div>
     </md-toolbar>
-    <md-content layout="column" flex md-scroll-y style="background-color:#DCDCDC">
+    <md-content layout="column" flex md-scroll-y style="background-color:#37474f">
         <div ui-view></div>
     </md-content>
 </div>

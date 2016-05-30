@@ -21,47 +21,47 @@
 	function Menu($http) {
 		var menu = [
 			{
-				link: '.',
+				link: 'genesis',
 				name: 'Sega Genesis',
 				image: 'app/assets/images/genesis.png'
 			},
 			{
-				link: '.',
+				link: 'gamecube',
 				name: 'Gamecube',
 				image: 'app/assets/images/gamecube.png'
 			},
 			{
-				link: '.',
+				link: 'nes',
 				name: 'NES',
 				image: 'app/assets/images/nes.png'
 			},
 			{
-				link: '.',
+				link: 'n64',
 				name: 'N64',
 				image: 'app/assets/images/n64.png'
 			},
 			{
-				link: '.',
+				link: 'ps2',
 				name: 'PS2',
 				image: 'app/assets/images/ps2.png'
 			},
 			{
-				link: '.',
+				link: 'ps3',
 				name: 'PS3',
 				image: 'app/assets/images/ps3.png'
 			},
 			{
-				link: '.',
+				link: 'pc',
 				name: 'PC',
 				image: 'app/assets/images/pc.png'
 			},
 			{
-				link: '.',
+				link: 'wiiu',
 				name: 'Wii U',
 				image: 'app/assets/images/wiiu.png'
 			},
 			{
-				link: '.',
+				link: 'wii',
 				name: 'Wii',
 				image: 'app/assets/images/wii.png'
 			}
