@@ -75,6 +75,11 @@
 			});
 		};
 
+		vm.highlightAndNavigate = function (link, index) {
+			vm.selected = link;
+			$state.go('home.console', {console: link});
+		};
+
 	}
 
 	function SettingsCtrl($mdBottomSheet) {

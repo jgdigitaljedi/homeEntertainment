@@ -1,7 +1,17 @@
-<div layout-fill layout-padding>
+<div class="console-template" layout-fill>
 	<h1>{{cs.console}}</h1>
 	<md-divider></md-divider>
-	<md-list-item ng-repeat="item in cs.consoleInstructions">
-		<p>{{item.ins}}</p>
-	</md-list-item>
+	<div class="console-instructions" layout="row" flex>
+		<div flex="60">
+			<md-list-item ng-repeat="item in cs.consoleInstructions track by $index" ng-click="cs.showImage($index)" class="ins-list-item"
+				ng-class="{selected: cs.selectedIndex === $index}">
+				<p class="instructions-item">{{item.ins}}</p>
+			</md-list-item>
+		</div>
+		<div flex="40">
+			<md-card>
+				<img ng-src="{{cs.insImage}}" class="instruction-image" />
+			</md-card>
+		</div>
+	</div>
 </div>

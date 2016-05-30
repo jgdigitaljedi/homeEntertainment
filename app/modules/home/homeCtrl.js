@@ -27,7 +27,6 @@
 		vm.title = "Gauthier Family Entertainment Center Guide";
 		vm.version = "0.0.1";
 		vm.listFeatures = homeService.getFeaturesList();
-
 	}
 
 })();

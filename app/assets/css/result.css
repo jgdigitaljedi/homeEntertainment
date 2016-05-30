@@ -41,7 +41,19 @@ ul {
   height: calc(100vh - 64px);
   background-color: #37474f;
 }
+.activities-nav .selected {
+  background-color: white;
+}
 .activities-nav .console-list .console-image {
   max-height: 52px;
   margin: 4px auto;
+}
+.console-template h1 {
+  margin-left: 12px !important;
+}
+.console-template .selected {
+  color: #ffb300;
+}
+.console-template .ins-list-item {
+  padding: 0 !important;
 }

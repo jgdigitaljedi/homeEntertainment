@@ -14,7 +14,9 @@
 		.controller('RemoteVisualCtrl', RemoteVisual );
 
 		RemoteVisual.$inject = [];
-
+		// plans to eventually create directive with static picture of remote
+		//and use fabric.js to draw semi-transparent canvas highlights on the
+		//buttons for each step.
 		/*
 		* recommend
 		* Using function declarations
