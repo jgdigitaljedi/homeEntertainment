@@ -34,6 +34,8 @@
 		cs.console = fixConsoleName(con);
 		cs.consoleParams = InstructionsService.getInstructionArray(con);
 		cs.consoleInstructions = InstructionsService.getConsoleInstructions(cs.consoleParams.arr, cs.consoleParams.params);
+		cs.selectedIndex = 0;
+		cs.insImage = cs.consoleInstructions[0].image || 'app/assets/images/placeholder.png';
 
 		cs.showImage = function (index) {
 			cs.selectedIndex = index;

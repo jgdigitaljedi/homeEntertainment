@@ -18,11 +18,11 @@
 	function Instructions ($http) {
 
 		var insList = {
-			remTvMedia: {ins: 'Press "TV/Media" button in top half of remote.', image: false},
-			remTvInput: {ins: 'Press "Input" button in top half of remote.', image: false},
-			remAvrGame: {ins: 'Press "AVR/Game" button in top half of remote.', image: false},
-			remFive: {ins: 'Press the "5" button on the top half of the remote to the right of the "Input" button.', image: false},
-			remFour: {ins: 'Press the "4" button on the top half of the remote to the right of the "Input" button.', image: false},
+			remTvMedia: {ins: 'Press "TV/Media" button in top half of remote.', image: 'app/assets/images/remote/tvmedia-min.png'},
+			remTvInput: {ins: 'Press "Input" button in top half of remote.', image: 'app/assets/images/remote/input-min.png'},
+			remAvrGame: {ins: 'Press "AVR/Game" button in top half of remote.', image: 'app/assets/images/remote/avr-min.png'},
+			remFive: {ins: 'Press the "5" button on the top half of the remote to the right of the "Input" button.', image: 'app/assets/images/remote/five-min.png'},
+			remFour: {ins: 'Press the "4" button on the top half of the remote to the right of the "Input" button.', image: 'app/assets/images/remote/four-min.png'},
 			commentDvr: {ins: 'If you look at the surround receiver you should now see "DVR/VCR".', image: false},
 			commentDvd: {ins: 'If you look at the surround receiver you should now see "DVD".', image: false},
 			tvNavAv: {ins: 'Using the left and right arrow keys on the remote, navigate to "AV1" and press the "OK" button.', image: false},

@@ -57,3 +57,6 @@ ul {
 .console-template .ins-list-item {
   padding: 0 !important;
 }
+.console-template md-card-content img {
+  max-width: 100%;
+}
