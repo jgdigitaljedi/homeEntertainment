@@ -27,10 +27,12 @@
 
 		function makeGbCall (params) {
 			var def = $q.defer(),
-				baseUrl = 'http://www.giantbomb.com/api/' + params.resource + '/' + params.resourceId + '/?api_key=' + apiKey + '&format=json';
+				// baseUrl = 'http://www.giantbomb.com/api/' + params.resource + '/' + params.resourceId + '/?api_key=' + apiKey + '&format=json';
+				baseUrl = 'http://www.giantbomb.com/api/' + params.resource + '/' + params.resourceId + '/?api_key=' + apiKey;
 			$http({
 				method: 'GET',
 				url: baseUrl,
+				dataType: 'jsonp'
 			}).then(function (response) {
 				def.resolve(response);
 			});
