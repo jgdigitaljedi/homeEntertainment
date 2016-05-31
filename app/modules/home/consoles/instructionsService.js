@@ -18,26 +18,46 @@
 	function Instructions ($http) {
 
 		var insList = {
-			remTvMedia: {ins: 'Press "TV/Media" button in top half of remote.', image: 'app/assets/images/remote/tvmedia-min.png'},
-			remTvInput: {ins: 'Press "Input" button in top half of remote.', image: 'app/assets/images/remote/input-min.png'},
-			remAvrGame: {ins: 'Press "AVR/Game" button in top half of remote.', image: 'app/assets/images/remote/avr-min.png'},
-			remFive: {ins: 'Press the "5" button on the top half of the remote to the right of the "Input" button.', image: 'app/assets/images/remote/five-min.png'},
-			remFour: {ins: 'Press the "4" button on the top half of the remote to the right of the "Input" button.', image: 'app/assets/images/remote/four-min.png'},
-			commentDvr: {ins: 'If you look at the surround receiver you should now see "DVR/VCR".', image: false},
-			commentDvd: {ins: 'If you look at the surround receiver you should now see "DVD".', image: false},
-			tvNavAv: {ins: 'Using the left and right arrow keys on the remote, navigate to "AV1" and press the "OK" button.', image: false},
-			tvNavComp1: {ins: 'Using the left and right arrow keys on the remote, navigate to "Composite1" and press the "OK" button.', image: false},
-			tvNavComp2: {ins: 'Using the left and right arrow keys on the remote, navigate to "Composite2" and press the "OK" button.', image: false},
-			tvNavHdmi2: {ins: 'Using the left and right arrow keys on the remote, navigate to "HDMI2" and press the "OK" button.', image: false},
-			tvNavHdmi1: {ins: 'Using the left and right arrow keys on the remote, navigate to "HDMI1" and press the "OK" button.', image: false},
-			tvNavHdmi3: {ins: 'Using the left and right arrow keys on the remote, navigate to "HDMI3" and press the "OK" button.', image: false},
-			eightPortSwitch: {ins: 'On the 8-port switch, press the purple button under "IN ', image: false},
-			powerOn: {ins: 'Press the power button on the console.', image: false},
-			powerWiiu: {ins: 'Press the power button on the big Wii U remote.', image: false},
-			powerPs3: {ins: 'Press the "PS" button on the PS3 remote.', image: false},
-			powerPc: {ins: 'Press the big silver power button on the top left corner of the PC.', image: false},
-			keyboardAndMouse: {ins: 'Get the keyboard and mouse from under the coffee table.', image: false},
-			finishedOn: {ins: 'Your done. Enjoy!', image: false}
+			remTvMedia: {ins: 'Press "TV/Media" button in top half of remote.',
+				image: ['app/assets/images/remote/tvmedia-min.png']},
+			remTvInput: {ins: 'Press "Input" button in top half of remote.',
+				image: ['app/assets/images/remote/input-min.png']},
+			remAvrGame: {ins: 'Press "AVR/Game" button in top half of remote.',
+				image: ['app/assets/images/remote/avr-min.png']},
+			remFive: {ins: 'Press the "5" button on the top half of the remote to the right of the "Input" button.',
+				image: ['app/assets/images/remote/five-min.png']},
+			remFour: {ins: 'Press the "4" button on the top half of the remote to the right of the "Input" button.',
+				image: ['app/assets/images/remote/four-min.png']},
+			commentDvr: {ins: 'If you look at the surround receiver you should now see "DVR/VCR".',
+				image: ['app/assets/images/receiver/dvrvcr-min.png']},
+			commentDvd: {ins: 'If you look at the surround receiver you should now see "DVD".',
+				image: ['app/assets/images/receiver/dvd-min.png']},
+			tvNavAv: {ins: 'Using the left and right arrow keys on the remote, navigate to "AV1" and press the "OK" button.',
+				image: ['app/assets/images/remote/arrows-min.png', 'app/assets/images/tv/av1.png']},
+			tvNavComp1: {ins: 'Using the left and right arrow keys on the remote, navigate to "Component1" and press the "OK" button.',
+				image: ['app/assets/images/remote/arrows-min.png', 'app/assets/images/tv/comp1-min.png']},
+			tvNavComp2: {ins: 'Using the left and right arrow keys on the remote, navigate to "Component2" and press the "OK" button.',
+				image: ['app/assets/images/remote/arrows-min.png', 'app/assets/images/tv/comp2-min.png']},
+			tvNavHdmi2: {ins: 'Using the left and right arrow keys on the remote, navigate to "HDMI2" and press the "OK" button.',
+				image: ['app/assets/images/remote/arrows-min.png', 'app/assets/images/tv/hdmi2-min.png']},
+			tvNavHdmi1: {ins: 'Using the left and right arrow keys on the remote, navigate to "HDMI1" and press the "OK" button.',
+				image: ['app/assets/images/remote/arrows-min.png', 'app/assets/images/tv/hdmi1-min.png']},
+			tvNavHdmi3: {ins: 'Using the left and right arrow keys on the remote, navigate to "HDMI3" and press the "OK" button.',
+				image: ['app/assets/images/remote/arrows-min.png', 'app/assets/images/tv/hdmi3-min.png']},
+			eightPortSwitch: {ins: 'On the 8-port switch, press the purple button under "IN ',
+				image: false},
+			powerOn: {ins: 'Press the power button on the console.',
+				image: false},
+			powerWiiu: {ins: 'Press the power button on the big Wii U remote.',
+				image: false},
+			powerPs3: {ins: 'Press the "PS" button on the PS3 remote.',
+				image: false},
+			powerPc: {ins: 'Press the big silver power button on the top left corner of the PC.',
+				image: false},
+			keyboardAndMouse: {ins: 'Get the keyboard and mouse from under the coffee table.',
+				image: false},
+			finishedOn: {ins: 'Your done. Enjoy!',
+				image: false}
 		};
 
 
@@ -79,7 +99,7 @@
 				if (item === 'eightPortSwitch') {
 					var eps = {ins: '', image: ''};
 					eps.ins = insList[item].ins + optParams.portNumber + '"';
-					eps.image = insList[item].image;
+					eps.image = ['app/assets/images/switch/' + optParams.portNumber + '-min.png'];
 					finalInsSet.push(eps);
 				} else {
 					finalInsSet.push(insList[item]);					
