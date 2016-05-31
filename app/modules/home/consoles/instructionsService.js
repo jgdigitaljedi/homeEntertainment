@@ -69,19 +69,19 @@
 		function getInstructionArray (con) {
 			var consoleArrs = {
 				genesis: {arr: ['remTvMedia', 'remTvInput', 'tvNavAv', 'remAvrGame', 'remFive', 'commentDvr', 'eightPortSwitch', 'powerOn', 'finishedOn'],
-					params: {portNumber: '1'}},
+					params: {portNumber: '1', power: ['app/assets/images/power/genesisconsole-min.png']}},
 				gamecube: {arr: ['remTvMedia', 'remTvInput', 'tvNavAv', 'remAvrGame', 'remFive', 'commentDvr', 'eightPortSwitch', 'powerOn', 'finishedOn'],
-					params: {portNumber: '2'}},
+					params: {portNumber: '2', power: ['app/assets/images/power/gamecubeconsole-min.png']}},
 				nes: {arr: ['remTvMedia', 'remTvInput', 'tvNavAv', 'remAvrGame', 'remFive', 'commentDvr', 'eightPortSwitch', 'powerOn', 'finishedOn'],
-					params: {portNumber: '3'}},
+					params: {portNumber: '3', power: ['app/assets/images/power/nesconsole-min.png']}},
 				n64: {arr: ['remTvMedia', 'remTvInput', 'tvNavAv', 'remAvrGame', 'remFive', 'commentDvr', 'eightPortSwitch', 'powerOn', 'finishedOn'],
-					params: {portNumber: '4'}},
+					params: {portNumber: '4', power: ['app/assets/images/power/n64console-min.png']}},
 				ps2: {arr: ['remTvMedia', 'remTvInput', 'tvNavComp1', 'remAvrGame', 'remFive', 'commentDvr', 'powerOn', 'finishedOn'],
-					params: {holdOff: true}},
+					params: {power: ['app/assets/images/power/ps2console-min.png']}},
 				ps3: {arr: ['remTvMedia', 'remTvInput', 'tvNavHdmi2', 'remAvrGame', 'remFive', 'commentDvr', 'powerPs3', 'finishedOn'],
-					params: {remoteOff: true}},
+					params: {power: ['apps/assets/images/power/ps3remote-min.png', 'app/assets/images/power/ps3console-min.png']}},
 				wiiu: {arr: ['remTvMedia', 'remTvInput', 'tvNavHdmi1', 'remAvrGame', 'remFour', 'commentDvd', 'powerWiiu', 'finishedOn'],
-					params: {remoteOff: true}},
+					params: {power: ['app/assets/images/power.wiiuremote-min.png', 'app/assets/images/power/wiiconsole-min.png']}},
 				pc: {arr: ['remTvMedia', 'remTvInput', 'tvNavHdmi3', 'remAvrGame', 'remFive', 'commentDvr', 'powerPc', 'keyboardAndMouse',
 					'finishedOn']},
 				wii: {arr: ['remTvMedia', 'remTvInput', 'tvNavComp2', 'remAvrGame', 'remFive', 'commentDvr', 'powerOn',	'finishedOn']}, 
@@ -101,6 +101,11 @@
 					eps.ins = insList[item].ins + optParams.portNumber + '"';
 					eps.image = ['app/assets/images/switch/' + optParams.portNumber + '-min.png'];
 					finalInsSet.push(eps);
+				} else if (item === 'powerOn') {
+					var power = {ins: '', image: ''};
+					power.ins = insList[item].ins;
+					power.image = optParams.power;
+					finalInsSet.push(power);
 				} else {
 					finalInsSet.push(insList[item]);					
 				}
