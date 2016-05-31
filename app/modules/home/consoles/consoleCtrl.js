@@ -13,10 +13,11 @@
 		.module('home-control')
 		.controller('ConsoleCtrl', Console);
 
-	Console.$inject = ['InstructionsService', '$stateParams'];
+	Console.$inject = ['InstructionsService', '$stateParams', 'GiantbombService'];
 
-	function Console(InstructionsService, $stateParams) {
+	function Console(InstructionsService, $stateParams, GiantbombService) {
 		/*jshint validthis: true */
+		/*jshint curly: false */
 		function fixConsoleName (con) {
 			if (con === 'ps2' || con === 'ps3') return con.charAt(0).toUpperCase() + con.charAt(1).toUpperCase() + ' ' + con.charAt(2);
 			if (con === 'wiiu') return 'Wii U';
@@ -24,7 +25,7 @@
 			var conSplit = con.split(' '); // here in case future additions need it
 			if (conSplit.length === 1) return con.charAt(0).toUpperCase() + con.slice(1);
 			conSplit.forEach(function (item){
-				item.charAt(0).toUpperCase() + item.slice(1);
+				item.charAt(0).toUpperCase() + item.slice(1); /*jshint ignore: line */
 			});
 			return conSplit.join();
 		}
@@ -39,7 +40,6 @@
 
 		cs.showImage = function (index) {
 			cs.selectedIndex = index;
-			console.log('this right here', cs.consoleInstructions[index].image);
 			cs.insImage = cs.consoleInstructions[index].image ? cs.consoleInstructions[index].image : ['app/assets/images/placeholder.png'];
 			cs.multImages = cs.insImage.length > 1 ? true : false;
 		};

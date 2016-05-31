@@ -93,10 +93,6 @@
 		};
 
 
-		return {
-			getInstructionArray: getInstructionArray,
-			getConsoleInstructions: getConsoleInstructions
-		};
 
 		function getInstructionArray (con) {
 			var consoleArrs = {
@@ -185,5 +181,10 @@
 
 			return finalInsSet;
 		}
+		
+		return {
+			getInstructionArray: getInstructionArray,
+			getConsoleInstructions: getConsoleInstructions
+		};
 	}
 })();
