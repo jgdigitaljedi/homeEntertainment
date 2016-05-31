@@ -39,7 +39,6 @@
 			runBlock.$inject = ['$rootScope'];
 
 			function runBlock($rootScope) {
-				'use strict';
 
 				console.log('AngularJS run() function...');
 			}

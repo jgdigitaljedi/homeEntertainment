@@ -100,46 +100,53 @@
 					arr: ['remTvMedia', 'remTvInput', 'tvNavAv', 'remAvrGame', 'remFive', 'commentDvr', 'eightPortSwitch', 'powerOn', 'finishedOn'],
 					params: {
 						portNumber: '1',
-						power: ['app/assets/images/power/genesisconsole-min.png']
+						power: ['app/assets/images/power/genesisconsole-min.png'],
+						gbId: '3045-6'
 					}
 				},
 				gamecube: {
 					arr: ['remTvMedia', 'remTvInput', 'tvNavAv', 'remAvrGame', 'remFive', 'commentDvr', 'eightPortSwitch', 'powerOn', 'finishedOn'],
 					params: {
 						portNumber: '2',
-						power: ['app/assets/images/power/gamecubeconsole-min.png']
+						power: ['app/assets/images/power/gamecubeconsole-min.png'],
+						gbId: '3045-23'
 					}
 				},
 				nes: {
 					arr: ['remTvMedia', 'remTvInput', 'tvNavAv', 'remAvrGame', 'remFive', 'commentDvr', 'eightPortSwitch', 'powerOn', 'finishedOn'],
 					params: {
 						portNumber: '3',
-						power: ['app/assets/images/power/nesconsole-min.png']
+						power: ['app/assets/images/power/nesconsole-min.png'],
+						gbId: '3045-21'
 					}
 				},
 				n64: {
 					arr: ['remTvMedia', 'remTvInput', 'tvNavAv', 'remAvrGame', 'remFive', 'commentDvr', 'eightPortSwitch', 'powerOn', 'finishedOn'],
 					params: {
 						portNumber: '4',
-						power: ['app/assets/images/power/n64console-min.png']
+						power: ['app/assets/images/power/n64console-min.png'],
+						gbId: '3045-43'
 					}
 				},
 				ps2: {
 					arr: ['remTvMedia', 'remTvInput', 'tvNavComp1', 'remAvrGame', 'remFive', 'commentDvr', 'powerOn', 'finishedOn'],
 					params: {
-						power: ['app/assets/images/power/ps2console-min.png']
+						power: ['app/assets/images/power/ps2console-min.png'],
+						gbId: '3045-19'
 					}
 				},
 				ps3: {
 					arr: ['remTvMedia', 'remTvInput', 'tvNavHdmi2', 'remAvrGame', 'remFive', 'commentDvr', 'powerOn', 'finishedOn'],
 					params: {
-						power: ['app/assets/images/power/ps3remote-min.png', 'app/assets/images/power/ps3console-min.png']
+						power: ['app/assets/images/power/ps3remote-min.png', 'app/assets/images/power/ps3console-min.png'],
+						gbId: '3045-35'
 					}
 				},
 				wiiu: {
 					arr: ['remTvMedia', 'remTvInput', 'tvNavHdmi1', 'remAvrGame', 'remFour', 'commentDvd', 'powerOn', 'finishedOn'],
 					params: {
-						power: ['app/assets/images/power/wiiuremote-min.png', 'app/assets/images/power/wiiuconsole-min.png']
+						power: ['app/assets/images/power/wiiuremote-min.png', 'app/assets/images/power/wiiuconsole-min.png'],
+						gbId: '3045-139'
 					}
 				},
 				pc: {
@@ -151,7 +158,8 @@
 				wii: {
 					arr: ['remTvMedia', 'remTvInput', 'tvNavComp2', 'remAvrGame', 'remFive', 'commentDvr', 'powerOn',	'finishedOn'],
 					params: {
-						power: false
+						power: false,
+						gbId: '3045-36'
 					}
 				}
 			};
@@ -181,7 +189,7 @@
 
 			return finalInsSet;
 		}
-		
+
 		return {
 			getInstructionArray: getInstructionArray,
 			getConsoleInstructions: getConsoleInstructions

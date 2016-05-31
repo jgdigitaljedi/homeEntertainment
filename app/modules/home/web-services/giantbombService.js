@@ -26,7 +26,7 @@
 		})();
 
 		function makeGbCall (params) {
-			var def = $q.deferred(),
+			var def = $q.defer(),
 				baseUrl = 'http://www.giantbomb.com/api/' + params.resource + '/' + params.resourceId + '/?api_key=' + apiKey + '&format=json';
 			$http({
 				method: 'GET',
@@ -40,7 +40,7 @@
 		function lookupConsole (which) {
 			var params = {
 				resource: 'platform',
-				resourceId: which.id,
+				resourceId: which,
 			};
 			return makeGbCall(params);
 		}
@@ -48,7 +48,7 @@
 		function lookupGame (which) {
 			var params = {
 				resource: 'game',
-				resourceId: which.id,
+				resourceId: which,
 			};
 			return makeGbCall(params);
 		}
