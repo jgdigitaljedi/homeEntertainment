@@ -12,7 +12,7 @@
 	"quotmark": false,
 	"undef": false,
 	"unused": false,
-	"strict": true,
+	"strict": false,
 	"trailing": false,
 	"smarttabs": true,
 	"white": false,
