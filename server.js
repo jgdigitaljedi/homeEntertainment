@@ -1,16 +1,21 @@
 'use_strict';
 
 var express = require('express');
-var app = express(); /*jshint ignore:line*/
+var httpProxy = require('http-proxy');
 
-app.use(express.static(__dirname + '/public'));
+var apiForwardingUrl = 'http://YOUR_ADDRESS_HERE';
 
-app.get('/', function (req, res) {
-  	res.redirect('/index.html'); /*jshint ignore:line*/
+var server = express();
+server.set('port', 3000);
+server.use(express.static(__dirname + '/app'));
+
+var apiProxy = httpProxy.createProxyServer();
+
+server.all('/giantbomb/*', function (req, res) {
+	apiProxy.web(req, res, {target: apiForwardingUrl});
+	console.log('request made to giant bomb');
 });
 
-app.get('/giantbomb', function (req, res) {
-
+server.listen(server.get('port'), function () {
+    console.log('Express server listening on port ' + server.get('port'));
 });
-
-app.listen(4000);

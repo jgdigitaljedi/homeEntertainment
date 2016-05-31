@@ -18,7 +18,8 @@
     "chalk": "~0.5",
     "express": "^4.13.4",
     "glob": "~4.0.5",
-    "grunt-cli": "~0.1.13"
+    "grunt-cli": "~0.1.13",
+    "http-proxy": "^1.13.3"
   },
   "devDependencies": {
     "grunt": "~0.4.1",

@@ -1,9 +1,9 @@
 {
-	"node": true,
 	"esnext": true,
 	"bitwise": true,
 	"camelcase": false,
 	"curly": false,
+	"devel": false,
 	"eqeqeq": true,
 	"immed": true,
 	"latedef": false,
@@ -30,8 +30,8 @@
 		"alert": false,
 		"jasmine": false,
 		"jquery": false,
-		"mocha": true
-
+		"mocha": true,
+		"node": true
 	}
 
 }
