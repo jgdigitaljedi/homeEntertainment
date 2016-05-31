@@ -39,6 +39,7 @@
 
 		cs.showImage = function (index) {
 			cs.selectedIndex = index;
+			console.log('this right here', cs.consoleInstructions[index].image);
 			cs.insImage = cs.consoleInstructions[index].image ? cs.consoleInstructions[index].image : ['app/assets/images/placeholder.png'];
 			cs.multImages = cs.insImage.length > 1 ? true : false;
 		};

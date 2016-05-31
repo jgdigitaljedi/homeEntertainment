@@ -78,14 +78,14 @@
 					params: {portNumber: '4', power: ['app/assets/images/power/n64console-min.png']}},
 				ps2: {arr: ['remTvMedia', 'remTvInput', 'tvNavComp1', 'remAvrGame', 'remFive', 'commentDvr', 'powerOn', 'finishedOn'],
 					params: {power: ['app/assets/images/power/ps2console-min.png']}},
-				ps3: {arr: ['remTvMedia', 'remTvInput', 'tvNavHdmi2', 'remAvrGame', 'remFive', 'commentDvr', 'powerPs3', 'finishedOn'],
-					params: {power: ['apps/assets/images/power/ps3remote-min.png', 'app/assets/images/power/ps3console-min.png']}},
-				wiiu: {arr: ['remTvMedia', 'remTvInput', 'tvNavHdmi1', 'remAvrGame', 'remFour', 'commentDvd', 'powerWiiu', 'finishedOn'],
-					params: {power: ['app/assets/images/power.wiiuremote-min.png', 'app/assets/images/power/wiiconsole-min.png']}},
-				pc: {arr: ['remTvMedia', 'remTvInput', 'tvNavHdmi3', 'remAvrGame', 'remFive', 'commentDvr', 'powerPc', 'keyboardAndMouse',
-					'finishedOn']},
-				wii: {arr: ['remTvMedia', 'remTvInput', 'tvNavComp2', 'remAvrGame', 'remFive', 'commentDvr', 'powerOn',	'finishedOn']}, 
-
+				ps3: {arr: ['remTvMedia', 'remTvInput', 'tvNavHdmi2', 'remAvrGame', 'remFive', 'commentDvr', 'powerOn', 'finishedOn'],
+					params: {power: ['app/assets/images/power/ps3remote-min.png', 'app/assets/images/power/ps3console-min.png']}},
+				wiiu: {arr: ['remTvMedia', 'remTvInput', 'tvNavHdmi1', 'remAvrGame', 'remFour', 'commentDvd', 'powerOn', 'finishedOn'],
+					params: {power: ['app/assets/images/power/wiiuremote-min.png', 'app/assets/images/power/wiiuconsole-min.png']}},
+				pc: {arr: ['remTvMedia', 'remTvInput', 'tvNavHdmi3', 'remAvrGame', 'remFive', 'commentDvr', 'powerOn', 'keyboardAndMouse',
+					'finishedOn'], params: {power: false}},
+				wii: {arr: ['remTvMedia', 'remTvInput', 'tvNavComp2', 'remAvrGame', 'remFive', 'commentDvr', 'powerOn',	'finishedOn'],
+					params: {power: false}}
 			};
 
 			return consoleArrs[con];
@@ -104,17 +104,14 @@
 				} else if (item === 'powerOn') {
 					var power = {ins: '', image: ''};
 					power.ins = insList[item].ins;
-					power.image = optParams.power;
+					power.image = optParams.power ? optParams.power : false;
 					finalInsSet.push(power);
 				} else {
 					finalInsSet.push(insList[item]);					
 				}
-				// instruction = insList[item];
 			});
 
 			return finalInsSet;
 		}
-
 	}
-
 })();
