@@ -38,6 +38,7 @@
 		cs.selectedIndex = 0;
 		cs.insImage = cs.consoleInstructions[0].image || ['app/assets/images/placeholder.png'];
 		cs.consoleInfo = GiantbombService.lookupConsole(cs.consoleParams.params.gbId);
+		setTimeout(function () {console.log('info', cs.consoleInfo); }, 500);
 
 		cs.showImage = function (index) {
 			cs.selectedIndex = index;
