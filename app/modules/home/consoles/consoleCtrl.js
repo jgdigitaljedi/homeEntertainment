@@ -13,9 +13,9 @@
 		.module('home-control')
 		.controller('ConsoleCtrl', Console);
 
-	Console.$inject = ['InstructionsService', '$stateParams', 'GiantbombService'];
+	Console.$inject = ['InstructionsService', '$stateParams', 'GiantbombService', 'HelpersService'];
 
-	function Console(InstructionsService, $stateParams, GiantbombService) {
+	function Console(InstructionsService, $stateParams, GiantbombService, HelpersService) {
 		/*jshint validthis: true */
 		/*jshint curly: false */
 		function fixConsoleName (con) {
@@ -40,6 +40,7 @@
 		GiantbombService.lookupConsole(cs.consoleParams.params.gbId).then(function (response) {
 			cs.consoleInfo = response;
 			cs.consoleInfo.release_date = moment(cs.consoleInfo.release_date).format('MMM D, YYYY');
+			cs.consoleInfo.install_base = HelpersService.commify(cs.consoleInfo.install_base);
 			console.log('info', cs.consoleInfo);
 		});
 

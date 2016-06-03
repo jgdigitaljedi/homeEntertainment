@@ -4,11 +4,15 @@
 		<table>
 			<tr>
 				<td>Release Date:</td>
-				<td>{{cs.consoleInfo.release_date | date: 'MMM d, yyyy'}}</td>
+				<td>{{cs.consoleInfo.release_date}}</td>
 			</tr>
 			<tr>
 				<td>Release Cost:</td>
 				<td>${{cs.consoleInfo.original_price}}</td>
+			</tr>
+			<tr>
+				<td>Units Sold:</td>
+				<td>{{cs.consoleInfo.install_base}}</td>
 			</tr>
 			<tr>
 				<td>Info:</td>
