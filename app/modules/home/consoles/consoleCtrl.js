@@ -37,8 +37,11 @@
 		cs.consoleInstructions = InstructionsService.getConsoleInstructions(cs.consoleParams.arr, cs.consoleParams.params);
 		cs.selectedIndex = 0;
 		cs.insImage = cs.consoleInstructions[0].image || ['app/assets/images/placeholder.png'];
-		cs.consoleInfo = GiantbombService.lookupConsole(cs.consoleParams.params.gbId);
-		setTimeout(function () {console.log('info', cs.consoleInfo); }, 500);
+		GiantbombService.lookupConsole(cs.consoleParams.params.gbId).then(function (response) {
+			cs.consoleInfo = response;
+			cs.consoleInfo.release_date = moment(cs.consoleInfo.release_date).format('MMM D, YYYY');
+			console.log('info', cs.consoleInfo);
+		});
 
 		cs.showImage = function (index) {
 			cs.selectedIndex = index;

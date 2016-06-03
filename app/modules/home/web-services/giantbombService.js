@@ -17,38 +17,44 @@
 
 	// not running this through express proxy simply because planning to host this on my media server for private use at home
 	function Giantbomb ($http, $q) {
+
 		var apiKey;
 		function getApiKey () {
-			return $http.get('keys.json')
-				.success(function (res) {
-					// apiKey = res.giantbomb_api_key;
-					// console.log('api', apiKey);
-					return res.giantbomb_api_key;
-				});
-		};
-
-		function makeGbCall (params) {
 			var def = $q.defer();
 			$http.get('keys.json')
 				.success(function (res) {
-					var baseUrl = 'http://www.giantbomb.com/api/' + params.resource + '/' + params.resourceId + 
-						'/?api_key=' + res.giantbomb_api_key + '&format=json';
-					$http({
-						method: 'GET',
-						url: baseUrl
-					}).then(function (response) {
-						def.resolve(response);
-					});
-				return def.promise;
+					def.resolve(res.giantbomb_api_key);
+				});
+			return def.promise;
+		}
+
+		function makeGbCall (params, res) {
+			var def = $q.defer();
+			var baseUrl = 'http://www.giantbomb.com/api/' + params.resource + '/' + params.resourceId + 
+				'/?api_key=' + res + '&format=json';
+			$http({
+				method: 'GET',
+				url: baseUrl,
+			}).then(function (response) {
+				console.log('gb response', response);
+				def.resolve(response.data.results);
 			});
+			return def.promise;
 		}
 
 		function lookupConsole (which) {
+			var def = $q.defer();
 			var params = {
 				resource: 'platform',
 				resourceId: which,
 			};
-			return makeGbCall(params);
+			return $q(function (resolve, reject) {
+				getApiKey().then(function (res) { 
+					makeGbCall(params, res).then(function (response) {
+						resolve(response);
+					});
+				});
+			});
 		}
 
 		function lookupGame (which) {
@@ -56,7 +62,13 @@
 				resource: 'game',
 				resourceId: which,
 			};
-			return makeGbCall(params);
+			return $q(function (resolve, reject) {
+				getApiKey().then(function (res) { 
+					makeGbCall(params, res).then(function (response) {
+						resolve(response);
+					});
+				});
+			});
 		}
 
 		return {

@@ -92,6 +92,7 @@ module.exports = function (grunt) {
 				}
 			}
 		},
+
 		concurrent: {
 			tasks: ['connect', 'watch'],
 			options: {
@@ -194,9 +195,6 @@ module.exports = function (grunt) {
 				}
 			}
 		}
-
-
-
 	});
 
 	require('time-grunt')(grunt);

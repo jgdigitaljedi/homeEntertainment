@@ -22,7 +22,11 @@
 		$locationProvider.hashPrefix('!');
 
 		// This is required for Browser Sync to work poperly
-		$httpProvider.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+		// $httpProvider.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+		$httpProvider.defaults.headers.common = {};
+		$httpProvider.defaults.headers.post = {};
+		$httpProvider.defaults.headers.put = {};
+		$httpProvider.defaults.headers.patch = {};
 
 		$mdThemingProvider.theme('default')
 		    .primaryPalette('blue-grey')

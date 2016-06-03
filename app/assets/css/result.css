@@ -48,8 +48,13 @@ ul {
   max-height: 52px;
   margin: 4px auto;
 }
-.console-template h1 {
-  margin-left: 12px !important;
+.console-template .console-head h1,
+.console-template .console-head p,
+.console-template .console-head table {
+  margin: 2px 12px !important;
+}
+.console-template .console-head table td {
+  min-width: 110px;
 }
 .console-template .selected {
   color: #ffb300;

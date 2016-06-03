@@ -1,5 +1,21 @@
 <div class="console-template" layout-fill>
-	<h1>{{cs.console}}</h1>
+	<div class="console-head">
+		<h1>{{cs.console}}</h1><br>
+		<table>
+			<tr>
+				<td>Release Date:</td>
+				<td>{{cs.consoleInfo.release_date | date: 'MMM d, yyyy'}}</td>
+			</tr>
+			<tr>
+				<td>Release Cost:</td>
+				<td>${{cs.consoleInfo.original_price}}</td>
+			</tr>
+			<tr>
+				<td>Info:</td>
+				<td>{{cs.consoleInfo.deck}}</td>
+			</tr>
+		</table>
+	</div>
 	<md-divider></md-divider>
 	<div class="console-instructions" layout="row" layout-xs="column" flex>
 		<div flex="60">
