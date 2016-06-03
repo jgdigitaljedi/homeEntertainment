@@ -18,6 +18,7 @@
 	function Console(InstructionsService, $stateParams, GiantbombService, HelpersService) {
 		/*jshint validthis: true */
 		/*jshint curly: false */
+		var dateFormats = HelpersService.dateFormats();
 		function fixConsoleName (con) {
 			if (con === 'ps2' || con === 'ps3') return con.charAt(0).toUpperCase() + con.charAt(1).toUpperCase() + ' ' + con.charAt(2);
 			if (con === 'wiiu') return 'Wii U';
@@ -39,7 +40,7 @@
 		cs.insImage = cs.consoleInstructions[0].image || ['app/assets/images/placeholder.png'];
 		GiantbombService.lookupConsole(cs.consoleParams.params.gbId).then(function (response) {
 			cs.consoleInfo = response;
-			cs.consoleInfo.release_date = moment(cs.consoleInfo.release_date).format('MMM D, YYYY');
+			cs.consoleInfo.release_date = moment(cs.consoleInfo.release_date).format(dateFormats.abbrMonth);
 			cs.consoleInfo.install_base = HelpersService.commify(cs.consoleInfo.install_base);
 			console.log('info', cs.consoleInfo);
 		});

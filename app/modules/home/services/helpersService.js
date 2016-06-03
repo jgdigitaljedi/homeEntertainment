@@ -21,9 +21,16 @@
 			return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 		}
 
+		function dateFormats () {
+			return {
+				abbrMonth: 'MMM D, YYYY'
+			};
+		}
+
 
 		return {
-			commify: commify
+			commify: commify,
+			dateFormats: dateFormats
 		};
 	}
 })();
