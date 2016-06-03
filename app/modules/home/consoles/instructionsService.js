@@ -158,7 +158,7 @@
 				wii: {
 					arr: ['remTvMedia', 'remTvInput', 'tvNavComp2', 'remAvrGame', 'remFive', 'commentDvr', 'powerOn',	'finishedOn'],
 					params: {
-						power: false,
+						power: ['app/assets/images/power/wiiremote-min.png', 'app/assets/images/power/wiiconsole-min.png'],
 						gbId: '3045-36'
 					}
 				}
