@@ -1,4 +1,3 @@
-'use strict';
 
 	/**
 	* @ngdoc function
@@ -15,6 +14,7 @@
 
 angular.module('home-control')
 	.config(['$stateProvider', function ($stateProvider) {
+		'use strict';
 		$stateProvider
 			
 			.state('home', {

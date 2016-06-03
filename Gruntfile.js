@@ -18,13 +18,14 @@ module.exports = function (grunt) {
 
 		jshint: {
 			options: {
-				jshintrc: '.jshintrc'
+				jshintrc: '.jshintrc',
+				smarttabs: true
 			},
 			gruntfile: {
 				src: 'Gruntfile.js'
 			},
 			app: {
-				src: ['app/modules/**/*.js']
+				src: ['app/modules/**/*.js', 'app/modules/**/**/*.js']
 			}
 		},
 
@@ -113,8 +114,8 @@ module.exports = function (grunt) {
 		        files: ['app/assets/less/*.less'],
 		        tasks: ['less'],
 		        options: {
-		          	spawn: false,
-		          	livereload: true
+		        	spawn: false,
+		        	livereload: true
 		        }
 		    },
 		    html: {

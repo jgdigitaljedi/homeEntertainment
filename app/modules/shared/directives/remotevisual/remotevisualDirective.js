@@ -22,7 +22,7 @@
 				
 				templateUrl:'app/modules/shared/directives/remotevisual/remotevisual.html',
 				
-			}
+			};
 
 			return directive;
 

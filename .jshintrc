@@ -3,7 +3,7 @@
 	"bitwise": true,
 	"camelcase": false,
 	"curly": false,
-	"devel": false,
+	"devel": true,
 	"eqeqeq": true,
 	"immed": true,
 	"latedef": false,
@@ -14,8 +14,8 @@
 	"unused": false,
 	"strict": false,
 	"trailing": false,
-	"smarttabs": true,
 	"white": false,
+	"-W099": true,
 	"globals": {
 		"browser": false,
 		"describe": false,

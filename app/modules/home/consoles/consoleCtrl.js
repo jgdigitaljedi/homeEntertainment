@@ -25,8 +25,8 @@
 			if (con === 'pc' || con === 'nes') return con.toUpperCase();
 			var conSplit = con.split(' '); // here in case future additions need it
 			if (conSplit.length === 1) return con.charAt(0).toUpperCase() + con.slice(1);
-			conSplit.forEach(function (item){
-				item.charAt(0).toUpperCase() + item.slice(1); /*jshint ignore: line */
+			conSplit.forEach(function (item, index){
+				consSplit[index] = item.charAt(0).toUpperCase() + item.slice(1);
 			});
 			return conSplit.join();
 		}
