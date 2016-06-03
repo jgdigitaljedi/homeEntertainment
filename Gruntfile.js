@@ -62,23 +62,23 @@ module.exports = function (grunt) {
 			}
 		},
 
-		uglify: {
-			options: {
-				banner: '<%= banner %>',
-				report: 'min'
-			},
-			base: {
-				src: ['<%= concat.base.dest %>'],
-				dest: 'app/assets/js/<%= pkg.name %>-angscript.min.js'
-			},
-			basePlugin: {
-				src: [ 'src/plugins/**/*.js' ],
-				dest: 'app/assets/js/plugins/',
-				expand: true,
-				flatten: true,
-				ext: '.min.js'
-			}
-		},
+		// uglify: {
+		// 	options: {
+		// 		banner: '<%= banner %>',
+		// 		report: 'min'
+		// 	},
+		// 	base: {
+		// 		src: ['<%= concat.base.dest %>'],
+		// 		dest: 'app/assets/js/<%= pkg.name %>-angscript.min.js'
+		// 	},
+		// 	basePlugin: {
+		// 		src: [ 'src/plugins/**/*.js' ],
+		// 		dest: 'app/assets/js/plugins/',
+		// 		expand: true,
+		// 		flatten: true,
+		// 		ext: '.min.js'
+		// 	}
+		// },
 
 		connect: {
 			server: {
@@ -231,7 +231,8 @@ module.exports = function (grunt) {
 			target: {
 				files: {
 					'app/assets/css/result.css': ['app/assets/css/result.css'],
-					'app/assets/css/angular-material/angular-material.css': ['app/assets/css/angular-material/angular-material.css']
+					'app/assets/css/angular-material/angular-material.css': ['app/assets/css/angular-material/angular-material.css'],
+					'app/assets/css/angular-material-icons/angular-material-icons.css': ['app/assets/css/angular-material-icons/angular-material-icons.css']
 				}
 			}
 		}
