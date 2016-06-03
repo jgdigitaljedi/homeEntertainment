@@ -195,6 +195,45 @@ module.exports = function (grunt) {
 					standAlone: false
 				}
 			}
+		},
+
+		ngAnnotate: {
+			options: {
+				singleQuotes: true
+			},
+			app: {
+				files: {
+					'min-safe/application.js': [
+						'app/app.js',
+						'app/app.config.js',
+						'app/modules/**/*Module.js',
+						'app/modules/**/*Route.js',
+						'app/modules/**/*Ctrl.js',
+						'app/modules/**/*Service.js',
+						'app/modules/**/*Directive.js'
+					]
+				}
+			}
+		},
+
+		uglify: {
+			app: {
+				options: {
+					mangle: true
+				},
+				files: {
+					'app/assets/js/<%= pkg.name %>-appbundle.js': 'min-safe/application.js'
+				}
+			}
+		},
+
+		cssmin: {
+			target: {
+				files: {
+					'app/assets/css/result.css': ['app/assets/css/result.css'],
+					'app/assets/css/angular-material/angular-material.css': ['app/assets/css/angular-material/angular-material.css']
+				}
+			}
 		}
 	});
 
@@ -209,8 +248,11 @@ module.exports = function (grunt) {
 		"jshint",
 		"less",
 		"exec",
-		"concat",
+		"ngAnnotate",
+		// "concat",
+		"uglify",
 		"ngtemplates",
+		"cssmin",
 		"injector:production",
 		"concurrent",
 		"clean"
