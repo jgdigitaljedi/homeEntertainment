@@ -4,13 +4,16 @@
         <md-toolbar class="md-tall md-hue-2">
             <div layout="column" class="md-toolbar-tools-bottom inset">
                 <div layout="row">
-                    <div flex="80" style="margin-top: 10px;">
+                    <h2 style="margin: 2px 0 0 5px; width: 100%;">
+                        <i class="fa fa-list" aria-hidden="true"></i> &nbsp;Activities
+                    </h2>
+                    <!-- <div flex="80" style="margin-top: 10px;">
                         <div>Activities</div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </md-toolbar>
-        <md-button ng-click="vm.toggleMenu('play')"><i class="fa fa-gamepad fa-2x"></i> Play</md-button>
+        <md-button class="activity-button" ng-click="vm.toggleMenu('play')"><i class="fa fa-gamepad fa-2x"></i> Play</md-button>
         <md-list ng-show="vm.activity.play" class="nav-list">
             <md-list-item class="console-list" ng-repeat="item in vm.menu.play track by $index"
                 ng-class="{selected: item.link === vm.selected}"
@@ -27,9 +30,9 @@
                 <p> {{ item.title }}</p>
             </md-list-item> -->
         </md-list>
-        <md-button ng-click="vm.toggleMenu('watch')"><i class="fa fa-tv fa-2x"></i> Watch</md-button>
+        <md-button class="activity-button" ng-click="vm.toggleMenu('watch')"><i class="fa fa-tv fa-2x"></i> Watch</md-button>
         <md-list ng-show="vm.activity.watch" class="nav-list">
-        <md-list-item class="console-list" ng-repeat="item in vm.menu.watch track by $index"
+            <md-list-item class="console-list" ng-repeat="item in vm.menu.watch track by $index"
                 ng-class="{selected: item.link === vm.selected}"
                 ng-click="vm.highlightAndNavigate(item.link, $index, 'watch')">
                 <img class="console-image" ng-src="{{item.image}}" />
@@ -45,7 +48,9 @@
             <md-button ng-click="layout.toggleSidenav('left')" hide-gt-md aria-label="Menu">
                 <ng-md-icon icon="menu"></ng-md-icon>
             </md-button>
-            <h3>Home Control</h3>
+            <h2 style="font-size: 1.5em; font-weight: bold;">
+                <i class="fa fa-home" aria-hidden="true"></i> Gauthier Home Control Center
+            </h2>
             <span flex></span>
             <md-button aria-label="Search" ng-click="showSearch = !showSearch">
                 <ng-md-icon icon="search"></ng-md-icon>

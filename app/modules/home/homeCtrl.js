@@ -25,7 +25,7 @@
 		/*jshint validthis: true */
 		var vm = this;
 		vm.title = "Gauthier Family Entertainment Center Guide";
-		vm.version = "0.0.1";
+		vm.version = "version 0.5";
 		vm.listFeatures = homeService.getFeaturesList();
 	}
 

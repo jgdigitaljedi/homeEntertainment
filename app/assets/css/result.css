@@ -2217,11 +2217,15 @@ ul {
   height: calc(100vh - 64px);
   background-color: #37474f;
 }
-.activities-nav .md-button {
+.welcome-screen .selected {
+  color: #ffb300;
+}
+.activities-nav .activity-button {
   width: 100%;
   font-weight: bold;
-  margin-left: -1px;
   font-size: 1.2em;
+  margin: -2px 0 2px -1px;
+  padding: 2px 0;
 }
 .activities-nav .selected {
   background-color: white;
