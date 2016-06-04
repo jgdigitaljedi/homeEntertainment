@@ -18,7 +18,11 @@
 	function Console(InstructionsService, $stateParams, GiantbombService, HelpersService) {
 		/*jshint validthis: true */
 		/*jshint curly: false */
-		var dateFormats = HelpersService.dateFormats();
+		var dateFormats = HelpersService.dateFormats(),
+			cs = this,
+			con = $stateParams.console,
+			activity = $stateParams.activity;
+
 		function fixConsoleName (con) {
 			if (con === 'ps2' || con === 'ps3') return con.charAt(0).toUpperCase() + con.charAt(1).toUpperCase() + ' ' + con.charAt(2);
 			if (con === 'wiiu') return 'Wii U';
@@ -31,23 +35,34 @@
 			return conSplit.join();
 		}
 
-		var cs = this,
-			con = $stateParams.console;
+
 		cs.console = fixConsoleName(con);
 		cs.consoleParams = InstructionsService.getInstructionArray(con);
 		cs.consoleInstructions = InstructionsService.getConsoleInstructions(cs.consoleParams.arr, cs.consoleParams.params, con);
 		cs.selectedIndex = 0;
 		cs.insImage = cs.consoleInstructions[0].image || ['app/assets/images/placeholder.png'];
-		GiantbombService.lookupConsole(cs.consoleParams.params.gbId).then(function (response) {
-			if (response.error) {
-				cs.showDetails = false;
-			} else {
-				cs.showDetails = true;
-				cs.consoleInfo = response;
-				cs.consoleInfo.release_date = moment(cs.consoleInfo.release_date).format(dateFormats.abbrMonth);
-				cs.consoleInfo.install_base = HelpersService.commify(cs.consoleInfo.install_base);				
-			}
-		});
+
+		if (activity === 'play') {
+			cs.activtyNotes = '';
+			cs.showNotes = false;
+			GiantbombService.lookupConsole(cs.consoleParams.params.gbId).then(function (response) {
+				if (response.error) {
+					cs.showDetails = false;
+				} else {
+					cs.showDetails = true;
+					cs.consoleInfo = response;
+					cs.consoleInfo.release_date = moment(cs.consoleInfo.release_date).format(dateFormats.abbrMonth);
+					cs.consoleInfo.install_base = HelpersService.commify(cs.consoleInfo.install_base);				
+				}
+			});
+		} else {
+			cs.showDetails = false;
+			cs.showNotes = true;
+
+			cs.activtyNotes = cs.consoleParams.params.notes;
+			console.log('notes', cs.consoleParams.params.notes);
+		}
+
 
 		cs.showImage = function (index) {
 			cs.selectedIndex = index;

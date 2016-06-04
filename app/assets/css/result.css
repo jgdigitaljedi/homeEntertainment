@@ -2253,6 +2253,11 @@ ul {
 .console-template .ins-list-item {
   padding: 0 !important;
 }
+.console-template .note-list-item {
+  font-style: italic;
+  font-weight: bold;
+  color: #F44336;
+}
 .console-template md-card-content md-list-item {
   list-style-type: none;
   margin: 0 auto;

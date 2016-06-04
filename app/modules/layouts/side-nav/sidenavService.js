@@ -72,6 +72,16 @@
 					link: 'roku',
 					name: 'Roku',
 					image: 'app/assets/images/roku.png'
+				},
+				{
+					link: 'antenna',
+					name: 'Over-The-Air TV',
+					image: 'app/assets/images/antenna.png'
+				},
+				{
+					link: 'bluray',
+					name: 'Blu-Ray',
+					image: 'app/assets/images/bluray.png'
 				}
 			]
 		};

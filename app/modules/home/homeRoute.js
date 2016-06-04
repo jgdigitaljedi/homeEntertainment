@@ -29,7 +29,7 @@ angular.module('home-control')
 				templateUrl: 'app/modules/home/dashboard.html'
 			})
 			.state('home.console', {
-				url:'/console/:console',
+				url:'/:activity/:console',
 				templateUrl: 'app/modules/home/consoles/console.html',
 				controller: 'ConsoleCtrl',
 				controllerAs: 'cs'

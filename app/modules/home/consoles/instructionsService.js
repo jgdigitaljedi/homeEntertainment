@@ -177,6 +177,14 @@
 						gbId: '3045-36',
 						insert: 1
 					}
+				},
+				roku: {
+					arr: ['remTvMedia', 'remTvInput', 'tvNavHdmi1', 'remAvrGame', 'remOne', 'commentTvSat', 'remCablePc',
+						'finishedOn'],
+					params: {
+						notes: ['Use arrow keys on remote and \'OK\' button to navigate.', 
+							'Some apps allow purchases so pay attention that you don\'t spend money!']
+					}
 				}
 			};
 

@@ -96,9 +96,10 @@
 			});
 		};
 
-		vm.highlightAndNavigate = function (link, index) {
+		vm.highlightAndNavigate = function (link, index, activity) {
 			vm.selected = link;
-			$state.go('home.console', {console: link});
+			console.log('in the controller', activity);
+			$state.go('home.console', {console: link, activity: activity});
 		};
 
 	}
