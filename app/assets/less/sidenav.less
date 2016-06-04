@@ -1,14 +1,38 @@
 .activities-nav {
 
+	.md-button {
+		width: 100%;
+		font-weight: bold;
+		margin-left: -1px;
+		font-size: 1.2em;
+	}
+
 	.selected {
 		background-color: white;
 	}
 
-	.console-list {
+	.nav-list {
+		max-height: 540px;
+		transition: max-height 400ms ease-in;
+		overflow: hidden;
 
-		.console-image {
-			max-height: 52px;
-			margin: 4px auto;
+		.console-list {
+
+
+			.md-list-item {
+				
+				
+			}
+
+			.console-image {
+				max-height: 52px;
+				margin: 4px auto;
+				
+			}
 		}
+	}
+	.nav-list.ng-hide {
+		max-height: 0;
+		transition: max-height 400ms ease-out;			
 	}
 }

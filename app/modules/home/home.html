@@ -10,21 +10,11 @@
                 </div>
             </div>
         </md-toolbar>
-        <!-- <md-list> -->
-            <!-- <md-list-item ui-sref="home.dashboard">
-                <div class="inset">
-                    <ng-md-icon icon="apps"></ng-md-icon>
-                </div>
-                <p> Dashboard </p>
-            </md-list-item> -->
-            <!-- <md-list-item class="console-list" ng-repeat="item in vm.menu" ng-click="vm.navigateTo('home.console({console: item.link})')"> -->
-            <!-- <md-list-item class="console-list" ng-repeat="item in vm.menu track by $index" ui-sref="home.console({console: item.link})" -->
-            <md-list-item class="console-list" ng-repeat="item in vm.menu track by $index" ng-class="{selected: item.link === vm.selected}"
-            ng-click="vm.highlightAndNavigate(item.link, $index)">
-<!--                 <div class="inset" ng-show="item.icon">
-                    <ng-md-icon icon="{{item.icon}}"></ng-md-icon>
-                </div> -->
-                <!-- <p > {{ item.name }}</p> -->
+        <md-button ng-click="vm.toggleMenu('play')"><i class="fa fa-gamepad fa-2x"></i> Play</md-button>
+        <md-list ng-show="vm.activity.play" class="nav-list">
+            <md-list-item class="console-list" ng-repeat="item in vm.menu.play track by $index"
+                ng-class="{selected: item.link === vm.selected}"
+                ng-click="vm.highlightAndNavigate(item.link, $index)">
                 <img class="console-image" ng-src="{{item.image}}" />
                 <md-divider></md-divider>
             </md-list-item>
@@ -36,7 +26,16 @@
                 </div>
                 <p> {{ item.title }}</p>
             </md-list-item> -->
-        <!-- </md-list> -->
+        </md-list>
+        <md-button ng-click="vm.toggleMenu('watch')"><i class="fa fa-tv fa-2x"></i> Watch</md-button>
+        <md-list ng-show="vm.activity.watch" class="nav-list">
+        <md-list-item class="console-list" ng-repeat="item in vm.menu.watch track by $index"
+                ng-class="{selected: item.link === vm.selected}"
+                ng-click="vm.highlightAndNavigate(item.link, $index)">
+                <img class="console-image" ng-src="{{item.image}}" />
+                <md-divider></md-divider>
+            </md-list-item>
+        </md-list>
     </div>
 </md-sidenav>
 

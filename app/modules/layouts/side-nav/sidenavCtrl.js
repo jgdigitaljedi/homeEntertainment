@@ -27,6 +27,27 @@
 	function SidenavCtrl($mdSidenav, $state, $mdBottomSheet, $mdToast, MenuService, $scope) {
 		/*jshint validthis: true */
 		var vm = this;
+		vm.showConsoles = false;
+		vm.activity = {
+			play: false,
+			watch: false
+		}
+
+		vm.toggleMenu = function (which) {
+			// vm['show' + which] = !vm['show' + which];
+			// console.log('dfgsdfg', vm['show' + which]);
+			for (var activity in vm.activity) {
+				if (activity === which) {
+					if (vm.activity[which] === true) {
+						vm.activity[which] = false;
+					} else {
+						vm.activity[which] = true;						
+					}
+				} else {
+					vm.activity[activity] = false;
+				}
+			}
+		};
 
 		vm.toggleSidenav = function (menuId) {
 			$mdSidenav(menuId).toggle();
