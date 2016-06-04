@@ -38,19 +38,19 @@ module.exports = function (grunt) {
 				banner: '<%= banner %>',
 				stripBanners: false
 			},
-			base: {
-				src: [
-					// Angular Project Dependencies,
-					'app/app.js',
-					'app/app.config.js',
-					'app/modules/**/*Module.js',
-					'app/modules/**/*Route.js',
-					'app/modules/**/*Ctrl.js',
-					'app/modules/**/*Service.js',
-					'app/modules/**/*Directive.js'
-				],
-				dest: 'app/assets/js/<%= pkg.name %>-appbundle.js'
-			},
+			// base: {
+			// 	src: [
+			// 		// Angular Project Dependencies,
+			// 		'app/app.js',
+			// 		'app/app.config.js',
+			// 		'app/modules/**/*Module.js',
+			// 		'app/modules/**/*Route.js',
+			// 		'app/modules/**/*Ctrl.js',
+			// 		'app/modules/**/*Service.js',
+			// 		'app/modules/**/*Directive.js'
+			// 	],
+			// 	dest: 'app/assets/js/<%= pkg.name %>-appbundle.js'
+			// },
 			build: {
 				src: [
 					// Angular Project Dependencies,
@@ -250,7 +250,7 @@ module.exports = function (grunt) {
 		"less",
 		"exec",
 		"ngAnnotate",
-		// "concat",
+		"concat",
 		"uglify",
 		"ngtemplates",
 		"cssmin",

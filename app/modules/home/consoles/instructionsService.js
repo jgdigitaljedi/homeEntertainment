@@ -70,16 +70,16 @@
 				ins: 'Using the left and right arrow keys on the remote, navigate to "HDMI3" and press the "OK" button.',
 				image: ['app/assets/images/remote/arrows-min.png', 'app/assets/images/tv/hdmi3-min.png']
 			},
+			loadGame: {
+				ins: 'Load game gently into console. See pictures for help. DON\'T LET SOLIS DO THIS!',
+				image: false
+			},
 			eightPortSwitch: {
 				ins: 'On the 8-port switch, press the purple button under "IN ',
 				image: false
 			},
 			powerOn: {
 				ins: 'Press the power button on the console.',
-				image: false
-			},
-			powerWiiu: {
-				ins: 'Press the power button on the big Wii U remote.',
 				image: false
 			},
 			keyboardAndMouse: {
@@ -97,69 +97,85 @@
 		function getInstructionArray (con) {
 			var consoleArrs = {
 				genesis: {
-					arr: ['remTvMedia', 'remTvInput', 'tvNavAv', 'remAvrGame', 'remFive', 'commentDvr', 'eightPortSwitch', 'powerOn', 'finishedOn'],
+					arr: ['remTvMedia', 'remTvInput', 'tvNavAv', 'remAvrGame', 'remFive', 'commentDvr', 'eightPortSwitch', 'loadGame',
+						'powerOn', 'finishedOn'],
 					params: {
 						portNumber: '1',
 						power: ['app/assets/images/power/genesisconsole-min.png'],
-						gbId: '3045-6'
+						gbId: '3045-6',
+						insert: 1
 					}
 				},
 				gamecube: {
-					arr: ['remTvMedia', 'remTvInput', 'tvNavAv', 'remAvrGame', 'remFive', 'commentDvr', 'eightPortSwitch', 'powerOn', 'finishedOn'],
+					arr: ['remTvMedia', 'remTvInput', 'tvNavAv', 'remAvrGame', 'remFive', 'commentDvr', 'eightPortSwitch', 'loadGame',
+						'powerOn', 'finishedOn'],
 					params: {
 						portNumber: '2',
 						power: ['app/assets/images/power/gamecubeconsole-min.png'],
-						gbId: '3045-23'
+						gbId: '3045-23',
+						insert: 2
 					}
 				},
 				nes: {
-					arr: ['remTvMedia', 'remTvInput', 'tvNavAv', 'remAvrGame', 'remFive', 'commentDvr', 'eightPortSwitch', 'powerOn', 'finishedOn'],
+					arr: ['remTvMedia', 'remTvInput', 'tvNavAv', 'remAvrGame', 'remFive', 'commentDvr', 'eightPortSwitch', 'loadGame',
+						'powerOn', 'finishedOn'],
 					params: {
 						portNumber: '3',
 						power: ['app/assets/images/power/nesconsole-min.png'],
-						gbId: '3045-21'
+						gbId: '3045-21',
+						insert: 1
 					}
 				},
 				n64: {
-					arr: ['remTvMedia', 'remTvInput', 'tvNavAv', 'remAvrGame', 'remFive', 'commentDvr', 'eightPortSwitch', 'powerOn', 'finishedOn'],
+					arr: ['remTvMedia', 'remTvInput', 'tvNavAv', 'remAvrGame', 'remFive', 'commentDvr', 'eightPortSwitch', 'loadGame',
+						'powerOn', 'finishedOn'],
 					params: {
 						portNumber: '4',
 						power: ['app/assets/images/power/n64console-min.png'],
-						gbId: '3045-43'
+						gbId: '3045-43',
+						insert: 1
 					}
 				},
 				ps2: {
-					arr: ['remTvMedia', 'remTvInput', 'tvNavComp1', 'remAvrGame', 'remFive', 'commentDvr', 'powerOn', 'finishedOn'],
+					arr: ['remTvMedia', 'remTvInput', 'tvNavComp1', 'remAvrGame', 'remFive', 'commentDvr', 'loadGame',
+						'powerOn', 'finishedOn'],
 					params: {
 						power: ['app/assets/images/power/ps2console-min.png'],
-						gbId: '3045-19'
+						gbId: '3045-19',
+						insert: 2
 					}
 				},
 				ps3: {
-					arr: ['remTvMedia', 'remTvInput', 'tvNavHdmi2', 'remAvrGame', 'remFive', 'commentDvr', 'powerOn', 'finishedOn'],
+					arr: ['remTvMedia', 'remTvInput', 'tvNavHdmi2', 'remAvrGame', 'remFive', 'commentDvr', 'powerOn', 'loadGame',
+						'finishedOn'],
 					params: {
 						power: ['app/assets/images/power/ps3remote-min.png', 'app/assets/images/power/ps3console-min.png'],
-						gbId: '3045-35'
+						gbId: '3045-35',
+						insert: 1
 					}
 				},
 				wiiu: {
-					arr: ['remTvMedia', 'remTvInput', 'tvNavHdmi1', 'remAvrGame', 'remFour', 'commentDvd', 'powerOn', 'finishedOn'],
+					arr: ['remTvMedia', 'remTvInput', 'tvNavHdmi1', 'remAvrGame', 'remFour', 'commentDvd', 'powerOn',
+						'loadGame', 'finishedOn'],
 					params: {
 						power: ['app/assets/images/power/wiiuremote-min.png', 'app/assets/images/power/wiiuconsole-min.png'],
-						gbId: '3045-139'
+						gbId: '3045-139',
+						insert: 1
 					}
 				},
 				pc: {
 					arr: ['remTvMedia', 'remTvInput', 'tvNavHdmi3', 'remAvrGame', 'remFive', 'commentDvr', 'powerOn', 'keyboardAndMouse', 'finishedOn'],
 					params: {
-						power: false
+						power: ['app/assets/images/power/pcPower-min.png']
 					}
 				},
 				wii: {
-					arr: ['remTvMedia', 'remTvInput', 'tvNavComp2', 'remAvrGame', 'remFive', 'commentDvr', 'powerOn',	'finishedOn'],
+					arr: ['remTvMedia', 'remTvInput', 'tvNavComp2', 'remAvrGame', 'remFive', 'commentDvr', 'powerOn', 'loadGame',
+						'finishedOn'],
 					params: {
 						power: ['app/assets/images/power/wiiremote-min.png', 'app/assets/images/power/wiiconsole-min.png'],
-						gbId: '3045-36'
+						gbId: '3045-36',
+						insert: 1
 					}
 				}
 			};
@@ -167,10 +183,10 @@
 			return consoleArrs[con];
 		}
 
-		function getConsoleInstructions (insArr, optParams) {
+		function getConsoleInstructions (insArr, optParams, con) {
 			var finalInsSet = [],
 				instruction;
-
+			console.log('console', con);
 			insArr.forEach(function (item, index) {
 				if (item === 'eightPortSwitch') {
 					var eps = {ins: '', image: ''};
@@ -182,6 +198,16 @@
 					power.ins = insList[item].ins;
 					power.image = optParams.power ? optParams.power : false;
 					finalInsSet.push(power);
+				} else if (item === 'loadGame') {
+					var insert = {ins: insList[item].ins, image: []},
+						dir = 'app/assets/images/insertGame/';
+					if (optParams.insert < 2) {
+						insert.image.push(dir + con + 'Insert-min.png');
+					} else {
+						insert.image.push(dir + con + 'Open-min.png');
+						insert.image.push(dir + con + 'Insert-min.png');
+					}
+					finalInsSet.push(insert);
 				} else {
 					finalInsSet.push(insList[item]);					
 				}

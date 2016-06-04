@@ -1,7 +1,7 @@
 <div class="console-template" layout-fill>
 	<div class="console-head">
 		<h1>{{cs.console}}</h1><br>
-		<table>
+		<table ng-show="cs.showDetails">
 			<tr>
 				<td>Release Date:</td>
 				<td>{{cs.consoleInfo.release_date}}</td>

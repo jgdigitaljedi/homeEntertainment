@@ -35,14 +35,18 @@
 			con = $stateParams.console;
 		cs.console = fixConsoleName(con);
 		cs.consoleParams = InstructionsService.getInstructionArray(con);
-		cs.consoleInstructions = InstructionsService.getConsoleInstructions(cs.consoleParams.arr, cs.consoleParams.params);
+		cs.consoleInstructions = InstructionsService.getConsoleInstructions(cs.consoleParams.arr, cs.consoleParams.params, con);
 		cs.selectedIndex = 0;
 		cs.insImage = cs.consoleInstructions[0].image || ['app/assets/images/placeholder.png'];
 		GiantbombService.lookupConsole(cs.consoleParams.params.gbId).then(function (response) {
-			cs.consoleInfo = response;
-			cs.consoleInfo.release_date = moment(cs.consoleInfo.release_date).format(dateFormats.abbrMonth);
-			cs.consoleInfo.install_base = HelpersService.commify(cs.consoleInfo.install_base);
-			console.log('info', cs.consoleInfo);
+			if (response.error) {
+				cs.showDetails = false;
+			} else {
+				cs.showDetails = true;
+				cs.consoleInfo = response;
+				cs.consoleInfo.release_date = moment(cs.consoleInfo.release_date).format(dateFormats.abbrMonth);
+				cs.consoleInfo.install_base = HelpersService.commify(cs.consoleInfo.install_base);				
+			}
 		});
 
 		cs.showImage = function (index) {
