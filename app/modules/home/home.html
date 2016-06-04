@@ -13,7 +13,8 @@
                 </div>
             </div>
         </md-toolbar>
-        <md-button class="activity-button" ng-click="vm.toggleMenu('play')"><i class="fa fa-gamepad fa-2x"></i> Play</md-button>
+        <md-button class="activity-button" ng-class="{'button-selected': vm.state === 'play'}" 
+            ng-click="vm.toggleMenu('play')"><i class="fa fa-gamepad fa-2x"></i> Play</md-button>
         <md-list ng-show="vm.activity.play" class="nav-list">
             <md-list-item class="console-list" ng-repeat="item in vm.menu.play track by $index"
                 ng-class="{selected: item.link === vm.selected}"
@@ -30,7 +31,8 @@
                 <p> {{ item.title }}</p>
             </md-list-item> -->
         </md-list>
-        <md-button class="activity-button" ng-click="vm.toggleMenu('watch')"><i class="fa fa-tv fa-2x"></i> Watch</md-button>
+        <md-button class="activity-button"  ng-class="{'button-selected': vm.state === 'watch'}" 
+        ng-click="vm.toggleMenu('watch')"><i class="fa fa-tv fa-2x"></i> Watch</md-button>
         <md-list ng-show="vm.activity.watch" class="nav-list">
             <md-list-item class="console-list" ng-repeat="item in vm.menu.watch track by $index"
                 ng-class="{selected: item.link === vm.selected}"

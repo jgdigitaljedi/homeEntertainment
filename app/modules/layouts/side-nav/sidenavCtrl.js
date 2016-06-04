@@ -15,7 +15,7 @@
 
 	// Injecting Denpendencies
 
-	SidenavCtrl.$inject = ['$mdSidenav', '$state', '$mdBottomSheet', '$mdToast', 'MenuService', '$scope'];
+	SidenavCtrl.$inject = ['$mdSidenav', '$state', '$mdBottomSheet', '$mdToast', 'MenuService', '$scope', '$stateParams'];
 	SettingsCtrl.$inject = ['$mdBottomSheet'];
 
 	/*
@@ -24,7 +24,7 @@
 	* and bindable members up top.
 	*/
 
-	function SidenavCtrl($mdSidenav, $state, $mdBottomSheet, $mdToast, MenuService, $scope) {
+	function SidenavCtrl($mdSidenav, $state, $mdBottomSheet, $mdToast, MenuService, $scope, $stateParams) {
 		/*jshint validthis: true */
 		var vm = this;
 		vm.showConsoles = false;
@@ -33,11 +33,13 @@
 			watch: false
 		}
 
+		console.log('stateParams', $stateParams.activity);
 		vm.toggleMenu = function (which) {
 			// vm['show' + which] = !vm['show' + which];
 			// console.log('dfgsdfg', vm['show' + which]);
 			for (var activity in vm.activity) {
 				if (activity === which) {
+						vm.state = which;
 					if (vm.activity[which] === true) {
 						vm.activity[which] = false;
 					} else {
@@ -102,6 +104,11 @@
 			$state.go('home.console', {console: link, activity: activity});
 		};
 
+		(function () {
+			var currentState = $stateParams.activity;
+			if (currentState === 'play' || currentState === 'watch') vm.toggleMenu(currentState);
+			vm.highlightAndNavigate($stateParams.console, 0, $stateParams.activity);
+		})();
 	}
 
 	function SettingsCtrl($mdBottomSheet) {

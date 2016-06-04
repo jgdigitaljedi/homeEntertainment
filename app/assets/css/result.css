@@ -2230,6 +2230,9 @@ ul {
 .activities-nav .selected {
   background-color: white;
 }
+.activities-nav .button-selected {
+  color: #ffb300;
+}
 .activities-nav .nav-list {
   max-height: 540px;
   transition: max-height 400ms ease-in;
