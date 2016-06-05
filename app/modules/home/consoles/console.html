@@ -21,8 +21,8 @@
 		</table>
 	</div>
 	<md-divider></md-divider>
-	<div class="console-instructions" layout="row" layout-xs="column" flex>
-		<div flex="60">
+	<div class="console-instructions" layout="row" layout-xs="column" layout-sm="column" flex>
+		<div flex="60" flex-sm="100" flex-xs="100" >
 			<md-list>
 				<md-list-item ng-repeat="item in cs.consoleInstructions track by $index" ng-click="cs.showImage($index)" class="ins-list-item"
 					ng-class="{selected: cs.selectedIndex === $index}">
@@ -35,7 +35,7 @@
 				</md-list-item>
 			</md-list>
 		</div>
-		<div flex="40">
+		<div flex="40" flex-sm="100" flex-xs="100" layout-sm="row">
 			<md-card>
 				<md-card-content layout-align="center center">
 					<!-- <img ng-src="{{cs.insImage}}" class="instruction-image" /> -->

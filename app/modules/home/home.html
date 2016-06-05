@@ -41,7 +41,7 @@
                 <md-divider></md-divider>
             </md-list-item>
         </md-list>
-    </div>
+    </div>  
 </md-sidenav>
 
 <div layout="column" class="relative" layout-fill role="main" ng-controller="LayoutCtrl as layout" ng-cloak>
@@ -51,12 +51,12 @@
                 <ng-md-icon icon="menu"></ng-md-icon>
             </md-button>
             <h2 style="font-size: 1.5em; font-weight: bold;">
-                <i class="fa fa-home" aria-hidden="true"></i> Gauthier Home Control Center
+                <i class="fa fa-home" aria-hidden="true"></i> {{layout.mainTitle}}
             </h2>
             <span flex></span>
-            <md-button aria-label="Search" ng-click="showSearch = !showSearch">
+            <!-- <md-button aria-label="Search" ng-click="showSearch = !showSearch">
                 <ng-md-icon icon="search"></ng-md-icon>
-            </md-button>
+            </md-button> -->
 <!--             <md-menu>
                 <md-button aria-label="Open Settings" ng-click="layout.openMenu($mdOpenMenu, $event)">
                     <md-icon> more_vert </md-icon>
