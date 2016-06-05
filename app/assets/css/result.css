@@ -2293,3 +2293,6 @@ ul {
 .games-section .game-card md-card-content {
   padding: 4px !important;
 }
+.games-section .game-card md-card-content img {
+  max-width: 112px;
+}

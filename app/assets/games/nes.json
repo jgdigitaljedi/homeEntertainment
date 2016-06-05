@@ -1,0 +1,24 @@
+{
+	"games": [
+		{"gbId": "3030-4702", "title": "Burgertime"},	
+		{"gbId": "3030-17641", "title": "Dr. Mario"},	
+		{"gbId": "3030-3193", "title": "California Games"},	
+		{"gbId": "3030-19328", "title": "Castlevania III: Dracula's Curse"},	
+		{"gbId": "3030-18405", "title": "Jeopardy 25th Anniversary Edition"},	
+		{"gbId": "3030-98", "title": "John Elway's Quarterback"},	
+		{"gbId": "3030-15890", "title": "Kirby's Adventure"},	
+		{"gbId": "3030-15110", "title": "Little Nemo: Dream Master"},	
+		{"gbId": "3030-17706", "title": "Mickey Mousecapade"},	
+		{"gbId": "3030-2958", "title": "Monopoly"},	
+		{"gbId": "3030-20782", "title": "Q*Bert"},	
+		{"gbId": "3030-15637", "title": "Spy vs Spy"},	
+		{"gbId": "3030-12460", "title": "Super Mario Bros./Duck Hunt"},	
+		{"gbId": "3030-10299", "title": "Super Mario Bros. 3"},	
+		{"gbId": "3030-10067", "title": "Super Team Games"},	
+		{"gbId": "3030-20790", "title": "Teenage Mutant Ninja Turtles"},	
+		{"gbId": "3030-23408", "title": "Teenage Mutant Ninja Turtles: The Arcade Game"},	
+		{"gbId": "3030-21477", "title": "Thundercade"},	
+		{"gbId": "3030-8864", "title": "Wheel of Fortune: Junior Edition"},	
+		{"gbId": "3030-7309", "title": "World Class Track Meet"}
+	]
+}

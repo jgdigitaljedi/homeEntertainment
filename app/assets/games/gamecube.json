@@ -1,0 +1,20 @@
+{
+	"games": [
+		{"gbId": "3030-19832", "title": "Donkey Konga 2"},
+		{"gbId": "3030-20448", "title": "F-Zero GX"},
+		{"gbId": "3030-14114", "title": "The Legend of Zelda Collector's Edition"},
+		{"gbId": "3030-18508", "title": "The Legend of Zelda: The Wind Waker"},
+		{"gbId": "3030-1598", "title": "Mario Golf: Toadstool Tour"},
+		{"gbId": "3030-18757", "title": "Mario Kart: Double Dash"},
+		{"gbId": "3030-8380", "title": "Mario Party 6"},
+		{"gbId": "3030-9866", "title": "NBA Street 2"},
+		{"gbId": "3030-8844", "title": "Need for Speed: Carbon"},
+		{"gbId": "3030-5235", "title": "Prince of Persia: The Sands of Time"},
+		{"gbId": "3030-1578", "title": "Resident Evil 4"},
+		{"gbId": "3030-14113", "title": "Sonic Gems Collection"},
+		{"gbId": "3030-17691", "title": "Sonic Mega Collection"},
+		{"gbId": "3030-6649", "title": "Super Mario Sunshine"},
+		{"gbId": "3030-5122", "title": "Super Monkey Ball 2"},
+		{"gbId": "3030-19665", "title": "XGRA: Extreme G Racing Association"}
+	]
+}

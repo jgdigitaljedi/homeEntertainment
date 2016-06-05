@@ -1,6 +1,6 @@
-<section class="games-section" layout-padding flex layout="row">
-	<md-card class="game-card" ng-repeat="game in gc.games track by $index">
-		<md-card-content>
+<section class="games-section" layout-padding layout-wrap flex layout="row">
+	<md-card class="game-card" layout-align="center center" ng-repeat="game in gc.games track by $index">
+		<md-card-content layout-align="center center">
 			<img ng-src="{{game.image.thumb_url}}" />
 		</md-card-content>
 	</md-card>
