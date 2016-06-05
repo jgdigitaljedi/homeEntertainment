@@ -22,17 +22,20 @@
 
 		function getGbDataForGames (games) {
 			var gLen = games.length;
-			Array.apply(null, new Array(gLen)).map(function (item, index) {
+			return $q.all(Array.apply(null, new Array(gLen)).map(function (item, index) {
 				return new GiantbombService.lookupGame(games[index].gbId).then(function (result) {
-					console.log('result', result);
+					return result;
 				});
-			});
+			}));
 		}
 
 		// (function () {
 			GiantbombService.getConsoleLibrary(gc.con).then(function (response) {
 				console.log('games', response);
-				getGbDataForGames(response);
+				getGbDataForGames(response).then(function (games) {
+					console.log('games', games);
+					gc.games = games;
+				});
 			});
 		// })();
 	}

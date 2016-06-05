@@ -1,1 +1,7 @@
-<h1>poop</h1>
+<section class="games-section" layout-padding flex layout="row">
+	<md-card class="game-card" ng-repeat="game in gc.games track by $index">
+		<md-card-content>
+			<img ng-src="{{game.image.thumb_url}}" />
+		</md-card-content>
+	</md-card>
+</section>

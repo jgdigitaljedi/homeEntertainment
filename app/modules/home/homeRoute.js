@@ -30,12 +30,8 @@ angular.module('home-control')
 				controllerAs: 'cs',
 			}).state('home.games', {
 				url: '/:activity/:console/games',
-				// views: {
-					// 'home.console.games@home.console':{
-						templateUrl: 'app/modules/home/consoles/games.html',
-						controller: 'GamesCtrl',
-						controllerAs: 'gc'						
-					// }
-				// }
+				templateUrl: 'app/modules/home/consoles/games.html',
+				controller: 'GamesCtrl',
+				controllerAs: 'gc'
 			});			
 	}]);

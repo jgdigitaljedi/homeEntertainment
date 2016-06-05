@@ -2286,3 +2286,10 @@ ul {
 .console-template md-card-content md-list-item .smaller {
   max-height: 270px;
 }
+.games-section .game-card {
+  margin: 6px;
+  padding: 4px;
+}
+.games-section .game-card md-card-content {
+  padding: 4px !important;
+}
