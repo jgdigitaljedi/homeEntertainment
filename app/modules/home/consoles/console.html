@@ -1,6 +1,11 @@
 <div class="console-template" layout-fill>
 	<div class="console-head">
-		<h1>{{cs.console}}</h1><br>
+		<div class="title-and-buttons" layout="row" layout-xs="column" layout-sm="column">
+			<h1>{{cs.console}}</h1>
+			<md-button ng-show="cs.activity === 'play'" class="games-list-button" ng-click="cs.goToGames()">
+				<i class="fa fa-trophy"></i> &nbsp; Games List
+			</md-button>
+		</div>
 		<table ng-show="cs.showDetails">
 			<tr>
 				<td>Release Date:</td>

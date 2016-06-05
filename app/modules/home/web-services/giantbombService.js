@@ -71,9 +71,20 @@
 			});
 		}
 
+		function getConsoleLibrary (con) {
+			var def = $q.defer(),
+				libPath = 'app/assets/games/' + con + '.json';
+			$http.get(libPath)
+				.success(function (res) {
+					def.resolve(res.games);
+				});
+			return def.promise;
+		}
+
 		return {
 			lookupConsole: lookupConsole,
-			lookupGame: lookupGame
+			lookupGame: lookupGame,
+			getConsoleLibrary: getConsoleLibrary
 		};
 	}
 })();
