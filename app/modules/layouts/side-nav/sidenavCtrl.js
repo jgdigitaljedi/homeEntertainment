@@ -106,8 +106,10 @@
 
 		(function () {
 			var currentState = $stateParams.activity;
-			if (currentState === 'play' || currentState === 'watch') vm.toggleMenu(currentState);
-			vm.highlightAndNavigate($stateParams.console, 0, $stateParams.activity);
+			if (currentState === 'play' || currentState === 'watch') {
+				vm.toggleMenu(currentState);
+				vm.highlightAndNavigate($stateParams.console, 0, $stateParams.activity);
+			}
 		})();
 	}
 
