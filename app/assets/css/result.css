@@ -2329,3 +2329,14 @@ ul {
 .game-dialog-container {
   color: white;
 }
+.game-dialog-container md-dialog .dialog-top .top-info .info-row .point-title {
+  font-weight: bold;
+  width: 180px;
+}
+.game-dialog-container md-dialog .dialog-top .top-info .info-row .point-data {
+  width: calc(100% - 140px);
+}
+.game-dialog-container md-dialog .dialog-top .top-info .info-row .point-title,
+.game-dialog-container md-dialog .dialog-top .top-info .info-row .point-data {
+  padding: 4px;
+}

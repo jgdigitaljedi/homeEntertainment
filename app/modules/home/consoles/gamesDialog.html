@@ -2,11 +2,43 @@
 	<md-dialog>
 		<md-dialog-content layout-padding flex>
 			<h1>{{gd.gameInfo.name}}</h1>
-			<div class="dialog-top" layout="row" layout-align="space-between center" flex>
+			<div class="dialog-top" layout="row" layout-align="space-between start" flex>
 				<div class="top-info" flex="60">
-					<span class="top-point">Description: </span>{{gd.gameInfo.deck}}
-					<span class="top-point">Released: </span>{{gd.releaseDate}}
-
+					<div layout="row" class="info-row" layout-align="start start" flex>
+						<div layout="column" class="point-title">
+							Description: 
+						</div>
+						<div layout="column" class="point-data">
+							{{gd.gameInfo.deck}}
+						</div>
+					</div>
+					<md-divider></md-divider>
+					<div layout="row" class="info-row" layout-align="start start" flex>
+						<div layout="column" class="point-title">
+							Release Date: 
+						</div>
+						<div layout="column" class="point-data">
+							{{gd.releaseDate}}
+						</div>
+					</div>
+					<md-divider></md-divider>
+					<div layout="row" class="info-row" layout-align="start start" flex>
+						<div layout="column" class="point-title">
+							Original Rating: 
+						</div>
+						<div layout="column" class="point-data">
+							{{gd.gameInfo.original_game_rating[0].name || 'NONE'}}
+						</div>
+					</div>
+					<md-divider></md-divider>
+					<div layout="row" class="info-row" layout-align="start start" flex>
+						<div layout="column" class="point-title">
+							Genres: 
+						</div>
+						<div layout="column" class="point-data">
+							{{gd.concattedGenres || 'NONE'}}
+						</div>
+					</div>
 				</div>
 				<div class="game-pic" flex="39">
 					<img class="game-image" ng-src="{{gd.gameInfo.image.small_url}}" />
