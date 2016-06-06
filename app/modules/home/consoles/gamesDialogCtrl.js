@@ -13,10 +13,10 @@
 		.module('home-control')
 		.controller('GamesDialogCtrl', GamesDialog);
 
-	GamesDialog.$inject = ['HelpersService', 'game', '$q'];
+	GamesDialog.$inject = ['HelpersService', 'game', '$q', '$mdDialog'];
 
 
-	function GamesDialog (HelpersService, game, $q) {
+	function GamesDialog (HelpersService, game, $q, $mdDialog) {
 		
 		function getRatingFromArray (arr) {
 			var def = $q.defer();
@@ -60,6 +60,8 @@
 			return item.name ? item.name : 'UNKOWN';
 		}).join(', ') : 'UNKNOWN';
 
-		console.log('from dialog controller', game);
+		gd.closeDialog = function () {
+			$mdDialog.hide();
+		};
 	}
 })();
