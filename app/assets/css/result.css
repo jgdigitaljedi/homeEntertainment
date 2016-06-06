@@ -2329,6 +2329,21 @@ ul {
 .game-dialog-container {
   color: white;
 }
+.game-dialog-container .hell-no {
+  font-weight: bold;
+  font-size: 1.2em;
+  color: #D50000;
+}
+.game-dialog-container .nope {
+  font-weight: bold;
+  color: #B71C1C;
+}
+.game-dialog-container .possibly {
+  color: #FF8F00;
+}
+.game-dialog-container .just-fine {
+  color: #558B2F;
+}
 .game-dialog-container md-dialog .dialog-top .top-info .info-row .point-title {
   font-weight: bold;
   width: 180px;

@@ -6,6 +6,16 @@
 				<div class="top-info" flex="60">
 					<div layout="row" class="info-row" layout-align="start start" flex>
 						<div layout="column" class="point-title">
+							Appropriate for Solis: 
+						</div>
+						<div layout="column" class="point-data" 
+							ng-class="{'hell-no': gd.ageClass === 'danger', nope: gd.ageClass === 'nope', possibly: gd.ageClass === 'warn', 
+								'just-fine': gd.ageClass === 'good'}">
+							{{gd.solis}}
+						</div>
+					</div>
+					<div layout="row" class="info-row" layout-align="start start" flex>
+						<div layout="column" class="point-title">
 							Description: 
 						</div>
 						<div layout="column" class="point-data">

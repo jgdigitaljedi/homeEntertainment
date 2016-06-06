@@ -17,7 +17,7 @@
 
 	function Helpers ($q) {
 
-		function commify (num) {
+		function commafy (num) {
 			return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 		}
 
@@ -56,35 +56,65 @@
 			return title;
 		}
 
+		function compareRatingToAge (rating) {
+			var age;
+			switch (rating) {
+				case 'ESRB: 10+':
+					age = 10;
+					break;
+				case 'ESRB: T':
+					age = 12;
+					break;
+				case 'ESRB: M':
+					age = 17;
+					break;
+				default: 
+					age = false;
+					break;
+			}
+			return age;
+		}
+
 		function solisAppropriate (rating) { // TODO: make ratings relate to ages so this will adjust as he gets older
 			var solisAge = moment().diff('2009-01-07', 'years'),
-				verdict, styler;
-			switch (rating) {
-				case 'ESRB EC':
-					verdict = 'Yeah, but it is probably targetted at a younger audience and might not keep his attention.';
+				verdict,
+				styler,
+				ratingAge = compareRatingToAge(rating);
+			if (ratingAge) {
+				var ageDiff = Math.abs(solisAge - ratingAge);
+				if (ageDiff < 4) {
+					verdict = 'Yeah, it\'s probably alirght for him to play it.';
 					styler = 'good';
-					break;
-				case 'ESRB E':
-					verdict = 'Absolutely!';
-					styler = 'good';
-					break;
-				case 'ESRB E10+':
-					verdict = 'Absolutely!';
+				} else if (ageDiff > 3 && ageDiff < 6) {
+					verdict = 'Questionable. Probably fine but might contain some more mature content. Use your best judgment.';
 					styler = 'warn';
-					break;
-				case 'ESRB T':
-					verdict = 'Questionable. This was meant for teens. Might be ok, might not. Read the description and make the call.';
-					styler = 'warn';
-					break;
-				case 'ESRB M':
-					verdict = 'Questionable. This was meant for teens. Might be ok, might not. Read the description and make the call.';
-					styler = 'warn';
-					break;
-				default:
-					verdict = 'Not sure. Read the description and use your best judgment.';
-					break;
-
+				} else if (ageDiff === 6) {
+					verdict = 'Probably not. I\'m sure there are some exceptions here, but if you don\'t want to make the call I\'d say NO.';
+					styler = 'nope';
+				} else if (ageDiff > 6 && ageDiff < 10) {
+					verdit = 'Decidedly "NO"!';
+					styler = 'nope';
+				} else {
+					verdict = 'NOT NO BUT HELL NO!!!!!';
+					styler = 'danger';
+				}
+			} else {
+				switch (rating) {
+					case 'ESRB: EC':
+						verdict = 'Yeah, but it is probably targetted at a younger audience and might not keep his attention.';
+						styler = 'good';
+						break;
+					case 'ESRB: E':
+						verdict = 'Absolutely!';
+						styler = 'good';
+						break;
+					default:
+						verdict = 'Not sure. Read the description and use your best judgment.';
+						styler = 'warn';
+						break;
+				}
 			}
+			return {answer: verdict, style: styler};
 		}
 
 

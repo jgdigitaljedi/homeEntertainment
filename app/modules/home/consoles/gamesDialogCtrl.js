@@ -17,10 +17,13 @@
 
 	function GamesDialog (HelpersService, game) {
 		var gd = this,
-			dateFormats = HelpersService.dateFormats();
+			dateFormats = HelpersService.dateFormats(),
+			ageData = HelpersService.solisAppropriate(game.original_game_rating[0].name);
 
 		gd.gameInfo = game;
 		gd.releaseDate = moment(game.original_release_date).format(dateFormats.abbrMonth);
+		gd.solis = ageData.answer;
+		gd.ageClass = ageData.style;
 
 		gd.gameInfo.genres.forEach(function (item, index) {
 			console.log('item', item);
