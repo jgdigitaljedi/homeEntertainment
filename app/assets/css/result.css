@@ -2344,6 +2344,12 @@ ul {
 .game-dialog-container .just-fine {
   color: #558B2F;
 }
+.game-dialog-container md-dialog .dialog-top img {
+  max-height: 500px;
+}
+.game-dialog-container md-dialog .dialog-top .top-info {
+  max-height: 550px;
+}
 .game-dialog-container md-dialog .dialog-top .top-info .info-row .point-title {
   font-weight: bold;
   width: 180px;
