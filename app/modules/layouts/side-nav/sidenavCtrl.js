@@ -31,7 +31,7 @@
 		vm.activity = {
 			play: false,
 			watch: false
-		}
+		};
 
 		console.log('stateParams', $stateParams.activity);
 		vm.toggleMenu = function (which) {

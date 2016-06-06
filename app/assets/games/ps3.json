@@ -1,0 +1,20 @@
+{
+	"games": [
+		{"gbId": "3030-45354", "title": "2014 FIFA World Cup Brazil"},
+		{"gbId": "3030-22928", "title": "Assassin's Creed II"},
+		{"gbId": "3030-29443", "title": "Batman Arkham City"},
+		{"gbId": "3030-20487", "title": "Borderlands"},
+		{"gbId": "3030-20700", "title": "Brutal Legend"},
+		{"gbId": "3030-38039", "title": "Call of Duty: Black Ops II"},
+		{"gbId": "3030-16019", "title": "The Eye of Judgment"},
+		{"gbId": "3030-38043", "title": "God of War Ascension"},
+		{"gbId": "3030-28001", "title": "God of War Collection"},
+		{"gbId": "3030-20461", "title": "God of War 3"},
+		{"gbId": "3030-36765", "title": "Grand Theft Auto V"},
+		{"gbId": "3030-9741", "title": "Resistence: Fall of Man"},
+		{"gbId": "3030-20699", "title": "Resistence 2"},
+		{"gbId": "3030-29021", "title": "Resistence 3"},
+		{"gbId": "3030-20714", "title": "Rockband 2"},
+		{"gbId": "3030-24218", "title": "Sonic's Ultimate Genesis Colelction"}
+	]
+}
