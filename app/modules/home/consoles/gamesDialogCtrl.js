@@ -39,7 +39,10 @@
 				gd.rating = rating;
 			});			
 		} else {
-			HelpersService.solisAppropriate('ESRB: Z');
+			ageData = HelpersService.solisAppropriate('ESRB: Z');
+			gd.ageClass = ageData.style;
+			gd.solis = ageData.answer;
+			gd.rating = null;
 		}
 		
 		gd.gameInfo = game;
@@ -47,15 +50,19 @@
 		gd.concattedGenres = gd.gameInfo.genres ? gd.gameInfo.genres.map(function (item, index) {
 			return item.name ? item.name : 'UNKNOWN';
 		}).join(', ') : 'UNKNOWN';
+
 		gd.concattedPublishers = gd.gameInfo.publishers ? gd.gameInfo.publishers.map(function (item, index) {
 			return item.name ? item.name : 'UNKNOWN';
 		}).join(', ') : 'UNKNOWN';
+
 		gd.concattedPlatforms = gd.gameInfo.platforms ? gd.gameInfo.platforms.map(function (item, index) {
 			return item.name ? item.name : 'UNKNOWN';
 		}).join(', ') : 'UNKNOWN';
+
 		gd.concattedSimilar = gd.gameInfo.similar_games ? gd.gameInfo.similar_games.map(function (item, index) {
 			return item.name ? item.name : 'UNKOWN';
 		}).join(', ') : 'UNKNOWN';
+
 		gd.concattedThemes = gd.gameInfo.themes ? gd.gameInfo.themes.map(function (item, index) {
 			return item.name ? item.name : 'UNKOWN';
 		}).join(', ') : 'UNKNOWN';
