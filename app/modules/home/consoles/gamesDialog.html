@@ -1,10 +1,20 @@
-<div class="game-dialog-container">
+<div class="game-dialog-container" layout-pading layout-align="center center" flex>
 	<md-dialog>
 		<md-dialog-content layout-padding flex>
-			{{gd.gameInfo.name}}
+			<h1>{{gd.gameInfo.name}}</h1>
+			<div class="dialog-top" layout="row" layout-align="space-between center" flex>
+				<div class="top-info" flex="60">
+
+				</div>
+				<div class="game-pic" flex="39">
+					<img class="game-image" ng-src="{{gd.gameInfo.image.small_url}}" />
+				</div>
+			</div>
 		</md-dialog-content>
 		<md-dialog-actions>
-
+			<md-button>
+				<i class="fa fa-close"></i> &nbsp; close
+			</md-button>
 		</md-dialog-actions>
 	</md-dialog>
 </div>

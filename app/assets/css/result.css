@@ -2326,3 +2326,6 @@ ul {
 .games-section md-tooltip .md-content h3 {
   color: black !important;
 }
+.game-dialog-container {
+  color: white;
+}
