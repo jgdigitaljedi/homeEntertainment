@@ -14,6 +14,7 @@
 							{{gd.solis}}
 						</div>
 					</div>
+					<md-divider></md-divider>
 					<div layout="row" class="info-row" layout-align="start start" flex>
 						<div layout="column" class="point-title">
 							Description: 
@@ -37,7 +38,7 @@
 							Original Rating: 
 						</div>
 						<div layout="column" class="point-data">
-							{{gd.gameInfo.original_game_rating[0].name || 'NONE'}}
+							{{gd.rating || 'UNKNOWN'}}
 						</div>
 					</div>
 					<md-divider></md-divider>
@@ -46,7 +47,43 @@
 							Genres: 
 						</div>
 						<div layout="column" class="point-data">
-							{{gd.concattedGenres || 'NONE'}}
+							{{gd.concattedGenres || 'UNKNOWN'}}
+						</div>
+					</div>
+					<md-divider></md-divider>
+					<div layout="row" class="info-row" layout-align="start start" flex>
+						<div layout="column" class="point-title">
+							Platforms: 
+						</div>
+						<div layout="column" class="point-data">
+							{{gd.concattedPlatforms || 'UNKNOWN'}}
+						</div>
+					</div>
+					<md-divider></md-divider>
+					<div layout="row" class="info-row" layout-align="start start" flex>
+						<div layout="column" class="point-title">
+							Publishers: 
+						</div>
+						<div layout="column" class="point-data">
+							{{gd.concattedPublishers || 'UNKNOWN'}}
+						</div>
+					</div>
+					<md-divider></md-divider>
+					<div layout="row" class="info-row" layout-align="start start" flex>
+						<div layout="column" class="point-title">
+							Similar Games: 
+						</div>
+						<div layout="column" class="point-data">
+							{{gd.concattedSimilar || 'UNKNOWN'}}
+						</div>
+					</div>
+					<md-divider></md-divider>
+					<div layout="row" class="info-row" layout-align="start start" flex>
+						<div layout="column" class="point-title">
+							Themes: 
+						</div>
+						<div layout="column" class="point-data">
+							{{gd.concattedThemes || 'UNKNOWN'}}
 						</div>
 					</div>
 				</div>

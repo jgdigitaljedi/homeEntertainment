@@ -59,7 +59,7 @@
 		function compareRatingToAge (rating) {
 			var age;
 			switch (rating) {
-				case 'ESRB: 10+':
+				case 'ESRB: E10+':
 					age = 10;
 					break;
 				case 'ESRB: T':
@@ -67,6 +67,9 @@
 					break;
 				case 'ESRB: M':
 					age = 17;
+					break;
+				case 'ESRB: A':
+					age = 21;
 					break;
 				default: 
 					age = false;
@@ -86,7 +89,7 @@
 					verdict = 'Yeah, it\'s probably alirght for him to play it.';
 					styler = 'good';
 				} else if (ageDiff > 3 && ageDiff < 6) {
-					verdict = 'Questionable. Probably fine but might contain some more mature content. Use your best judgment.';
+					verdict = 'Questionable. Probably fine but might contain some more mature content or be too difficult. Use your best judgment.';
 					styler = 'warn';
 				} else if (ageDiff === 6) {
 					verdict = 'Probably not. I\'m sure there are some exceptions here, but if you don\'t want to make the call I\'d say NO.';
@@ -116,7 +119,6 @@
 			}
 			return {answer: verdict, style: styler};
 		}
-
 
 		return {
 			commafy: commafy,
