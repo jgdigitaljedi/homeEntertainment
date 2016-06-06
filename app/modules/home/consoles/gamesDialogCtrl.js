@@ -16,8 +16,10 @@
 	GamesDialog.$inject = ['HelpersService', 'game'];
 
 	function GamesDialog (HelpersService, game) {
-		var gd = this;
-		gd.gameInfo = game;		
+		var gd = this,
+			dateFormats = HelpersService.dateFormats();
+		gd.gameInfo = game;
+		gd.releaseDate = moment(game.original_release_date).format(dateFormats.abbrMonth);
 		console.log('from dialog controller', game);
 	}
 })();

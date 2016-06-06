@@ -1,9 +1,11 @@
-<div class="game-dialog-container" layout-pading layout-align="center center" flex>
+<div class="game-dialog-container" layout-align="center center" flex="60">
 	<md-dialog>
 		<md-dialog-content layout-padding flex>
 			<h1>{{gd.gameInfo.name}}</h1>
 			<div class="dialog-top" layout="row" layout-align="space-between center" flex>
 				<div class="top-info" flex="60">
+					<span class="top-point">Description: </span>{{gd.gameInfo.deck}}
+					<span class="top-point">Released: </span>{{gd.releaseDate}}
 
 				</div>
 				<div class="game-pic" flex="39">
