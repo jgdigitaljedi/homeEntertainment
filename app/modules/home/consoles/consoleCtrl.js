@@ -39,7 +39,7 @@
 					cs.showDetails = true;
 					cs.consoleInfo = response;
 					cs.consoleInfo.release_date = moment(cs.consoleInfo.release_date).format(dateFormats.abbrMonth);
-					cs.consoleInfo.install_base = HelpersService.commify(cs.consoleInfo.install_base);				
+					cs.consoleInfo.install_base = HelpersService.commafy(cs.consoleInfo.install_base);				
 				}
 			});
 		} else {

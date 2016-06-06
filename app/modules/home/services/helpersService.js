@@ -56,11 +56,43 @@
 			return title;
 		}
 
+		function solisAppropriate (rating) { // TODO: make ratings relate to ages so this will adjust as he gets older
+			var solisAge = moment().diff('2009-01-07', 'years'),
+				verdict, styler;
+			switch (rating) {
+				case 'ESRB EC':
+					verdict = 'Yeah, but it is probably targetted at a younger audience and might not keep his attention.';
+					styler = 'good';
+					break;
+				case 'ESRB E':
+					verdict = 'Absolutely!';
+					styler = 'good';
+					break;
+				case 'ESRB E10+':
+					verdict = 'Absolutely!';
+					styler = 'warn';
+					break;
+				case 'ESRB T':
+					verdict = 'Questionable. This was meant for teens. Might be ok, might not. Read the description and make the call.';
+					styler = 'warn';
+					break;
+				case 'ESRB M':
+					verdict = 'Questionable. This was meant for teens. Might be ok, might not. Read the description and make the call.';
+					styler = 'warn';
+					break;
+				default:
+					verdict = 'Not sure. Read the description and use your best judgment.';
+					break;
+
+			}
+		}
+
 
 		return {
-			commify: commify,
+			commafy: commafy,
 			dateFormats: dateFormats,
-			consoleTitle: consoleTitle
+			consoleTitle: consoleTitle,
+			solisAppropriate: solisAppropriate
 		};
 	}
 })();
