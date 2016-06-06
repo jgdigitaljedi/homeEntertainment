@@ -1,4 +1,29 @@
+.games-nav {
+
+	.md-subheader-inner {
+		width: 100%;
+
+		.md-subheader-content {
+			display: flex;
+			justify-content: space-between;
+			
+			div {
+				display: inline-block;
+
+				.md-button {
+					font-weight: bold;
+					font-size: 1.2em;
+				}
+			}
+		}
+	}
+}
+
 .games-section {
+
+	md-progress-linear {
+		margin: 16px;
+	}
 
 	.game-card {
 		margin: 6px;
@@ -10,6 +35,14 @@
 			img {
 				max-width: 112px;
 			}
+		}
+	}
+
+	md-tooltip .md-content {
+		opacity: 1;
+
+		div, span, p, h4, h3 {
+			color: black !important;
 		}
 	}
 }

@@ -22,20 +22,8 @@
 			cs = this,
 			con = $stateParams.console;
 		
-		function fixConsoleName (con) {
-			if (con === 'ps2' || con === 'ps3') return con.charAt(0).toUpperCase() + con.charAt(1).toUpperCase() + ' ' + con.charAt(2);
-			if (con === 'wiiu') return 'Wii U';
-			if (con === 'pc' || con === 'nes') return con.toUpperCase();
-			var conSplit = con.split(' '); // here in case future additions need it
-			if (conSplit.length === 1) return con.charAt(0).toUpperCase() + con.slice(1);
-			conSplit.forEach(function (item, index){
-				consSplit[index] = item.charAt(0).toUpperCase() + item.slice(1);
-			});
-			return conSplit.join();
-		}
-		
 		cs.activity = $stateParams.activity;
-		cs.console = fixConsoleName(con);
+		cs.console = HelpersService.consoleTitle(con);
 		cs.consoleParams = InstructionsService.getInstructionArray(con);
 		cs.consoleInstructions = InstructionsService.getConsoleInstructions(cs.consoleParams.arr, cs.consoleParams.params, con);
 		cs.selectedIndex = 0;
@@ -68,8 +56,6 @@
 
 		cs.goToGames = function () {
 			if (cs.activity === 'play') $state.go('home.games', {activity: 'play', console: con});
-			// if (cs.activity === 'play') $state.go('home.games');
-			// if (cs.activity === 'play') $location.path('/#!/' + cs.activity + '/' + con + '/games');
 		};
 	}
 })();

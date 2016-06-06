@@ -235,6 +235,19 @@ module.exports = function (grunt) {
 					'app/assets/css/angular-material-icons/angular-material-icons.css': ['app/assets/css/angular-material-icons/angular-material-icons.css']
 				}
 			}
+		},
+
+		copy: {
+			main: {
+				files: [
+					{
+						expand: true,
+						src: 'node_modules/font-awesome/fonts/*',
+						dest: 'app/assets/fonts/',
+						flatten: true
+					}
+				]
+			}
 		}
 	});
 
@@ -247,6 +260,7 @@ module.exports = function (grunt) {
 	// Register grunt tasks
 	grunt.registerTask("build", [
 		"jshint",
+		"copy",
 		"less",
 		"exec",
 		"ngAnnotate",
@@ -260,6 +274,6 @@ module.exports = function (grunt) {
 	]);
 
 	// Development task(s).
-	grunt.registerTask('dev', ['injector:dev', 'less', 'concurrent']);
+	grunt.registerTask('dev', ['injector:dev', 'copy', 'less', 'concurrent']);
 
 };

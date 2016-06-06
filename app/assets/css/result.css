@@ -2286,6 +2286,25 @@ ul {
 .console-template md-card-content md-list-item .smaller {
   max-height: 270px;
 }
+.games-nav .md-subheader-inner {
+  width: 100%;
+}
+.games-nav .md-subheader-inner .md-subheader-content {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: justify;
+      justify-content: space-between;
+}
+.games-nav .md-subheader-inner .md-subheader-content div {
+  display: inline-block;
+}
+.games-nav .md-subheader-inner .md-subheader-content div .md-button {
+  font-weight: bold;
+  font-size: 1.2em;
+}
+.games-section md-progress-linear {
+  margin: 16px;
+}
 .games-section .game-card {
   margin: 6px;
   padding: 4px;
@@ -2295,4 +2314,14 @@ ul {
 }
 .games-section .game-card md-card-content img {
   max-width: 112px;
+}
+.games-section md-tooltip .md-content {
+  opacity: 1;
+}
+.games-section md-tooltip .md-content div,
+.games-section md-tooltip .md-content span,
+.games-section md-tooltip .md-content p,
+.games-section md-tooltip .md-content h4,
+.games-section md-tooltip .md-content h3 {
+  color: black !important;
 }

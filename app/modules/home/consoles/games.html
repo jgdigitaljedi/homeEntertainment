@@ -1,6 +1,21 @@
+<md-subheader class="games-nav" layout="row" flex layout-align="space-between center">
+	<div flex="33">
+		<md-button ng-click="gc.backToConsole()">
+			<i class="fa fa-arrow-left"></i> &nbsp; Back
+		</md-button>
+	</div>
+	<div flex="33">
+		<h2>{{gc.consoleTitle}}</h2>
+	</div>
+	<div>
+		<h2>{{gc.gamesCount}} games</h2>
+	</div flex="33">
+</md-subheader>
 <section class="games-section" layout-padding layout-wrap flex layout="row">
-	<md-card class="game-card" layout-align="center center" ng-repeat="game in gc.games track by $index">
+	<md-progress-linear md-mode="indeterminate" ng-show="gc.showLoader"></md-progress-linear>
+	<md-card class="game-card" layout-align="center center" ng-repeat="game in gc.games track by $index" ng-click="gc.openGameModal(game, $index)">
 		<md-card-content layout-align="center center">
+			<md-tooltip>{{game.name}}</md-tooltip>
 			<img ng-src="{{game.image.thumb_url}}" />
 		</md-card-content>
 	</md-card>
