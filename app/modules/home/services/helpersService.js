@@ -29,6 +29,7 @@
 
 		function consoleTitle (con) {
 			var title;
+			var conSplit = con.split(' '); // here in case future additions need it
 			switch (con) {
 				case 'ps2':
 				case 'ps3':
@@ -45,24 +46,14 @@
 					title = 'Blu-Ray';
 					break;
 				default:
-					var conSplit = con.split(' '); // here in case future additions need it
 					if (conSplit.length === 1) return con.charAt(0).toUpperCase() + con.slice(1);
 					conSplit.forEach(function (item, index){
 						consSplit[index] = item.charAt(0).toUpperCase() + item.slice(1);
 					});
 					title = conSplit.join();
+					break;
 			}
 			return title;
-
-			// if (con === 'ps2' || con === 'ps3') return con.charAt(0).toUpperCase() + con.charAt(1).toUpperCase() + ' ' + con.charAt(2);
-			// if (con === 'wiiu') return 'Wii U';
-			// if (con === 'pc' || con === 'nes') return con.toUpperCase();
-			// var conSplit = con.split(' '); // here in case future additions need it
-			// if (conSplit.length === 1) return con.charAt(0).toUpperCase() + con.slice(1);
-			// conSplit.forEach(function (item, index){
-			// 	consSplit[index] = item.charAt(0).toUpperCase() + item.slice(1);
-			// });
-			// return conSplit.join();
 		}
 
 

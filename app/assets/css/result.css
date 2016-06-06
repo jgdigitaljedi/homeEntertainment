@@ -2308,6 +2308,7 @@ ul {
 .games-section .game-card {
   margin: 6px;
   padding: 4px;
+  cursor: pointer;
 }
 .games-section .game-card md-card-content {
   padding: 4px !important;

@@ -36,7 +36,6 @@
 				method: 'GET',
 				url: baseUrl,
 			}).then(function (response) {
-				console.log('gb response', response);
 				def.resolve(response.data.results);
 			});
 			return def.promise;

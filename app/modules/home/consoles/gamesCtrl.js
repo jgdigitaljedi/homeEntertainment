@@ -13,9 +13,9 @@
 		.module('home-control')
 		.controller('GamesCtrl', Games);
 
-	Games.$inject = ['$stateParams', 'GiantbombService', 'HelpersService', '$q', '$state'];
+	Games.$inject = ['$stateParams', 'GiantbombService', 'HelpersService', '$q', '$state', '$mdDialog'];
 
-	function Games($stateParams, GiantbombService, HelpersService, $q, $state) {
+	function Games($stateParams, GiantbombService, HelpersService, $q, $state, $mdDialog) {
 		var gc = this;
 
 		gc.con = $stateParams.console;
@@ -37,11 +37,18 @@
 		};
 
 		gc.openGameModal = function (game, index) {
-			console.log('game for modal', game);
+			gc.gameInfo = game;
+			$mdDialog.show({
+				templateUrl: 'app/modules/home/consoles/gamesDialog.html',
+				controller: 'GamesDialogCtrl as gd',
+				clickOutsideToClose: true,
+				locals: {
+					game: game
+				}
+			});
 		};
 
 		GiantbombService.getConsoleLibrary(gc.con).then(function (response) {
-			console.log('games', response);
 			getGbDataForGames(response).then(function (games) {
 				console.log('games', games);
 				gc.showLoader = false;

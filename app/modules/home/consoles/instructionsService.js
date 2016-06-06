@@ -262,7 +262,6 @@
 		function getConsoleInstructions (insArr, optParams, con) {
 			var finalInsSet = [],
 				instruction;
-			console.log('console', con);
 			insArr.forEach(function (item, index) {
 				if (item === 'eightPortSwitch') {
 					var eps = {ins: '', image: ''};
