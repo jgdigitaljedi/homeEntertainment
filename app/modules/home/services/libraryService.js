@@ -18,7 +18,7 @@
 	function Library ($q, $http) {
 
 		function writeToLibrary (data, fileName) {
-			data = {newObj: {gbId: '666', title: 'Just a tester'}, fileName: 'Hell no!'};
+			data = {newObj: {gbId: '666', title: 'Just a tester'}, fileName: 'test.json'};
 			// data = JSON.stringify(data);
 			// data = $.param(data);
 			fileName = 'test.json';
@@ -26,6 +26,13 @@
 				method: 'POST',
 				url: 'http://localhost:8080/api/writeLibrary',
 				// headers: {'Content-Type': 'application/json'},
+				headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+				// transformRequest: function(obj) {
+			 //        var str = [];
+			 //        for(var p in obj)
+			 //        str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
+			 //        return str.join("&");
+			 //    },
 				data: data
 			}).success(function (data, status) {
 				console.log('data from success', data);
