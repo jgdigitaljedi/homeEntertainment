@@ -1,33 +1,40 @@
-'use_strict';
 
-// var express = require('express');
-// var httpProxy = require('http-proxy');
+var express    = require('express');
+var app        = express();
+var bodyParser = require('body-parser');
+var fs = require('fs');
 
-// var apiForwardingUrl = 'http://www.giantbomb.com/api/';
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
-// var server = express();
-// server.set('port', 9000);
-// server.use(express.static(__dirname + '/app'));
+var port = process.env.PORT || 8080;
 
-// var apiProxy = httpProxy.createProxyServer();
+var router = express.Router();
 
-// server.all('/giantbomb', function (req, res) {
-// 	console.log('proxy request', req);
-// 	apiProxy.web(req, res, {target: apiForwardingUrl + req.resource + '/' + req.resourceId + '/?api_key=' + req.apiKey + '&format=json'});
-// 	console.log('request made to giant bomb');
-// });
+function writeToJson (data, fileName) {
+	var output = {};
+	try {
+		fs.writeFileSync('test.json', JSON.stringify({data: 'someData'}, null, 4), 'utf-8');		
+	} catch (err) {
+		output = {error: true, message: err};
+	} finally {
+		if (!output.error) output = {error: false, message: 'success'};
+		return output;
+	}
+}
 
-// server.listen(server.get('port'), function () {
-//     console.log('Express server listening on port ' + server.get('port'));
-// });
-
-var express = require('express');  
-var request = require('request');
-
-var app = express();  
-app.use('/', function(req, res) {  
-  var url = apiServerHost + req.url;
-  req.pipe(request(url)).pipe(res);
+// test route to make sure everything is working (accessed at GET http://localhost:8080/api)
+router.get('/write', function(req, res) {
+	return writeToJson(req.data, req.fileName);
+    // res.json({ message: 'hooray! welcome to our api!' });   
 });
 
-app.listen(process.env.PORT || 9000);  
+app.post('/writeJson', function(req, res) {
+	return writeToJson(req.data, req.fileName);
+    // res.json({ message: 'hooray! welcome to our api!' });   
+});
+
+app.use('/api', router);
+
+app.listen(port);
+console.log('Magic happens on port ' + port);

@@ -13,13 +13,15 @@
 		.module('home-control')
 		.controller('GamesCtrl', Games);
 
-	Games.$inject = ['$stateParams', 'GiantbombService', 'HelpersService', '$q', '$state', '$mdDialog'];
+	Games.$inject = ['$stateParams', 'GiantbombService', 'HelpersService', '$q', '$state', '$mdDialog', 'LibraryService'];
 
-	function Games($stateParams, GiantbombService, HelpersService, $q, $state, $mdDialog) {
+	function Games($stateParams, GiantbombService, HelpersService, $q, $state, $mdDialog, LibraryService) {
 		var gc = this;
 
 		gc.con = $stateParams.console;
 		gc.consoleTitle = HelpersService.consoleTitle(gc.con);
+
+		LibraryService.writeToLibrary();
 
 		function getGbDataForGames (games) {
 			gc.showLoader = true;

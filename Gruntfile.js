@@ -248,6 +248,15 @@ module.exports = function (grunt) {
 					}
 				]
 			}
+		},
+
+		express: {
+			api: {
+				options: {
+					script: 'server.js',
+					port: 8080
+				}
+			}
 		}
 	});
 
@@ -274,6 +283,6 @@ module.exports = function (grunt) {
 	]);
 
 	// Development task(s).
-	grunt.registerTask('dev', ['injector:dev', 'copy', 'less', 'concurrent']);
+	grunt.registerTask('dev', ['injector:dev', 'copy', 'express', 'less', 'concurrent']);
 
 };
