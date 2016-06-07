@@ -1,11 +1,13 @@
+'use-strict';
 
 var express    = require('express');
 var app        = express();
 var bodyParser = require('body-parser');
 var fs = require('fs');
 
-app.use(bodyParser.urlencoded({ extended: true }));
+// app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+// app.use(bodyParser.json({ type: 'application/*+json' }));
 
 var port = process.env.PORT || 8080;
 
@@ -23,16 +25,31 @@ function writeToJson (data, fileName) {
 	}
 }
 
+// router.use(function(req, res, next) {
+//     console.log('Hit the router');
+//     req.headers['content-type'] = 'application/json';
+//     next(); // make sure we go to the next routes and don't stop here
+// });
+
 // test route to make sure everything is working (accessed at GET http://localhost:8080/api)
-router.get('/write', function(req, res) {
-	return writeToJson(req.data, req.fileName);
-    // res.json({ message: 'hooray! welcome to our api!' });   
+router.get('/', function(req, res) {
+	// return writeToJson(req.data, req.fileName);
+    res.json({ message: 'API is running!' });   
 });
 
-app.post('/writeJson', function(req, res) {
-	return writeToJson(req.data, req.fileName);
-    // res.json({ message: 'hooray! welcome to our api!' });   
-});
+router.route('/writeLibrary').post(function (req, res) {
+		// console.log('req', req);
+		console.log('req.body', req.body);
+		console.log('req.body.newObj', req.body.newObj);
+		console.log('req.body.fileName', req.body.fileName);
+		return writeToJson(req.body.data, req.body.fileName);
+	});
+
+// app.post('/writeJson', function(req, res) {
+// 	console.log('req', req.body);
+// 	return writeToJson(req.data, req.fileName);
+//     // res.json({ message: 'hooray! welcome to our api!' });   
+// });
 
 app.use('/api', router);
 
