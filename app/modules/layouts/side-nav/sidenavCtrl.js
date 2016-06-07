@@ -33,10 +33,7 @@
 			watch: false
 		};
 
-		console.log('stateParams', $stateParams.activity);
 		vm.toggleMenu = function (which) {
-			// vm['show' + which] = !vm['show' + which];
-			// console.log('dfgsdfg', vm['show' + which]);
 			for (var activity in vm.activity) {
 				if (activity === which) {
 						vm.state = which;
@@ -100,7 +97,6 @@
 
 		vm.highlightAndNavigate = function (link, index, activity) {
 			vm.selected = link;
-			console.log('in the controller', activity);
 			$state.go('home.console', {console: link, activity: activity});
 		};
 

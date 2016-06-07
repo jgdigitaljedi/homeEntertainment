@@ -52,7 +52,6 @@
 
 		GiantbombService.getConsoleLibrary(gc.con).then(function (response) {
 			getGbDataForGames(response).then(function (games) {
-				console.log('games', games);
 				gc.showLoader = false;
 				gc.games = games;
 			});

@@ -18,14 +18,10 @@
 	function Library ($q, $http) {
 
 		function writeToLibrary (data, fileName) {
-			data = {newObj: {gbId: '666', title: 'Just a tester'}, fileName: 'test.json'};
-			// data = JSON.stringify(data);
-			// data = $.param(data);
-			fileName = 'test.json';
+			// data = {newObj: {gbId: '666', title: 'Just a tester'}, fileName: 'test.json'}; // for testing server
 			$http({
 				method: 'POST',
 				url: 'http://localhost:8080/api/writeLibrary',
-				// headers: {'Content-Type': 'application/json'},
 				headers: {'Content-Type': 'application/x-www-form-urlencoded'},
 				// transformRequest: function(obj) {
 			 //        var str = [];
@@ -40,13 +36,6 @@
 				console.log('data from error', data);
 				console.log('status from error', status);
 			});
-
-			// $http.post('http://localhost:8080/api/writeLibrary', data)
-			// 	.success(function (data, status, headers, config) {
-			// 		console.log('success data', data);
-			// 	}).erro(function (data, status, headers, config) {
-			// 		console.log('error data', data);
-			// 	});
 		}
 
 		return {
