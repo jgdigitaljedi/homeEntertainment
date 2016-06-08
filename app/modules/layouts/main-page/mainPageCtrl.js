@@ -27,8 +27,6 @@
 			screenWidth = window.innerWidth;
 
 		vm.mainTitle = screenWidth < 444 ? 'GHCC' : 'Gauthier Home Control Center';
-		console.log('screenWidth', screenWidth);
-		console.log('kjsdghl', vm.mainTitle);
 
 		vm.toggleSidenav = function (menuId) {
 			$mdSidenav(menuId).toggle();

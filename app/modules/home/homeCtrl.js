@@ -39,9 +39,6 @@
 				if (activities[act]) vm.listFeatures = homeService.getFeaturesList(act);
 			}
 		};
-
-		// vm.listFeatures = homeService.getFeaturesList(vm.activity);
-		// vm.activity.home = true;
 	}
 
 })();

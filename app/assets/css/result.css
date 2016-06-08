@@ -2337,7 +2337,7 @@ ul {
 }
 .add-game-area {
   max-height: 130px;
-  transition: max-height 500ms ease-in;
+  transition: max-height 500ms ease-in-out;
   overflow: hidden;
 }
 .add-game-area .input-area div,
@@ -2356,7 +2356,7 @@ ul {
 }
 .add-game-area.ng-hide {
   max-height: 0;
-  transition: max-height 500ms ease-out;
+  transition: max-height 500ms ease-in-out;
 }
 .game-dialog-container {
   color: white;
