@@ -18,23 +18,15 @@
 	function Library ($q, $http) {
 
 		function writeToLibrary (data, fileName) {
-			// data = {newObj: {gbId: '666', title: 'Just a tester'}, fileName: 'test.json'}; // for testing server
+			fileName = 'app/assets/games/' + fileName + '.json';
 			$http({
 				method: 'POST',
 				url: 'http://localhost:8080/api/writeLibrary',
-				headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-				// transformRequest: function(obj) {
-			 //        var str = [];
-			 //        for(var p in obj)
-			 //        str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
-			 //        return str.join("&");
-			 //    },
-				data: data
+				data: {newObj: data, fileName: fileName}
 			}).success(function (data, status) {
-				console.log('data from success', data);
-			}).error(function (data, success) {
-				console.log('data from error', data);
-				console.log('status from error', status);
+				return data;
+			}).error(function (data, status) {
+				return data;
 			});
 		}
 

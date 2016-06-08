@@ -22,7 +22,7 @@
 .games-section {
 
 	md-progress-linear {
-		margin: 16px;
+		margin: 20px;
 	}
 
 	.game-card {
@@ -44,6 +44,28 @@
 
 		div, span, p, h4, h3 {
 			color: black !important;
+		}
+	}
+}
+
+.add-game-area {
+
+	.input-area {
+		div, md-input-container {
+			margin-left: 48px;
+		}
+
+		md-input-container {
+			padding-top: 30px;
+
+			label {
+				color: white;
+			}			
+		}
+
+		.md-button {
+			background-color: @dark-blue;
+			.BoxShadowHelper(1);
 		}
 	}
 }

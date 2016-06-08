@@ -35,8 +35,11 @@
 			$http({
 				method: 'GET',
 				url: baseUrl,
-			}).then(function (response) {
-				def.resolve(response.data.results);
+			}).success(function (response) {
+				console.log('response', response);
+				def.resolve(response.results);
+			}).error(function (err) {
+				def.resolve({error: true, message: err});
 			});
 			return def.promise;
 		}

@@ -1,22 +1,52 @@
-<md-subheader class="games-nav" layout="row" flex layout-align="space-between center">
-	<div flex="33">
+<md-subheader class="games-nav" layout="row" flex layout-align="space-around center">
+	<div flex="25">
 		<md-button ng-click="gc.backToConsole()">
 			<i class="fa fa-arrow-left"></i> &nbsp; Back
 		</md-button>
 	</div>
-	<div flex="33">
+	<div flex="25">
 		<h2>{{gc.consoleTitle}}</h2>
 	</div>
-	<div>
+	<div flex="25">
 		<h2>{{gc.gamesCount}} games</h2>
-	</div flex="33">
+	</div>
+	<div flex="25">
+		<md-button ng-click="gc.openAddDialog()">
+			<i class="fa fa-plus"></i> &nbsp; Add Game
+		</md-button>
+	</div>
+</md-subheader>
+<md-subheader class="add-game-area" ng-show="gc.addingGame">
+	<md-divider></md-divider>
+	<div class="input-area" layout="row" layout-align="start center" flex>
+		<div>
+			<h2>New Game Details: </h2>
+		</div>
+		<md-input-container>
+			<label>Game Title: </label>
+			<input ng-model="gc.newGame.title" />
+		</md-input-container>
+		<md-input-container>
+			<label> Giantbomb ID: </label>
+			<input ng-model="gc.newGame.gbId" />
+		</md-input-container>
+		<div>
+			<md-button ng-click="gc.addNewGame(gc.newGame)">
+				<i class="fa fa-paper-plane"></i> &nbsp; Submit
+			</md-button>
+		</div>
+	</div>
 </md-subheader>
 <section class="games-section" layout-padding layout-wrap flex layout="row">
 	<md-progress-linear md-mode="indeterminate" ng-show="gc.showLoader"></md-progress-linear>
-	<md-card class="game-card" layout-align="center center" ng-repeat="game in gc.games track by $index" ng-click="gc.openGameModal(game, $index)">
+	<md-card class="game-card" layout-align="center center" ng-repeat="game in gc.games track by $index" 
+		ng-click="gc.openGameModal(game, $index)">
 		<md-card-content layout-align="center center">
 			<md-tooltip>{{game.name}}</md-tooltip>
 			<img ng-src="{{game.image.thumb_url}}" />
 		</md-card-content>
 	</md-card>
+	<div ng-show="gc.noGamesAvailable">
+		<h3>There was a problem fetching game data. Either the game lookup service or the internet connection is down.</h3>
+	</div>
 </section>

@@ -283,6 +283,6 @@ module.exports = function (grunt) {
 	]);
 
 	// Development task(s).
-	grunt.registerTask('dev', ['injector:dev', 'copy', 'express', 'less', 'concurrent']);
+	grunt.registerTask('dev', ['jshint', 'injector:dev', 'copy', 'express', 'less', 'concurrent']);
 
 };

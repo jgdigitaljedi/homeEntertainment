@@ -20,8 +20,7 @@
 
 		gc.con = $stateParams.console;
 		gc.consoleTitle = HelpersService.consoleTitle(gc.con);
-
-		LibraryService.writeToLibrary();
+		gc.noGameAvailable = false;
 
 		function getGbDataForGames (games) {
 			gc.showLoader = true;
@@ -29,7 +28,8 @@
 			gc.gamesCount = gLen;
 			return $q.all(Array.apply(null, new Array(gLen)).map(function (item, index) {
 				return new GiantbombService.lookupGame(games[index].gbId).then(function (result) {
-					return result;
+					console.log('games result', result);
+					if (!result.error) return result;
 				});
 			}));
 		}
@@ -50,10 +50,23 @@
 			});
 		};
 
+		gc.openAddDialog = function () {
+			gc.addingGame = !gc.addingGame;
+		};
+
+		gc.addNewGame = function (game) {
+			console.log('game to add', game);
+			console.log('con to add to', gc.con);
+			gc.consoleLibrary.push(game);
+			LibraryService.writeToLibrary(gc.consoleLibrary, gc.con);
+		};
+
 		GiantbombService.getConsoleLibrary(gc.con).then(function (response) {
+			gc.consoleLibrary = response;
 			getGbDataForGames(response).then(function (games) {
 				gc.showLoader = false;
 				gc.games = games;
+				if (games.length === 0) gc.noGameAvailable = true;
 			});
 		});
 	}
