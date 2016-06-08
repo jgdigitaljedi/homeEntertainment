@@ -1,15 +1,18 @@
 <div class="md-padding welcome-screen" flex layout-sm="column">
     <md-card class="text-center">
         <md-card-content>
-            <h1>{{ vm.title }}</h1>
+            <h1><i class="fa fa-cog" aria-hidden="true"></i> &nbsp; {{ vm.title }} &nbsp; <i class="fa fa-cog" aria-hidden="true"></i></h1>
             <h3>{{ vm.version }}</h3>
-            <p>This will guide you through using one of the many things plugged into our crazy entertainment center setup!</p>
-            <p>Select an option from the left menu to see the explaination on how to use it.</p>
+            <p>This app will assist you in performing various tasks in our house and eventually control things for you.</p>
+            <p>Select an option from the left menu to see detailed instructions for an activity or task.</p>
             <!-- <md-divider class="margin-top-20"></md-divider> -->
         </md-card-content>
     </md-card>
     <md-card style="margin-top: 20px;" class="selected">
-        <md-card-content>
+        <md-card-content ng-show="vm.activity.home">
+            <h1>Filler until I decide what to put here</h1>
+        </md-card-content>
+        <md-card-content ng-show="!vm.activity.home">
             <h1 style="text-align: left;" class="margin-top-50">
                 <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Notes</h1>
             <ul style="text-align: left;">

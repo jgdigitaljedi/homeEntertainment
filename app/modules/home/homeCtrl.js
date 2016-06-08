@@ -13,7 +13,7 @@
 		.module('home-control')
 		.controller('HomeCtrl', Home);
 
-	Home.$inject = ['homeService'];
+	Home.$inject = ['homeService', '$scope'];
 
 	/*
 	* recommend
@@ -21,12 +21,27 @@
 	* and bindable members up top.
 	*/
 
-	function Home(homeService) {
+	function Home(homeService, $scope) {
 		/*jshint validthis: true */
 		var vm = this;
-		vm.title = "Gauthier Family Entertainment Center Guide";
-		vm.version = "version 0.5";
-		vm.listFeatures = homeService.getFeaturesList();
+		vm.activity = {
+			home: true,
+			play: false,
+			watch: false
+		};
+		vm.title = "Gauthier Home Control Center";
+		vm.version = "version 0.9";
+
+		vm.changeActivity = function (activities) {
+			console.log('chaging', activities);
+			vm.activity = activities;
+			for (var act in activities) {
+				if (activities[act]) vm.listFeatures = homeService.getFeaturesList(act);
+			}
+		};
+
+		// vm.listFeatures = homeService.getFeaturesList(vm.activity);
+		// vm.activity.home = true;
 	}
 
 })();

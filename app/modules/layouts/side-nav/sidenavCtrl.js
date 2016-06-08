@@ -30,10 +30,12 @@
 		vm.showConsoles = false;
 		vm.activity = {
 			play: false,
-			watch: false
+			watch: false,
+			home: true
 		};
 
 		vm.toggleMenu = function (which) {
+			vm.activity.home = false;
 			for (var activity in vm.activity) {
 				if (activity === which) {
 						vm.state = which;
@@ -46,6 +48,7 @@
 					vm.activity[activity] = false;
 				}
 			}
+			$scope.$parent.vm.changeActivity(vm.activity);
 		};
 
 		vm.toggleSidenav = function (menuId) {
