@@ -49,6 +49,9 @@
 }
 
 .add-game-area {
+	max-height: 150px;
+	transition: max-height 500ms ease-in;
+	overflow: hidden;
 
 	.input-area {
 		div, md-input-container {
@@ -68,4 +71,9 @@
 			.BoxShadowHelper(1);
 		}
 	}
+}
+
+.add-game-area.ng-hide {
+	max-height: 0;
+	transition: max-height 500ms ease-out;
 }

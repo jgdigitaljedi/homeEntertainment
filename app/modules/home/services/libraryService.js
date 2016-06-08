@@ -18,16 +18,18 @@
 	function Library ($q, $http) {
 
 		function writeToLibrary (data, fileName) {
+			var def = $q.defer();
 			fileName = 'app/assets/games/' + fileName + '.json';
 			$http({
 				method: 'POST',
 				url: 'http://localhost:8080/api/writeLibrary',
 				data: {newObj: data, fileName: fileName}
 			}).success(function (data, status) {
-				return data;
+				def.resolve(data);
 			}).error(function (data, status) {
-				return data;
+				def.resolve(data);
 			});
+			return def.promise;
 		}
 
 		return {

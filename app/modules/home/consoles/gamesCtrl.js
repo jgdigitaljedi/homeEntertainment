@@ -54,20 +54,33 @@
 			gc.addingGame = !gc.addingGame;
 		};
 
+		function getConsoleGames () {
+			GiantbombService.getConsoleLibrary(gc.con).then(function (response) {
+				gc.consoleLibrary = response;
+				getGbDataForGames(response).then(function (games) {
+					gc.showLoader = false;
+					gc.games = games;
+					if (games.length === 0) gc.noGameAvailable = true;
+				});
+			});			
+		}
+
 		gc.addNewGame = function (game) {
-			console.log('game to add', game);
-			console.log('con to add to', gc.con);
 			gc.consoleLibrary.push(game);
-			LibraryService.writeToLibrary(gc.consoleLibrary, gc.con);
+			gc.consoleLibrary.sort(HelpersService.compare('title'));
+			LibraryService.writeToLibrary(gc.consoleLibrary, gc.con).then(function (result) {
+				if (!result.error) {
+					console.log('success dude');
+					gc.games = [];
+					gc.consoleLibrary = [];
+					gc.openAddDialog();
+					getConsoleGames();
+				}
+			});
 		};
 
-		GiantbombService.getConsoleLibrary(gc.con).then(function (response) {
-			gc.consoleLibrary = response;
-			getGbDataForGames(response).then(function (games) {
-				gc.showLoader = false;
-				gc.games = games;
-				if (games.length === 0) gc.noGameAvailable = true;
-			});
-		});
+		(function () {
+			getConsoleGames();
+		})();
 	}
 })();

@@ -120,11 +120,24 @@
 			return {answer: verdict, style: styler};
 		}
 
+		function compare (property) {
+			var sortOrder = 1;
+		    if (property[0] === "-") {
+		        sortOrder = -1;
+		        property = property.substr(1);
+		    }
+		    return function (a,b) {
+		        var result = (a[property] < b[property]) ? -1 : (a[property] > b[property]) ? 1 : 0;
+		        return result * sortOrder;
+		    };
+		}
+
 		return {
 			commafy: commafy,
 			dateFormats: dateFormats,
 			consoleTitle: consoleTitle,
-			solisAppropriate: solisAppropriate
+			solisAppropriate: solisAppropriate,
+			compare: compare
 		};
 	}
 })();
