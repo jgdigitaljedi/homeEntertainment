@@ -1,15 +1,15 @@
 {
 	"games": [
-		{"gbId": "3030-39945", "title": "Angry Birds Star Wars"},
-		{"gbId": "3030-42932", "title": "Donkey Kong Country's Tropical Freeze"},
-		{"gbId": "3030-41090", "title": "LEGO Marvel Super Heros"},
-		{"gbId": "3030-42929", "title": "Mario Kart 8"},
-		{"gbId": "3030-38549", "title": "Nintendoland"},
-		{"gbId": "3030-38173", "title": "Sonic and All-Stars Racing Transformed"},
-		{"gbId": "3030-46595", "title": "Star Fox Guard"},
-		{"gbId": "3030-46584", "title": "Star Fox Zero"},
-		{"gbId": "3030-42931", "title": "Super Mario 3D World"},
-		{"gbId": "3030-46580", "title": "Super Mario Maker"},
-		{"gbId": "3030-35573", "title": "Super Smash Bros. Wii U"}
+		{"gbId": "3030-39945", "title": "Angry Birds Star Wars", "onHd": false},
+		{"gbId": "3030-42932", "title": "Donkey Kong Country's Tropical Freeze", "onHd": false},
+		{"gbId": "3030-41090", "title": "LEGO Marvel Super Heros", "onHd": false},
+		{"gbId": "3030-42929", "title": "Mario Kart 8", "onHd": false},
+		{"gbId": "3030-38549", "title": "Nintendoland", "onHd": false},
+		{"gbId": "3030-38173", "title": "Sonic and All-Stars Racing Transformed", "onHd": false},
+		{"gbId": "3030-46595", "title": "Star Fox Guard", "onHd": false},
+		{"gbId": "3030-46584", "title": "Star Fox Zero", "onHd": false},
+		{"gbId": "3030-42931", "title": "Super Mario 3D World", "onHd": false},
+		{"gbId": "3030-46580", "title": "Super Mario Maker", "onHd": false},
+		{"gbId": "3030-35573", "title": "Super Smash Bros. Wii U", "onHd": false}
 	]
 }

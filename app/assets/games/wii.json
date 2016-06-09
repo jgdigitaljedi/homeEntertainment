@@ -1,16 +1,16 @@
 {
 	"games": [
-		{"gbId": "3030-20872", "title": "Battle of the Bands"},
-		{"gbId": "3030-7524", "title": "Call of Duty 3"},
-		{"gbId": "3030-7670", "title": "Crash of the Titans"},
-		{"gbId": "3030-27562", "title": "Epic Mickey"},
-		{"gbId": "3030-37164", "title": "Epic Mickey 2"},
-		{"gbId": "3030-1074", "title": "Link's Crossbow Training"},
-		{"gbId": "3030-20645", "title": "Mario Kart Wii"},
-		{"gbId": "3030-8362", "title": "Mario Party 8"},
-		{"gbId": "3030-21023", "title": "Star Wars: The Clone Wars Lightsaber Duels"},
-		{"gbId": "3030-16094", "title": "Super Mario Galaxy"},
-		{"gbId": "3030-20588", "title": "Super Smash Bros. Brawl"},
-		{"gbId": "3030-21098", "title": "Wii Sports Resort"}
+		{"gbId": "3030-20872", "title": "Battle of the Bands", "onHd": false},
+		{"gbId": "3030-7524", "title": "Call of Duty 3", "onHd": false},
+		{"gbId": "3030-7670", "title": "Crash of the Titans", "onHd": false},
+		{"gbId": "3030-27562", "title": "Epic Mickey", "onHd": false},
+		{"gbId": "3030-37164", "title": "Epic Mickey 2", "onHd": false},
+		{"gbId": "3030-1074", "title": "Link's Crossbow Training", "onHd": false},
+		{"gbId": "3030-20645", "title": "Mario Kart Wii", "onHd": false},
+		{"gbId": "3030-8362", "title": "Mario Party 8", "onHd": false},
+		{"gbId": "3030-21023", "title": "Star Wars: The Clone Wars Lightsaber Duels", "onHd": false},
+		{"gbId": "3030-16094", "title": "Super Mario Galaxy", "onHd": false},
+		{"gbId": "3030-20588", "title": "Super Smash Bros. Brawl", "onHd": false},
+		{"gbId": "3030-21098", "title": "Wii Sports Resort", "onHd": false}
 	]
 }
