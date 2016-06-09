@@ -16,11 +16,13 @@
 	Games.$inject = ['$stateParams', 'GiantbombService', 'HelpersService', '$q', '$state', '$mdDialog', 'LibraryService'];
 
 	function Games($stateParams, GiantbombService, HelpersService, $q, $state, $mdDialog, LibraryService) {
-		var gc = this;
+		var gc = this,
+			onHd;
 
 		gc.con = $stateParams.console;
 		gc.consoleTitle = HelpersService.consoleTitle(gc.con);
 		gc.noGameAvailable = false;
+		gc.hdGames = [];
 
 		function getGbDataForGames (games) {
 			gc.showLoader = true;
@@ -28,7 +30,6 @@
 			gc.gamesCount = gLen;
 			return $q.all(Array.apply(null, new Array(gLen)).map(function (item, index) {
 				return new GiantbombService.lookupGame(games[index].gbId).then(function (result) {
-					console.log('games result', result);
 					if (!result.error) return result;
 				});
 			}));
@@ -39,13 +40,24 @@
 		};
 
 		gc.openGameModal = function (game, index) {
+			if (gc.hdGames.length > 0) {
+				gc.games.forEach(function (item, index) {
+					gc.hdGames.forEach(function (i, ind) {
+						onHd = item.id === i ? true : false;
+					});
+				});				
+			} else {
+				gc.onHd = false;
+			}
+
 			gc.gameInfo = game;
 			$mdDialog.show({
-				templateUrl: 'app/modules/home/consoles/gamesDialog.html',
+				templateUrl: 'app/modules/home/games/gamesDialog.html',
 				controller: 'GamesDialogCtrl as gd',
 				clickOutsideToClose: true,
 				locals: {
-					game: game
+					game: game,
+					onHd: onHd
 				}
 			});
 		};
@@ -57,10 +69,17 @@
 		function getConsoleGames () {
 			GiantbombService.getConsoleLibrary(gc.con).then(function (response) {
 				gc.consoleLibrary = response;
+
+				gc.consoleLibrary.forEach(function (item, index) {
+					if (item.onHd) {
+						gc.hdGames.push(parseInt(item.gbId.split('-')[1]));
+					}
+				});
 				getGbDataForGames(response).then(function (games) {
-					gc.showLoader = false;
-					gc.games = games;
 					if (games.length === 0) gc.noGameAvailable = true;
+					gc.games = games;
+
+					gc.showLoader = false;
 				});
 			});			
 		}
@@ -70,7 +89,6 @@
 			gc.consoleLibrary.sort(HelpersService.compare('title'));
 			LibraryService.writeToLibrary(gc.consoleLibrary, gc.con).then(function (result) {
 				if (!result.error) {
-					console.log('success dude');
 					gc.games = [];
 					gc.consoleLibrary = [];
 					gc.openAddDialog();

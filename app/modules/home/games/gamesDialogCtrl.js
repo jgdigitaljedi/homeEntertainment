@@ -13,11 +13,11 @@
 		.module('home-control')
 		.controller('GamesDialogCtrl', GamesDialog);
 
-	GamesDialog.$inject = ['HelpersService', 'game', '$q', '$mdDialog'];
+	GamesDialog.$inject = ['HelpersService', 'game', '$q', '$mdDialog', 'onHd'];
 
 
-	function GamesDialog (HelpersService, game, $q, $mdDialog) {
-		
+	function GamesDialog (HelpersService, game, $q, $mdDialog, onHd) {
+
 		function getRatingFromArray (arr) {
 			var def = $q.defer();
 			arr.map(function (item) {
@@ -30,6 +30,8 @@
 		var gd = this,
 			dateFormats = HelpersService.dateFormats(),
 			ageData;
+
+		gd.onHd = onHd;
 
 		if (game.original_game_rating) {
 			getRatingFromArray(game.original_game_rating).then(function (rating) {

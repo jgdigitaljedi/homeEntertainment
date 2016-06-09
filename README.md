@@ -20,7 +20,7 @@ I also plan to migrate my key/value store to a MongoDB eventually and only did u
 Global npm installs:
 
 ```sh
-$ npm i -g grunt-cli bower-installer grunt-cli
+$ npm i -g grunt-cli bower bower-installer grunt-cli
 ```
 Then:
 ```sh
@@ -57,6 +57,9 @@ Home Control Center uses a number of open source projects to work properly:
 ### Additional Info
 >I host this on my home server with apache and I run the API server
 >with NodeJs and PM2 to keep it alive and startup on boot.
+>I even have a Raspberry Pi working as my internal DNS server
+>and have my server aliased as "ghome.help" in the host file
+>for simple navigation to the app.
 
 Feel free to hack away for your own use, fork, whatever.
 

@@ -30,7 +30,7 @@ angular.module('home-control')
 				controllerAs: 'cs',
 			}).state('home.games', {
 				url: '/:activity/:console/games',
-				templateUrl: 'app/modules/home/consoles/games.html',
+				templateUrl: 'app/modules/home/games/games.html',
 				controller: 'GamesCtrl',
 				controllerAs: 'gc'
 			});			
