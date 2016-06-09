@@ -10,13 +10,17 @@
 		{"gbId": "3030-38043", "title": "God of War Ascension", "onHd": false},
 		{"gbId": "3030-28001", "title": "God of War Collection", "onHd": false},
 		{"gbId": "3030-20461", "title": "God of War 3", "onHd": false},
+		{"gbId": "3030-20605", "title": "High Velocity Bowling", "onHd": true},
 		{"gbId": "3030-36765", "title": "Grand Theft Auto V", "onHd": false},
+		{"gbId": "3030-20602", "title": "Little Big Planet", "onHd": true},
+		{"gbId": "3030-34710", "title": "NBA Jam: On Fire Edition", "onHd": true},
 		{"gbId": "3030-9741", "title": "Resistence: Fall of Man", "onHd": false},
 		{"gbId": "3030-20699", "title": "Resistence 2", "onHd": false},
 		{"gbId": "3030-29021", "title": "Resistence 3", "onHd": false},
 		{"gbId": "3030-20714", "title": "Rockband 2", "onHd": false},
-		{"gbId": "3030-24218", "title": "Sonic's Ultimate Genesis Colelction", "onHd": false},
-		{"gbId": "3030-20602", "title": "Little Big Planet", "onHd": true},
-		{"gbId": "3030-20610", "title": "Wipeout HD Fury", "onHd": true}
+		{"gbId": "3030-24218", "title": "Sonic's Ultimate Genesis Collection", "onHd": false},
+		{"gbId": "3030-30375", "title": "Trials of Topoq", "onHd": true},
+		{"gbId": "3030-20610", "title": "Wipeout HD Fury", "onHd": true},
+		{"gbId": "3030-36147", "title": "Worms Crazy Golf", "onHd": true}
 	]
 }
