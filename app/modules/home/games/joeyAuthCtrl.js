@@ -13,10 +13,10 @@
 		.module('home-control')
 		.controller('JoeyAuthCtrl', JAuth);
 
-	JAuth.$inject = ['HelpersService', 'game', '$q', '$mdDialog', '$http', '$scope'];
+	JAuth.$inject = ['HelpersService', 'game', '$q', '$mdDialog', '$http'];
 
 
-	function JAuth (HelpersService, game, $q, $mdDialog, $http, $scope) {
+	function JAuth (HelpersService, game, $q, $mdDialog, $http) {
 		var ja = this;
 
 		function getAuth (pass) {
@@ -42,7 +42,6 @@
 			});
 
 			getAuth(concatPass).then(function (result) {
-				console.log('result', result);
 				$mdDialog.hide(result);
 			});
 		};
