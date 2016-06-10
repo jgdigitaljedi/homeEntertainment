@@ -164,6 +164,7 @@ module.exports = function (grunt) {
 				files: {
 					'index.html': [
 						'bower.json',
+						'src/bower_components/crypto-js/crypto-js.js',
 						'app/app.js',
 						'app/app.config.js',
 						'app/**/*Module.js',

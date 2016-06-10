@@ -16,6 +16,7 @@
 		</md-button>
 	</div>
 </md-subheader>
+
 <md-subheader class="add-game-area" ng-show="gc.addingGame">
 	<md-divider></md-divider>
 	<div class="input-area" layout="row" layout-align="start center" flex>
@@ -31,12 +32,13 @@
 			<input ng-model="gc.newGame.gbId" />
 		</md-input-container>
 		<div>
-			<md-button ng-click="gc.addNewGame(gc.newGame)">
+			<md-button ng-click="gc.openAuthDialog(gc.newGame)">
 				<i class="fa fa-paper-plane"></i> &nbsp; Submit
 			</md-button>
 		</div>
 	</div>
 </md-subheader>
+
 <section class="games-section" layout-padding layout-wrap flex layout="row">
 	<md-progress-linear md-mode="indeterminate" ng-show="gc.showLoader"></md-progress-linear>
 	<md-card class="game-card" layout-align="center center" ng-repeat="game in gc.games track by $index" 

@@ -84,6 +84,21 @@
 			});			
 		}
 
+		gc.auth = function () {
+			console.log('joey', gc.joeyAuth);
+		};
+
+		gc.openAuthDialog = function () {
+			$mdDialog.show({
+				templateUrl: 'app/modules/home/games/joeyAuth.html',
+				controller: 'JoeyAuthCtrl as ja',
+				clickOutsideToClose: true,
+				locals: {
+					game: gc.newGame
+				}
+			});
+		};
+
 		gc.addNewGame = function (game) {
 			gc.consoleLibrary.push(game);
 			gc.consoleLibrary.sort(HelpersService.compare('title'));

@@ -1,0 +1,14 @@
+<md-dialog layout-padding style="color: white;">
+<h1>Prove that you're Joey</h1>
+	<md-dialog-content layout="row" flex layout-align="center center">
+		<md-input-container>
+			<label>Password: </label>
+			<input type="password" ng-model="ja.joeyAuth" />
+		</md-input-container>
+	</md-dialog-content>
+		<md-dialog-actions>
+			<md-button class="md-raised md-warn" ng-click="ja.auth()">
+				<i class="fa fa-unlock"></i> &nbsp; Unlock
+			</md-button>
+		</md-dialog-actions>
+</md-dialog>
