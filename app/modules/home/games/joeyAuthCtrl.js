@@ -13,21 +13,39 @@
 		.module('home-control')
 		.controller('JoeyAuthCtrl', JAuth);
 
-	JAuth.$inject = ['HelpersService', 'game', '$q', '$mdDialog'];
+	JAuth.$inject = ['HelpersService', 'game', '$q', '$mdDialog', '$http', '$scope'];
 
 
-	function JAuth (HelpersService, game, $q, $mdDialog) {
+	function JAuth (HelpersService, game, $q, $mdDialog, $http, $scope) {
 		var ja = this;
+
+		function getAuth (pass) {
+			var def = $q.defer();
+			$http({
+				method: 'POST',
+				url: 'http://localhost:8080/api/auth',
+				data: {hash: pass}
+			}).success(function (data, status) {
+				def.resolve(data);
+			}).error(function (data, status) {
+				def.resolve(data);
+			});
+			return def.promise;
+		}
 
 		ja.auth = function () {
 			var pass = CryptoJS.SHA1(ja.joeyAuth),
 				concatPass = '';
 
-			console.log('pass', pass.words);
 			pass.words.forEach(function (item, index) {
 				concatPass += item.toString();
 			});
+
 			console.log('auth', concatPass);
+			
+			getAuth(concatPass).then(function (result) {
+				console.log('result', result);
+			});
 		};
 
 	}

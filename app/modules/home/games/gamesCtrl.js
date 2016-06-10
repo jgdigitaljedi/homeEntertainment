@@ -1,5 +1,6 @@
 (function () {
 	'use strict';
+	/*jshint -W065 */
 
 	/**
 	* @ngdoc function
@@ -97,6 +98,10 @@
 					game: gc.newGame
 				}
 			});
+		};
+
+		gc.authResult = function (status) {
+			
 		};
 
 		gc.addNewGame = function (game) {

@@ -24,6 +24,30 @@ function writeToJson (data, fileName) {
 	}
 }
 
+app.post('/api/auth', function (req, res) {
+	var bodyString = '';
+
+	req.on('data', function (chunk) {
+		bodyString += chunk.toString();
+	});
+
+	req.on('end', function () {
+		var data = JSON.parse(bodyString);
+		fs.readFile('keys.json', function (err, data) {
+			console.log(data.joey_auth);
+			if (err) {
+				res.send({error: true, message: err});
+			} else {
+				if (req.hash === data.joey_auth) {
+					res.send({error: false, result: true});
+				} else {
+					res.send({error: false, result: false});
+				}
+			}
+		});
+	});
+});
+
 app.post('/api/writeLibrary', function (req, res) {
 	var bodyString = '';
 
