@@ -14,9 +14,9 @@
 		.module('home-control')
 		.controller('GamesCtrl', Games);
 
-	Games.$inject = ['$stateParams', 'GiantbombService', 'HelpersService', '$q', '$state', '$mdDialog', 'LibraryService'];
+	Games.$inject = ['$stateParams', 'GiantbombService', 'HelpersService', '$q', '$state', '$mdDialog', 'LibraryService', '$scope', '$timeout'];
 
-	function Games($stateParams, GiantbombService, HelpersService, $q, $state, $mdDialog, LibraryService) {
+	function Games($stateParams, GiantbombService, HelpersService, $q, $state, $mdDialog, LibraryService, $scope, $timeout) {
 		var gc = this,
 			onHd;
 
@@ -24,6 +24,7 @@
 		gc.consoleTitle = HelpersService.consoleTitle(gc.con);
 		gc.noGameAvailable = false;
 		gc.hdGames = [];
+		gc.showNoJoe = {show: false, message: ''};
 
 		function getGbDataForGames (games) {
 			gc.showLoader = true;
@@ -85,23 +86,28 @@
 			});			
 		}
 
-		gc.auth = function () {
-			console.log('joey', gc.joeyAuth);
-		};
-
-		gc.openAuthDialog = function () {
+		gc.openAuthDialog = function ($event) {
 			$mdDialog.show({
 				templateUrl: 'app/modules/home/games/joeyAuth.html',
 				controller: 'JoeyAuthCtrl as ja',
 				clickOutsideToClose: true,
 				locals: {
 					game: gc.newGame
+				},
+				targetEvent: $event
+			}).then(function (result) {
+				console.log('result from close', result);
+				if (result.result) {
+					gc.addNewGame(gc.newGame);
+				} else {
+					gc.showNoJoe.show = true;
+					gc.showNoJoe.message = 'You\'re not Joey so you cannot edit the game library!!';
+					$timeout(function () {
+						gc.showNoJoe.message = '';
+						gc.showNoJoe.show = false;
+					}, 4000);
 				}
 			});
-		};
-
-		gc.authResult = function (status) {
-			
 		};
 
 		gc.addNewGame = function (game) {

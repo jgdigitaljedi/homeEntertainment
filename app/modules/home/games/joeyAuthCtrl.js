@@ -41,10 +41,9 @@
 				concatPass += item.toString();
 			});
 
-			console.log('auth', concatPass);
-			
 			getAuth(concatPass).then(function (result) {
 				console.log('result', result);
+				$mdDialog.hide(result);
 			});
 		};
 

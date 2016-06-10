@@ -32,11 +32,14 @@
 			<input ng-model="gc.newGame.gbId" />
 		</md-input-container>
 		<div>
-			<md-button ng-click="gc.openAuthDialog(gc.newGame)">
+			<md-button ng-click="gc.openAuthDialog($event)" class="md-raised">
 				<i class="fa fa-paper-plane"></i> &nbsp; Submit
 			</md-button>
 		</div>
 	</div>
+</md-subheader>
+<md-subheader ng-show="gc.showNoJoe.show" class="add-game-area game-auth-message" layout="row" flex layout-align="center center">
+		<h2>{{gc.showNoJoe.message}}</h2>
 </md-subheader>
 
 <section class="games-section" layout-padding layout-wrap flex layout="row">

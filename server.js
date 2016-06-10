@@ -1,14 +1,8 @@
 'use-strict';
 
 var express    = require('express');
-var app        = express();
-// var bodyParser = require('body-parser');
-// var router = express.Router();
+var app        = express(); /* jshint ignore:line*/
 var fs = require('fs');
-
-// app.use(bodyParser.urlencoded({ extended: true }));
-// app.use(bodyParser.json());
-
 var port = process.env.PORT || 8080;
 
 
@@ -32,19 +26,14 @@ app.post('/api/auth', function (req, res) {
 	});
 
 	req.on('end', function () {
-		var data = JSON.parse(bodyString);
-		fs.readFile('keys.json', function (err, data) {
-			console.log(data.joey_auth);
-			if (err) {
-				res.send({error: true, message: err});
-			} else {
-				if (req.hash === data.joey_auth) {
-					res.send({error: false, result: true});
-				} else {
-					res.send({error: false, result: false});
-				}
-			}
-		});
+		var keyStore = JSON.parse(fs.readFileSync('keys.json', 'utf-8'));
+		var response = JSON.parse(bodyString);
+		if (keyStore.joey_auth === response.hash) {
+			res.send({error: false, result: true});				
+		} else {
+			res.send({error: true, result: false});
+			
+		}
 	});
 });
 
@@ -67,24 +56,3 @@ app.post('/api/writeLibrary', function (req, res) {
 
 app.listen(port);
 console.log('Magic happens on port ' + port);
-
-// old ideas I might revist
-// router.use(function(req, res, next) {
-//     console.log('Hit the router');
-//     next(); // make sure we go to the next routes and don't stop here
-// });
-
-// // test route to make sure everything is working (accessed at GET http://localhost:8080/api)
-// router.get('/', function(req, res) {
-//     res.json({ message: 'API is running!' });   
-// });
-
-// router.route('/writeLibrary').post(function (req, res) {
-// 	var data = JSON.stringify(req.body),
-// 		actualData;
-
-// 	actualData = cleanUpJson(data);
-// 	return writeToJson(actualData.newObj, actualData.fileName);
-// });
-
-// app.use('/api', router);
