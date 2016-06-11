@@ -31,6 +31,11 @@
 			<label> Giantbomb ID: </label>
 			<input ng-model="gc.newGame.gbId" />
 		</md-input-container>
+		<div class="hd-checkbox">
+			<md-checkbox ng-model="gc.newGame.onHd" ng-true-value="true" ng-false-value="false" ng-show="gc.showHdOption">
+				On Hard Drive?
+			</md-checkbox>
+		</div>
 		<div>
 			<md-button ng-click="gc.openAuthDialog($event)" class="md-raised">
 				<i class="fa fa-paper-plane"></i> &nbsp; Submit

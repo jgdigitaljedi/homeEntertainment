@@ -2350,6 +2350,15 @@ ul {
 .add-game-area .input-area md-input-container label {
   color: white;
 }
+.add-game-area .input-area .hd-checkbox {
+  margin-top: 26px;
+}
+.add-game-area .input-area .hd-checkbox div {
+  margin: 0;
+}
+.add-game-area .input-area .hd-checkbox span {
+  margin: 12px 0 0 26px;
+}
 .add-game-area .input-area .md-button {
   background-color: #37474F;
   color: white;

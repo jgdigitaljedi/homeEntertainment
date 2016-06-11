@@ -155,7 +155,8 @@
 						portNumber: '1',
 						power: ['app/assets/images/power/genesisconsole-min.png'],
 						gbId: '3045-6',
-						insert: 1
+						insert: 1,
+						hd: false
 					}
 				},
 				gamecube: {
@@ -165,7 +166,8 @@
 						portNumber: '2',
 						power: ['app/assets/images/power/gamecubeconsole-min.png'],
 						gbId: '3045-23',
-						insert: 2
+						insert: 2,
+						hd: false
 					}
 				},
 				nes: {
@@ -175,7 +177,8 @@
 						portNumber: '3',
 						power: ['app/assets/images/power/nesconsole-min.png'],
 						gbId: '3045-21',
-						insert: 1
+						insert: 1,
+						hd: false
 					}
 				},
 				n64: {
@@ -185,7 +188,8 @@
 						portNumber: '4',
 						power: ['app/assets/images/power/n64console-min.png'],
 						gbId: '3045-43',
-						insert: 1
+						insert: 1,
+						hd: false
 					}
 				},
 				ps2: {
@@ -194,7 +198,8 @@
 					params: {
 						power: ['app/assets/images/power/ps2console-min.png'],
 						gbId: '3045-19',
-						insert: 2
+						insert: 2,
+						hd: false
 					}
 				},
 				ps3: {
@@ -203,7 +208,8 @@
 					params: {
 						power: ['app/assets/images/power/ps3remote-min.png', 'app/assets/images/power/ps3console-min.png'],
 						gbId: '3045-35',
-						insert: 1
+						insert: 1,
+						hd: true
 					}
 				},
 				wiiu: {
@@ -212,13 +218,15 @@
 					params: {
 						power: ['app/assets/images/power/wiiuremote-min.png', 'app/assets/images/power/wiiuconsole-min.png'],
 						gbId: '3045-139',
-						insert: 1
+						insert: 1,
+						hd: true
 					}
 				},
 				pc: {
 					arr: ['remTvMedia', 'remTvInput', 'tvNavHdmi3', 'remAvrGame', 'remFive', 'commentDvr', 'powerOn', 'keyboardAndMouse', 'finishedOn'],
 					params: {
-						power: ['app/assets/images/power/pcPower-min.png']
+						power: ['app/assets/images/power/pcPower-min.png'],
+						hd: true
 					}
 				},
 				wii: {
@@ -227,7 +235,8 @@
 					params: {
 						power: ['app/assets/images/power/wiiremote-min.png', 'app/assets/images/power/wiiconsole-min.png'],
 						gbId: '3045-36',
-						insert: 1
+						insert: 1,
+						hd: true
 					}
 				},
 				roku: {

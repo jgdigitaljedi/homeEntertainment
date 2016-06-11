@@ -14,9 +14,11 @@
 		.module('home-control')
 		.controller('GamesCtrl', Games);
 
-	Games.$inject = ['$stateParams', 'GiantbombService', 'HelpersService', '$q', '$state', '$mdDialog', 'LibraryService', '$scope', '$timeout'];
+	Games.$inject = ['$stateParams', 'GiantbombService', 'HelpersService', '$q', '$state', '$mdDialog', 
+		'LibraryService', '$scope', '$timeout', 'InstructionsService'];
 
-	function Games($stateParams, GiantbombService, HelpersService, $q, $state, $mdDialog, LibraryService, $scope, $timeout) {
+	function Games($stateParams, GiantbombService, HelpersService, $q, $state, $mdDialog, LibraryService, 
+		$scope, $timeout, InstructionsService) {
 		var gc = this,
 			onHd;
 
@@ -65,6 +67,8 @@
 		};
 
 		gc.openAddDialog = function () {
+			var consoleProps = InstructionsService.getInstructionArray(gc.con);
+			gc.showHdOption = consoleProps.params.hd;
 			gc.addingGame = !gc.addingGame;
 		};
 
@@ -111,6 +115,7 @@
 		};
 
 		gc.addNewGame = function (game) {
+			if (!gc.newGame.hasOwnProperty('onHd')) gc.newGame.onHd = false;
 			gc.consoleLibrary.push(game);
 			gc.consoleLibrary.sort(HelpersService.compare('title'));
 			LibraryService.writeToLibrary(gc.consoleLibrary, gc.con).then(function (result) {
