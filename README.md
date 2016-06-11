@@ -44,7 +44,7 @@ Home Control Center uses a number of open source projects to work properly:
 * [node.js](https://github.com/nodejs/node) - evented I/O for the backend
 * [Express](https://github.com/expressjs/express) - fast node.js network app framework [@tjholowaychuk]
 * [GruntJs](https://github.com/gruntjs/grunt) - The JavaScript Task Runner http://gruntjs.com/
-* [Angular Material](https://github.com/angular/material) - The JavaScript Task Runner http://gruntjs.com/
+* [Angular Material](https://github.com/angular/material) - Material Design inspired framework
 
 ...and many more!
 ### Todos
