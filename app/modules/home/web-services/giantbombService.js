@@ -36,7 +36,6 @@
 				method: 'GET',
 				url: baseUrl,
 			}).success(function (response) {
-				console.log('response', response);
 				def.resolve(response.results);
 			}).error(function (err) {
 				def.resolve({error: true, message: err});

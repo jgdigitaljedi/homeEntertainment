@@ -13,10 +13,10 @@
 		.module('home-control')
 		.controller('JoeyAuthCtrl', JAuth);
 
-	JAuth.$inject = ['HelpersService', 'game', '$q', '$mdDialog', '$http'];
+	JAuth.$inject = ['HelpersService', 'game', '$q', '$mdDialog', '$http', '$timeout'];
 
 
-	function JAuth (HelpersService, game, $q, $mdDialog, $http) {
+	function JAuth (HelpersService, game, $q, $mdDialog, $http, $timeout) {
 		var ja = this;
 
 		function getAuth (pass) {
@@ -45,6 +45,15 @@
 				$mdDialog.hide(result);
 			});
 		};
+
+		$timeout(function () {
+			document.getElementById('the-password').addEventListener('keyup', function(e) {
+		    	event.preventDefault();
+		    	if (e.keyCode === 13) {
+		        	ja.auth();
+		    	}
+			});
+		}, 250);
 
 	}
 })();

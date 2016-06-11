@@ -33,7 +33,6 @@
 		vm.version = "version 0.9";
 
 		vm.changeActivity = function (activities) {
-			console.log('chaging', activities);
 			vm.activity = activities;
 			for (var act in activities) {
 				if (activities[act]) vm.listFeatures = homeService.getFeaturesList(act);

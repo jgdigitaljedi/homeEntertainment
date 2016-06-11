@@ -100,7 +100,6 @@
 				},
 				targetEvent: $event
 			}).then(function (result) {
-				console.log('result from close', result);
 				if (result.result) {
 					gc.addNewGame(gc.newGame);
 				} else {
