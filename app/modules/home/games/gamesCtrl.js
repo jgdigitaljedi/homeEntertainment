@@ -20,7 +20,7 @@
 	function Games($stateParams, GiantbombService, HelpersService, $q, $state, $mdDialog, LibraryService, 
 		$scope, $timeout, InstructionsService) {
 		var gc = this,
-			onHd;
+			onHd = false;
 
 		gc.con = $stateParams.console;
 		gc.consoleTitle = HelpersService.consoleTitle(gc.con);
@@ -44,14 +44,14 @@
 		};
 
 		gc.openGameModal = function (game, index) {
+			onHd = false;
 			if (gc.hdGames.length > 0) {
-				gc.games.forEach(function (item, index) {
-					gc.hdGames.forEach(function (i, ind) {
-						onHd = item.id === i ? true : false;
-					});
-				});				
+				gc.hdGames.forEach(function (item, index) {
+					if (game.id === item) onHd = true;
+					// onHd = parseInt(game.id) === item ? true : false;
+				});
 			} else {
-				gc.onHd = false;
+				onHd = false;
 			}
 
 			gc.gameInfo = game;
