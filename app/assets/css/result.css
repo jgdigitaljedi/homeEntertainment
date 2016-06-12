@@ -2347,7 +2347,8 @@ ul {
 .add-game-area .input-area md-input-container {
   padding-top: 30px;
 }
-.add-game-area .input-area md-input-container label {
+.add-game-area .input-area md-input-container label,
+.add-game-area .input-area md-input-container a {
   color: white;
 }
 .add-game-area .input-area .hd-checkbox {
