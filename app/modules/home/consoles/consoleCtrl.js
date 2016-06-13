@@ -13,9 +13,9 @@
 		.module('home-control')
 		.controller('ConsoleCtrl', Console);
 
-	Console.$inject = ['InstructionsService', '$stateParams', 'GiantbombService', 'HelpersService', '$state', '$location'];
+	Console.$inject = ['InstructionsService', '$stateParams', 'GiantbombService', 'HelpersService', '$state'];
 
-	function Console(InstructionsService, $stateParams, GiantbombService, HelpersService, $state, $location) {
+	function Console(InstructionsService, $stateParams, GiantbombService, HelpersService, $state) {
 		/*jshint validthis: true */
 		/*jshint curly: false */
 		var dateFormats = HelpersService.dateFormats(),
@@ -23,6 +23,7 @@
 			con = $stateParams.console;
 		
 		cs.activity = $stateParams.activity;
+		cs.titleImage = $stateParams.image;
 		cs.console = HelpersService.consoleTitle(con);
 		cs.consoleParams = InstructionsService.getInstructionArray(con);
 		cs.consoleInstructions = InstructionsService.getConsoleInstructions(cs.consoleParams.arr, cs.consoleParams.params, con);

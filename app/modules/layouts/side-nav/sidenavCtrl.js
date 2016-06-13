@@ -15,7 +15,7 @@
 
 	// Injecting Denpendencies
 
-	SidenavCtrl.$inject = ['$mdSidenav', '$state', '$mdBottomSheet', '$mdToast', 'MenuService', '$scope', '$stateParams'];
+	SidenavCtrl.$inject = ['$mdSidenav', '$state', '$mdBottomSheet', '$mdToast', 'MenuService', '$scope', '$stateParams', '$timeout'];
 	SettingsCtrl.$inject = ['$mdBottomSheet'];
 
 	/*
@@ -24,7 +24,7 @@
 	* and bindable members up top.
 	*/
 
-	function SidenavCtrl($mdSidenav, $state, $mdBottomSheet, $mdToast, MenuService, $scope, $stateParams) {
+	function SidenavCtrl($mdSidenav, $state, $mdBottomSheet, $mdToast, MenuService, $scope, $stateParams, $timeout) {
 		/*jshint validthis: true */
 		var vm = this;
 		vm.showConsoles = false;
@@ -63,7 +63,7 @@
 		// Only use $scope in controllerAs when necessary; for example, publishing and subscribing events using $emit, $broadcast, $on or $watch.
 		$scope.$on('$stateChangeSuccess', vm.closeSidenav);
 
-		vm.menu = MenuService.listMenu();
+		// vm.menu = MenuService.listMenu();
 
 		vm.admin = [
 			{
@@ -98,16 +98,24 @@
 			});
 		};
 
-		vm.highlightAndNavigate = function (link, index, activity) {
+		vm.highlightAndNavigate = function (link, index, activity, image) {
 			vm.selected = link;
-			$state.go('home.console', {console: link, activity: activity});
+			$state.go('home.console', {console: link, activity: activity, image: image});
 		};
 
 		(function () {
-			var currentState = $stateParams.activity;
+			vm.menu = MenuService.listMenu();
+			var currentState = $stateParams.activity,
+				image;
+			if (currentState) {
+				vm.menu[currentState].forEach(function (item, index) {
+					if (item.link === $stateParams.console) image = item.image;
+				});					
+			}
+
 			if (currentState === 'play' || currentState === 'watch') {
 				vm.toggleMenu(currentState);
-				vm.highlightAndNavigate($stateParams.console, 0, $stateParams.activity);
+				vm.highlightAndNavigate($stateParams.console, 0, $stateParams.activity, image);
 			}
 		})();
 	}

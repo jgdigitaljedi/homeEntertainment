@@ -23,7 +23,7 @@
 			play: [
 				{
 					link: 'genesis',
-					name: 'Sega Genesis',
+					name: 'Genesis',
 					image: 'app/assets/images/genesis.png'
 				},
 				{

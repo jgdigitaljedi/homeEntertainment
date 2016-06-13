@@ -7,9 +7,6 @@
                     <h2 style="margin: 2px 0 0 5px; width: 100%;">
                         <i class="fa fa-list" aria-hidden="true"></i> &nbsp;Activities
                     </h2>
-                    <!-- <div flex="80" style="margin-top: 10px;">
-                        <div>Activities</div>
-                    </div> -->
                 </div>
             </div>
         </md-toolbar>
@@ -19,8 +16,8 @@
         <md-list ng-show="vm.activity.play" class="nav-list">
             <md-list-item class="console-list" ng-repeat="item in vm.menu.play track by $index"
                 ng-class="{selected: item.link === vm.selected}"
-                ng-click="vm.highlightAndNavigate(item.link, $index, 'play')">
-                <img class="console-image" ng-src="{{item.image}}" />
+                ng-click="vm.highlightAndNavigate(item.link, $index, 'play', item.image)">
+                <h2>{{item.name}}</h2>
                 <md-divider></md-divider>
             </md-list-item>
             <!-- <md-divider></md-divider>
@@ -38,8 +35,8 @@
         <md-list ng-show="vm.activity.watch" class="nav-list">
             <md-list-item class="console-list" ng-repeat="item in vm.menu.watch track by $index"
                 ng-class="{selected: item.link === vm.selected}"
-                ng-click="vm.highlightAndNavigate(item.link, $index, 'watch')">
-                <img class="console-image" ng-src="{{item.image}}" />
+                ng-click="vm.highlightAndNavigate(item.link, $index, 'watch', item.image)">
+                <h2>{{item.name}}</h2>
                 <md-divider></md-divider>
             </md-list-item>
         </md-list>

@@ -28,6 +28,7 @@ angular.module('home-control')
 				templateUrl: 'app/modules/home/consoles/console.html',
 				controller: 'ConsoleCtrl',
 				controllerAs: 'cs',
+				params: {image: null}
 			}).state('home.games', {
 				url: '/:activity/:console/games',
 				templateUrl: 'app/modules/home/games/games.html',

@@ -1,7 +1,10 @@
 <div class="console-template" layout-fill>
 	<div class="console-head">
 		<div class="title-and-buttons" layout="row" layout-xs="column" layout-sm="column">
-			<h1>{{cs.console}}</h1>
+			<!-- <h1>{{cs.console}}</h1> -->
+			<div class="title-image-container">
+				<img ng-src="{{cs.titleImage}}" />
+			</div>
 			<md-button ng-show="cs.activity === 'play'" class="games-list-button" ng-click="cs.goToGames()">
 				<i class="fa fa-trophy"></i> &nbsp; Games List
 			</md-button>
