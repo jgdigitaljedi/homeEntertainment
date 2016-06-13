@@ -31,7 +31,8 @@
 		vm.activity = {
 			play: false,
 			watch: false,
-			home: true
+			home: true,
+			server: false
 		};
 
 		vm.toggleMenu = function (which) {

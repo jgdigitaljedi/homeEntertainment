@@ -34,5 +34,10 @@ angular.module('home-control')
 				templateUrl: 'app/modules/home/games/games.html',
 				controller: 'GamesCtrl',
 				controllerAs: 'gc'
+			}).state('home.server', {
+				url: '/server-info',
+				templateUrl: 'app/modules/home/server/server.html',
+				controller: 'ServerCtrl',
+				controllerAs: 'sc'
 			});			
 	}]);
