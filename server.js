@@ -3,6 +3,7 @@
 var express    = require('express');
 var app        = express(); /* jshint ignore:line*/
 var fs = require('fs');
+var sh = require('shelljs');
 var port = process.env.PORT || 8080;
 
 
@@ -51,6 +52,22 @@ app.post('/api/writeLibrary', function (req, res) {
 		res.send(writeToJson(newLib , data.fileName));
 		console.log('req', bodyString);
 	});
+});
+
+app.get('/api/serverInfo', function (req, res) {
+	var serverInfo = {};
+	serverInfo.nodeVersion = sh.exec('node --version', {silent:true}).output;
+	serverInfo.npmVersion = sh.exec('npm --version', {silent:true}).output;
+	serverInfo.pythonVersion = sh.exec('python --version', {silent:true}).output;
+	serverInfo.gitVersion = sh.exec('git --version', {silent:true}).output;
+	serverInfo.uptime = sh.exec('uptime', {silent:true}).output;
+	serverInfo.osHd = sh.exec('df /sda1', {silent:true}).output;
+	serverInfo.mediaHd = sh.exec('df /sdb1', {silent:true}).output;
+	serverInfo.ram = sh.exec('free -m', {silent:true}).output;
+	serverInfo.distribution = sh.exec('lsb_release -a', {silent:true}).output;
+	serverInfo.kernel = sh.exec('uname -r', {silent:true}).output;
+	res.json(serverInfo);
+
 });
 
 

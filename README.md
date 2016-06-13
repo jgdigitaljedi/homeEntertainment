@@ -20,7 +20,7 @@ I also plan to migrate my key/value store to a MongoDB eventually and only did u
 Global npm installs:
 
 ```sh
-$ npm i -g grunt-cli bower bower-installer grunt-cli
+$ npm i -g grunt-cli bower bower-installer grunt-cli shelljs
 ```
 Then:
 ```sh
