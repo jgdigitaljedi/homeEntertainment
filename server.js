@@ -56,20 +56,14 @@ app.post('/api/writeLibrary', function (req, res) {
 
 app.get('/api/serverInfo/:parm', function (req, res) {
 	console.log('request', req.params.parm);
-	var serverInfo = {main: 0};
-	var nodeVersion = sh.exec('node --version', function (code, stdout, stderr) { return stdout; });
-	nodeVersion.stdout.on('data', function (data) { res.json(data); });
-	console.log('node version', serverInfo.nodeVersion);
-	// serverInfo.npmVersion = sh.exec('npm --version', {silent:true}).output;
-	// serverInfo.pythonVersion = sh.exec('python --version', {silent:true}).output;
-	// serverInfo.gitVersion = sh.exec('git --version', {silent:true}).output;
-	// serverInfo.uptime = sh.exec('uptime', {silent:true}).output;
-	// serverInfo.osHd = sh.exec('df /sda1', {silent:true}).output;
-	// serverInfo.mediaHd = sh.exec('df /sdb1', {silent:true}).output;
-	// serverInfo.ram = sh.exec('free -m', {silent:true}).output;
-	// serverInfo.distribution = sh.exec('lsb_release -a', {silent:true}).output;
-	// serverInfo.kernel = sh.exec('uname -r', {silent:true}).output;
-	// res.json(serverInfo);
+	var parmSplit = req.params.parm.split(':');
+	var cmd = parmSplit.length > 1 ? parmSplit[0] + '/' + parmSplit[1] : req.params.parm;
+	console.log('cmd', cmd);
+
+	var command = sh.exec(cmd, {silent: true, async: true});
+	command.stdout.on('data', function (data) {
+		res.send(data);
+	});
 
 });
 

@@ -11,12 +11,22 @@
 
 	angular
 		.module('home-control')
-		.controller('ServerCtrl', Console);
+		.controller('ServerCtrl', Server);
 
-	Console.$inject = ['ServerService'];
+	Server.$inject = ['ServerService'];
 
-	function Console(ServerService) {
+	function Server(ServerService) {
+		var sc = this;
 
-		ServerService.getServerInfo();
+		ServerService.getServerInfo().then(function (response) {
+			console.log('response', response);
+			response.forEach(function (item, index) {
+				var nameProp = item.name.split(' ').join('');
+				sc[nameProp] = item;
+				sc[nameProp].value = item.value.data.replace(/[\u21B5]/g, '\n');
+				sc[nameProp].value = item.value.replace('  ', '\n');
+				console.log('this thing', sc[nameProp]);
+			});
+		});
 	}
 })();

@@ -18,17 +18,29 @@
 	function Server ($q, $http) {
 
 		function getServerInfo () {
-			$http.get('http://localhost:8080/api/serverInfo/nodeVersion').then(function (response) {
-				console.log('response', response);
+			var promises = [];
+			var serverInfo = [
+				{name: 'Node Version',command: 'node --version', value: null},
+				// {name: 'Python Version', command: 'python -V', value: null},
+				{name: 'NPM Version', command: 'npm --version', value: null},
+				{name: 'Git Version', command: 'git --version', value: null},
+				{name: 'Uptime', command: 'uptime', value: null},
+				{name: 'Disc Space Usage', command: 'df -h -T', value: null},
+				{name: 'RAM Usage', command: 'free -m', value: null},
+				{name: 'Linux Distribution', command: 'lsb_release -a', value: null},
+				{name: 'Kernel', command: 'uname -r', value: null}
+			];
+
+			serverInfo.forEach(function (item, index) {
+				var def = $q.defer();
+				$http.get('http://localhost:8080/api/serverInfo/' + item.command).then(function (response) {
+					item.value = response;
+					def.resolve(item);
+				});
+				promises.push(def.promise);
 			});
-			// 	method: 'GET',
-			// 	url: 'http://localhost:8080/api/serverInfo',
-			// 	params: {test: 'tester'}
-			// }).then(function successCallback (response) {
-			// 	console.log('server success', response);
-			// }, function errorCallback (response) {
-			// 	console.log('server error', response);
-			// });
+
+			return $q.all(promises);
 		}
 
 		return {
