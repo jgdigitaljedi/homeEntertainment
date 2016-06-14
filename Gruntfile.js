@@ -30,7 +30,8 @@ module.exports = function (grunt) {
 		},
 
 		exec: {
-			bowerInstaller: 'bower-installer'
+			bowerInstaller: 'bower-installer',
+			pm2: 'pm2 restart server.js'
 		},
 
 		concat: {

@@ -61,6 +61,23 @@
 					sc.usedPercent = parseFloat((sc.usedRam / sc.totalRam * 100).toFixed(2));
 					console.log('sc.usedPercent', sc.usedPercent);
 
+				} else if (sc[nameProp].name === 'Linux Distribution') {
+					temp = sc[nameProp].value.data.split(' ');
+					temp[1] = temp[0] + ' ' + temp[1];
+					temp.splice(0, 1);
+					var sub = ':',
+						tLen = temp.length,
+						newArr = [temp[0] + ' ' + temp[1]],
+						counter = 0;
+					for (var j = 2; j < tLen; j++) {
+						if (temp[j].indexOf(sub) > -1) {
+							newArr[counter] = newArr[counter].trim();
+							counter++;
+							newArr[counter] = ' ';
+						}
+						newArr[counter] += ' ' + temp[j];
+					}
+					sc.distInfoArr = newArr;
 				}
 				console.log('this thing', sc[nameProp]);
 			});

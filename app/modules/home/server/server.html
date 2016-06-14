@@ -3,7 +3,11 @@
 	<div class="basic-info" layout="row" layout-xs="column" layout-align="space-around start" flex>
 		<div layout="column">
 			<label>Distribution Info</label>
-			<p>{{sc.LinuxDistribution.value.data}}</p>			
+			<md-list>
+				<md-list-item  ng-repeat="item in sc.distInfoArr">
+					{{item}}
+				</md-list-item>
+			</md-list>			
 		</div>
 		<div layout="column">
 			<label>Kernel Version</label>
