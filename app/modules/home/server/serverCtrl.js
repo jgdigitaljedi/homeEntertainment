@@ -47,6 +47,17 @@
 					}
 					template = $compile(template)(sc);
 					angular.element(document.querySelector('#disc-usage-template')).append(template);
+				} else if (sc[nameProp].name === 'RAM Usage') {
+					temp = sc[nameProp].value.data.split(' ');
+					sc.totalRam = parseInt(temp[7]);
+					sc.usedRam = parseInt(temp[8]);
+					sc.freeRam = parseInt(temp[9]);
+					console.log('sc.totalRam', sc.totalRam);
+					console.log('sc.usedRam', sc.usedRam);
+					console.log('sc.freeRam', sc.freeRam);
+					sc.usedPercent = parseFloat((sc.usedRam / sc.totalRam * 100).toFixed(2));
+					console.log('sc.usedPercent', sc.usedPercent);
+
 				}
 				console.log('this thing', sc[nameProp]);
 			});

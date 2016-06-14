@@ -4,10 +4,11 @@
 	<p>{{sc.NodeVersion.value.data}}</p>
 	<p>{{sc.GitVersion.value.data}}</p>
 	<p><span class="text-title">{{sc.Uptime.name}}: </span>{{sc.Uptime.value.data}}</p>
-	<p>{{sc.RAMUsage.value.data}}</p>
 	<p>{{sc.DiscSpaceUsage.value.data}}</p>
 	<p>{{sc.LinuxDistribution.value.data}}</p>
 	<p>{{sc.Kernel.value.data}}</p>
 	</div>
 	<div id="disc-usage-template">{{sc.discTemplate}}</div>
+	<md-progress-circular md-mode="determinate" ng-value="sc.usedPercent"></md-progress-circular>
+	<p>{{sc.RAMUsage.value.data}}</p>
 </section>
