@@ -1,14 +1,61 @@
 <section class="server-info" layout-padding flex>
-	<div class="server-text-info">
-	<p>{{sc.NPMVersion.value.data}}</p>
-	<p>{{sc.NodeVersion.value.data}}</p>
-	<p>{{sc.GitVersion.value.data}}</p>
-	<p><span class="text-title">{{sc.Uptime.name}}: </span>{{sc.Uptime.value.data}}</p>
-	<p>{{sc.DiscSpaceUsage.value.data}}</p>
-	<p>{{sc.LinuxDistribution.value.data}}</p>
-	<p>{{sc.Kernel.value.data}}</p>
+	<h2>Computer Details</h2>
+	<div class="basic-info" layout="row" layout-xs="column" layout-align="space-around start" flex>
+		<div layout="column">
+			<label>Distribution Info</label>
+			<p>{{sc.LinuxDistribution.value.data}}</p>			
+		</div>
+		<div layout="column">
+			<label>Kernel Version</label>
+			<p>{{sc.Kernel.value.data}}</p>		
+		</div>
+		<div layout="column">
+			<label>CPU Info</label>
+			<p>{{sc.CPUInfo.value.data}}</p>			
+		</div>
 	</div>
-	<div id="disc-usage-template">{{sc.discTemplate}}</div>
-	<md-progress-circular md-mode="determinate" ng-value="sc.usedPercent"></md-progress-circular>
-	<p>{{sc.RAMUsage.value.data}}</p>
+	<br>
+	<md-divider></md-divider>
+	<h2>Hardware Info</h2>
+	<div class="hardware-info" layout="row" layout-xs="column" layout-align="space-around start" flex>
+		<div layout="column">
+			<label>Disc Usage</label>
+			<div id="disc-usage-template">{{sc.discTemplate}}</div>	
+		</div>
+		<div layout="column">
+			<label>RAM Usage</label>
+			<div layout="row">
+				<div layout="column">
+					<md-progress-circular md-mode="determinate" ng-value="sc.usedPercent"></md-progress-circular>
+				</div>
+				<div layout="column" class="ram-usage">
+					<span>Total RAM: {{(sc.totalRam / 1024).toFixed(2)}} GB</span>
+					<span>Used RAM: {{(sc.usedRam / 1024).toFixed(2)}} GB</span>
+					<span>Free RAM: {{(sc.freeRam / 1024).toFixed(2)}} GB</span>
+					<span>Used Percent: {{sc.usedPercent}}%</span>
+				</div>
+			</div>
+		</div>
+		<div layout="column">
+			<label>System Uptime</label>
+			<p>{{sc.Uptime.value.data}}</p>
+		</div>
+	</div>
+	<br>
+	<md-divider></md-divider>
+	<h2>Software Info</h2>
+	<div class="software-info" layout="row" layout-xs="column" layout-align="space-around start" flex>
+		<div layout="column">
+			<label>Node Version</label>
+			<p>{{sc.NodeVersion.value.data}}</p>
+		</div>
+		<div layout="column">
+			<label>NPM Version</label>
+			<p>{{sc.NPMVersion.value.data}}</p>
+		</div>
+		<div layout="column">
+			<label>Git Version</label>
+			<p>{{sc.GitVersion.value.data}}</p>
+		</div>
+	</div>
 </section>

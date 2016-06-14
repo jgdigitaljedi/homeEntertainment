@@ -30,7 +30,7 @@
 				} else if (sc[nameProp].name === 'Disc Space Usage') {
 					temp = sc[nameProp].value.data.replace(/\s\s+/g, ' ');
 					temp = temp.split(' ');
-					var template = '<table><tr>',
+					var template = '<table class="disc-table"><tr>',
 						aLen = temp.length;
 					for (var i = 0; i < aLen; i++) {
 						if (i < 7) {
@@ -40,6 +40,9 @@
 							} else {
 								template += '<th>' + temp[i] + '</th>';
 							}
+						} else if (i + 1 === aLen) {
+							template += '<td>' + temp[i] + '</td>';
+							if ((i) % 7 === 0) template += '</tr></table>';
 						} else {
 							template += '<td>' + temp[i] + '</td>';
 							if ((i) % 7 === 0) template += '</tr><tr>';

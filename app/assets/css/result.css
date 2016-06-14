@@ -2421,3 +2421,24 @@ ul {
 .game-dialog-container md-dialog .dialog-top .top-info .info-row .point-data {
   padding: 4px;
 }
+.server-info .disc-table th,
+.server-info .disc-table td {
+  border: 1px solid white;
+  padding: 4px;
+  margin: 0;
+}
+.server-info .disc-table tr:nth-child(even) {
+  background-color: #424242;
+  margin: 0;
+}
+.server-info label {
+  font-weight: bold;
+  text-decoration: underline;
+  margin-bottom: 8px;
+}
+.server-info h2 {
+  color: #ffb300;
+}
+.server-info .ram-usage {
+  margin-left: 8px;
+}
