@@ -52,8 +52,8 @@
 				} else if (sc[nameProp].name === 'RAM Usage') {
 					temp = sc[nameProp].value.data.split(' ');
 					sc.totalRam = parseInt(temp[7]);
-					sc.usedRam = parseInt(temp[9]);
-					sc.freeRam = parseInt(temp[8]);
+					sc.usedRam = parseInt(temp[8]);
+					sc.freeRam = parseInt(temp[9]);
 					sc.usedPercent = parseFloat((sc.usedRam / sc.totalRam * 100).toFixed(2));
 
 				} else if (sc[nameProp].name === 'Linux Distribution') {

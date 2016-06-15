@@ -13,7 +13,9 @@ var gamesSchema = new Schema({
 	platforms: Array,
 	publishers: Array,
 	similar_games: Array,
-	dateAdded: Date
+	dateAdded: Date,
+	obHd: Boolean,
+	gbId: String
 });
 
 gamesSchema.methods.getAllGames = function () {
