@@ -30,8 +30,8 @@
 			watch: false,
 			server: false
 		};
-		vm.title = "Gauthier Home Control Center";
-		vm.version = "version 0.9";
+		vm.title = 'Gauthier Home Control Center';
+		vm.version = 'version 1.0.0';
 
 		vm.changeActivity = function (activities) {
 			vm.activity = activities;
