@@ -93,6 +93,8 @@
 					otherCpuTemplate = $compile(tempArr[1])(sc);
 					angular.element(document.querySelector('#cpu-template')).append(cpuTemplate);
 					angular.element(document.querySelector('#other-cpu-template')).append(otherCpuTemplate);
+				} else if (sc[nameProp].name === 'Updates Available') {
+					sc.updates = sc[nameProp].value.data.split('.');
 				}
 			});
 		});
