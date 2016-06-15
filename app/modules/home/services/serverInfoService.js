@@ -29,7 +29,8 @@
 				{name: 'RAM Usage', command: 'free -m', value: null},
 				{name: 'Linux Distribution', command: 'lsb_release -a', value: null},
 				{name: 'Kernel', command: 'uname -r', value: null},
-				{name: 'CPU Info', command: 'lscpu', value: null}
+				{name: 'CPU Info', command: 'lscpu', value: null},
+				{name: 'Updates Available', command: '---usr---lib---update-notifier---apt-check --human-readable', value: null}
 			];
 
 			serverInfo.forEach(function (item, index) {

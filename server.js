@@ -63,8 +63,13 @@ app.post('/api/writeLibrary', function (req, res) {
 });
 
 app.get('/api/serverInfo/:parm', function (req, res) {
-	var parmSplit = req.params.parm.split(':');
-	var cmd = parmSplit.length > 1 ? parmSplit[0] + '/' + parmSplit[1] : req.params.parm;
+	var cmd;
+
+	if (req.params.parm.substring(0, 3) === '---') {
+		cmd = req.params.parm.split('---').join('/');
+	} else {
+		cmd = req.params.parm;
+	}
 
 	var command = sh.exec(cmd, {silent: true, async: true});
 	command.stdout.on('data', function (data) {
