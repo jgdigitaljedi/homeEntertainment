@@ -64,5 +64,13 @@
 			<label>Git Version</label>
 			<p>{{sc.GitVersion.value.data}}</p>
 		</div>
+		<div layout="column">
+			<label>Updates Available</label>
+			<md-list>
+			<md-list-item ng-repeat="item in sc.updates">
+				{{item}}
+			</md-list-item>
+			</md-list>
+		</div>
 	</div>
 </section>
