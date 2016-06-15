@@ -2431,6 +2431,12 @@ ul {
   background-color: #424242;
   margin: 0;
 }
+.server-info .disc-table td:nth-child(3) {
+  border-spacing: 8px;
+}
+.server-info #other-cpu-template {
+  margin-left: 12px;
+}
 .server-info label {
   font-weight: bold;
   text-decoration: underline;

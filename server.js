@@ -55,10 +55,8 @@ app.post('/api/writeLibrary', function (req, res) {
 });
 
 app.get('/api/serverInfo/:parm', function (req, res) {
-	console.log('request', req.params.parm);
 	var parmSplit = req.params.parm.split(':');
 	var cmd = parmSplit.length > 1 ? parmSplit[0] + '/' + parmSplit[1] : req.params.parm;
-	console.log('cmd', cmd);
 
 	var command = sh.exec(cmd, {silent: true, async: true});
 	command.stdout.on('data', function (data) {
