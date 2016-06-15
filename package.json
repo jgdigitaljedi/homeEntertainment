@@ -24,6 +24,7 @@
     "grunt-cli": "~0.1.13",
     "http-proxy": "^1.13.3",
     "moment": "^2.13.0",
+    "mongoose": "^4.5.0",
     "shelljs": "^0.7.0"
   },
   "devDependencies": {

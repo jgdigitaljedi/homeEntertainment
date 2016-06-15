@@ -6,6 +6,13 @@ var fs = require('fs');
 var sh = require('shelljs');
 var port = process.env.PORT || 8080;
 
+var mongoose = require('mongoose');
+var keys = require('./schemas/keys.js');
+var games = require('./schemas/games.js');
+var consoles = require('./schemas/consoles.js');
+
+// mongoose.connect('mongodb://localhost/myappdatabase');
+
 
 function writeToJson (data, fileName) {
 	var output = {};

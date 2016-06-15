@@ -34,6 +34,7 @@
 			cs.activtyNotes = '';
 			cs.showNotes = false;
 			GiantbombService.lookupConsole(cs.consoleParams.params.gbId).then(function (response) {
+				console.log('console', response);
 				if (response.error) {
 					cs.showDetails = false;
 				} else {

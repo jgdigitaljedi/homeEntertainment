@@ -34,6 +34,7 @@
 			gc.gamesCount = gLen;
 			return $q.all(Array.apply(null, new Array(gLen)).map(function (item, index) {
 				return new GiantbombService.lookupGame(games[index].gbId).then(function (result) {
+					console.log('games', result);
 					if (!result.error) return result;
 				});
 			}));
