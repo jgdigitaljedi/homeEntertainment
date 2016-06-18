@@ -31,8 +31,8 @@
 		cs.insImage = cs.consoleInstructions[0].image || ['app/assets/images/placeholder.png'];
 
 		if (cs.activity === 'play') {
-			cs.activtyNotes = '';
-			cs.showNotes = false;
+			cs.activtyNotes = cs.consoleParams.params.notes || '';
+			cs.showNotes = cs.activityNotes !== '' ? true : false;
 			GiantbombService.lookupConsole(cs.consoleParams.params.gbId).then(function (response) {
 				console.log('console', response);
 				if (response.error) {
