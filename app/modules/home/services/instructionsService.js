@@ -192,6 +192,17 @@
 						hd: false
 					}
 				},
+				dreamcast: {
+					arr: ['remTvMedia', 'remTvInput', 'tvNavAv', 'remAvrGame', 'remFive', 'commentDvr', 'eightPortSwitch', 'loadGame',
+						'powerOn', 'finishedOn'],
+					params: {
+						portNumber: '5',
+						power: ['app/assets/images/power/dreamcastconsole-min.png'],
+						gbId: '3045-37',
+						insert: 1,
+						hd: false
+					}
+				},
 				ps2: {
 					arr: ['remTvMedia', 'remTvInput', 'tvNavComp1', 'remAvrGame', 'remFive', 'commentDvr', 'loadGame',
 						'powerOn', 'finishedOn'],
