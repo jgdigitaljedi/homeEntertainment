@@ -22,9 +22,9 @@
 		var menu = {
 			play: [
 				{
-					link: 'genesis',
-					name: 'Genesis',
-					image: 'app/assets/images/genesis.png'
+					link: 'dreamcast',
+					name: 'Dreamcast',
+					image: 'app/assets/images/dreamcast.png'
 				},
 				{
 					link: 'gamecube',
@@ -32,14 +32,24 @@
 					image: 'app/assets/images/gamecube.png'
 				},
 				{
-					link: 'nes',
-					name: 'NES',
-					image: 'app/assets/images/nes.png'
+					link: 'genesis',
+					name: 'Genesis',
+					image: 'app/assets/images/genesis.png'
 				},
 				{
 					link: 'n64',
 					name: 'N64',
 					image: 'app/assets/images/n64.png'
+				},
+				{
+					link: 'nes',
+					name: 'NES',
+					image: 'app/assets/images/nes.png'
+				},
+				{
+					link: 'pc',
+					name: 'PC',
+					image: 'app/assets/images/pc.png'
 				},
 				{
 					link: 'ps2',
@@ -52,19 +62,14 @@
 					image: 'app/assets/images/ps3.png'
 				},
 				{
-					link: 'pc',
-					name: 'PC',
-					image: 'app/assets/images/pc.png'
+					link: 'wii',
+					name: 'Wii',
+					image: 'app/assets/images/wii.png'
 				},
 				{
 					link: 'wiiu',
 					name: 'Wii U',
 					image: 'app/assets/images/wiiu.png'
-				},
-				{
-					link: 'wii',
-					name: 'Wii',
-					image: 'app/assets/images/wii.png'
 				}
 			],
 			watch: [
