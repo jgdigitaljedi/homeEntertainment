@@ -178,7 +178,8 @@
 						power: ['app/assets/images/power/nesconsole-min.png'],
 						gbId: '3045-21',
 						insert: 1,
-						hd: false
+						hd: false,
+						notes: ['The light gun doesn\'t work on modern TVs. Sorry.']
 					}
 				},
 				n64: {
@@ -247,7 +248,9 @@
 						power: ['app/assets/images/power/wiiremote-min.png', 'app/assets/images/power/wiiconsole-min.png'],
 						gbId: '3045-36',
 						insert: 1,
-						hd: true
+						hd: true,
+						notes: ['The Wii is usually in Solis\' room, but I have component cables ready for it to be hooked up ' +
+							'in the living room too. You just have to move the power cable with the Wii.']
 					}
 				},
 				roku: {
