@@ -1,20 +1,38 @@
 'use-strict';
 
+//dependecies
 var express    = require('express');
 var app        = express(); /* jshint ignore:line*/
 var fs = require('fs');
 var sh = require('shelljs');
 var port = process.env.PORT || 8080;
 
+//db
 var mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost/ghcc');
 var db = mongoose.connection;
-var keys = require('./schemas/keys.js');
-var games = require('./schemas/games.js');
-var consoles = require('./schemas/consoles.js');
+db.on('error', console.error);
 
-// var db = mongoose.connect('mongodb://localhost/myappdatabase');
+//models
+var Keys = require('./schemas/keys.js');
+var Games = require('./schemas/games.js');
+var Consoles = require('./schemas/consoles.js');
 
+//how to manually add keys if ever necessary
+// var gbKey = Keys({
+// 	key: 'key contents here', value: 'key value here'
+// });
 
+// gbKey.save(function (err) {
+// 	if (err) throw err;
+// });
+
+// Keys.find({}, function (err, keys) {
+// 	if (err) throw err;
+// 	console.log('keys', keys);
+// });
+
+//private functions
 function writeToJson (data, fileName) {
 	var output = {};
 	try {	
@@ -27,6 +45,30 @@ function writeToJson (data, fileName) {
 	}
 }
 
+//consoles
+app.get('/getConsoles', function (req, res) {
+	Consoles.find({}, function (err, consoles) {
+		res.send(consoles);
+	});
+});
+
+app.get('/getSpecificConsole', function (req, res) {
+
+});
+
+app.put('/addConsole', function (req, res) {
+	var bodyString = '';
+
+	req.on('data', function (chunk) {
+		bodyString += chunk.toString();
+	});
+
+	req.on('end', function () {
+		var con = JSON.parse(bodyString);
+	});
+});
+
+//auth
 app.post('/api/auth', function (req, res) {
 	var bodyString = '';
 
@@ -46,6 +88,7 @@ app.post('/api/auth', function (req, res) {
 	});
 });
 
+//json writes that will eventually go away
 app.post('/api/writeLibrary', function (req, res) {
 	var bodyString = '';
 
@@ -62,6 +105,7 @@ app.post('/api/writeLibrary', function (req, res) {
 	});
 });
 
+//server info
 app.get('/api/serverInfo/:parm', function (req, res) {
 	var cmd;
 
@@ -70,6 +114,7 @@ app.get('/api/serverInfo/:parm', function (req, res) {
 	} else {
 		cmd = req.params.parm;
 	}
+	console.log(cmd);
 
 	var command = sh.exec(cmd, {silent: true, async: true});
 	command.stdout.on('data', function (data) {
