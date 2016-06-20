@@ -7,6 +7,7 @@ var fs = require('fs');
 var sh = require('shelljs');
 var port = process.env.PORT || 8080;
 var http = require('http');
+var gameApi = require('./gamesApi.js');
 
 //db
 var mongoose = require('mongoose');
