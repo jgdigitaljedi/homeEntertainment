@@ -46,6 +46,26 @@ function writeToJson (data, fileName) {
 	}
 }
 
+function proxy (url, res, req, callback) {
+    http.get(url).on('response', function (response) {
+        var body = '';
+        var i = 0;
+        response.on('data', function (chunk) {
+            i++;
+            body += chunk;
+        });
+        response.on('end', function () {
+            if(callback && typeof(callback) === 'function') {
+                callback(req, res, body);
+            } else {
+                body = JSON.parse(body);
+                if(body) res.json(body);
+                else res.json({});
+            }
+        });
+    });
+}
+
 //consoles
 app.get('/getConsoles', function (req, res) {
 	Consoles.find({}, function (err, consoles) {
@@ -108,25 +128,9 @@ app.post('/api/writeLibrary', function (req, res) {
 
 app.get('/api/giantbomb/:platform/:id', function (req, res) {
 	Keys.find({key: 'giantbomb_api_key'}, function (err, key) {
-		var auth = key[0].value,
-			options = {
-				host: 'www.giantbomb.com',
-				path: '/api/' + req.params.platform + '/' + req.params.id + '/?api_key=' + auth + '&format=json',
-				port: 80
-			};
-		http.get(options, function (response) {
-			var bs = '';
-
-			response.on('data', function (chunk) {
-				bs += chunk;
-			});
-
-			response.on('end', function () {
-				console.log('bs', bs);
-				res.send(bs);
-			});
-			console.log('response from gb proxy', response);
-		});
+		if (!Array.isArray(key)) key = [key];
+		var auth = key[0].value;
+		proxy('http://www.giantbomb.com/api/' + req.params.platform + '/' + req.params.id + '/?api_key=' + auth + '&format=json', res);
 	});
 });
 
