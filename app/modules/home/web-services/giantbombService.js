@@ -17,27 +17,9 @@
 
 	function Giantbomb ($http, $q) {
 
-		// testing gb proxy setup and mongodb
-		(function () {
-			$http.get('http://localhost:8080/api/giantbomb/game/3030-20096').then(function (response) {
-				console.log('response', response.data.results);
-			});
-		})();
-
-		var apiKey;
-		function getApiKey () {
-			var def = $q.defer();
-			$http.get('keys.json')
-				.success(function (res) {
-					def.resolve(res.giantbomb_api_key);
-				});
-			return def.promise;
-		}
-
 		function makeGbCall (params, res) {
 			var def = $q.defer();
-			var baseUrl = 'http://www.giantbomb.com/api/' + params.resource + '/' + params.resourceId + 
-				'/?api_key=' + res + '&format=json';
+			var baseUrl = 'http://localhost:8080/api/giantbomb/' + params.resource + '/' + params.resourceId;
 			$http({
 				method: 'GET',
 				url: baseUrl,
@@ -56,10 +38,8 @@
 				resourceId: which,
 			};
 			return $q(function (resolve, reject) {
-				getApiKey().then(function (res) { 
-					makeGbCall(params, res).then(function (response) {
-						resolve(response);
-					});
+				makeGbCall(params).then(function (response) {
+					resolve(response);
 				});
 			});
 		}
@@ -70,10 +50,8 @@
 				resourceId: which,
 			};
 			return $q(function (resolve, reject) {
-				getApiKey().then(function (res) { 
-					makeGbCall(params, res).then(function (response) {
-						resolve(response);
-					});
+				makeGbCall(params).then(function (response) {
+					resolve(response);
 				});
 			});
 		}

@@ -126,6 +126,7 @@ app.post('/api/writeLibrary', function (req, res) {
 	});
 });
 
+// proxies
 app.get('/api/giantbomb/:platform/:id', function (req, res) {
 	Keys.find({key: 'giantbomb_api_key'}, function (err, key) {
 		if (!Array.isArray(key)) key = [key];
