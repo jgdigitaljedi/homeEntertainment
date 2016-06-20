@@ -1,9 +1,11 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
+var ObjectId = Schema.ObjectId;
 
 var consolesSchema = new Schema({
+	id: ObjectId,
 	deck: String,
-	id: Number,
+	idShort: Number,
 	image: {
 		icon_url: String,
 		tiny_url: String,
@@ -21,24 +23,12 @@ var consolesSchema = new Schema({
 	portNumber: Number,
 	gbId: String,
 	instructions: Array,
-	notes: Array
+	notes: Array,
+	controllers: String,
+	accessories: String,
+	mods: String,
+	avOutMethod: String
 });
-
-consolesSchema.methods.addConsole = function (which) {
-
-};
-
-consolesSchema.methods.deleteConsole = function (which) {
-
-};
-
-consolesSchema.methods.getConsole = function (which) {
-
-};
-
-consolesSchema.methods.getAllConsoles = function (which) {
-
-};
 
 var Consoles = mongoose.model('Consoles', consolesSchema);
 

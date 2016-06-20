@@ -1,11 +1,13 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
+var ObjectId = Schema.ObjectId;
 
 var gamesSchema = new Schema({
+	id: ObjectId,
 	mySystem: String,
 	deck: String,
 	genres: Array,
-	id: Number,
+	idShort: Number,
 	images: Array,
 	name: String,
 	original_game_rating: Array,
@@ -17,22 +19,6 @@ var gamesSchema = new Schema({
 	obHd: Boolean,
 	gbId: String
 });
-
-gamesSchema.methods.getAllGames = function () {
-
-};
-
-gamesSchema.methods.getGame = function (which) {
-	
-};
-
-gamesSchema.methods.addGame = function (which) {
-	
-};
-
-gamesSchema.methods.deleteGame = function (which) {
-	
-};
 
 var Games = mongoose.model('Games', gamesSchema);
 
