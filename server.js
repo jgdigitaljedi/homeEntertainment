@@ -135,6 +135,14 @@ app.get('/api/giantbomb/:platform/:id', function (req, res) {
 	});
 });
 
+app.get('/api/getweather', function (req, res) {
+	Keys.find({key: 'wu_api_key'}, function (err, key) {
+		if (!Array.isArray(key)) key = [key];
+		var auth = key[0].value;
+		proxy('http://api.wunderground.com/api/' + auth + '/conditions/q/TX/Manor.json', res);
+	});
+});
+
 //server info
 app.get('/api/serverInfo/:parm', function (req, res) {
 	var cmd;
