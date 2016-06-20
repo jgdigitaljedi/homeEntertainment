@@ -1,7 +1,46 @@
 {
-	"games": [
-		{"gbId": "3030-9112", "title": "Crazy Taxi"},
-		{"gbId": "3030-4652", "title": "Mortal Konbat Gold"},	
-		{"gbId": "3030-990", "title": "Tony Hawk Pro Skater 2"}
-	]
+    "games": [
+        {
+            "gbId": "3030-9112",
+            "title": "Crazy Taxi"
+        },
+        {
+            "title": "Jet Grind Radio",
+            "gbId": "3030-20096",
+            "onHd": false
+        },
+        {
+            "title": "Looney Tunes: Space Race",
+            "gbId": "3030-21261",
+            "onHd": false
+        },
+        {
+            "title": "Marvel vs Capcom",
+            "gbId": "3030-8605",
+            "onHd": false
+        },
+        {
+            "gbId": "3030-4652",
+            "title": "Mortal Konbat Gold"
+        },
+        {
+            "title": "Rush 2049",
+            "gbId": "3030-18834",
+            "onHd": false
+        },
+        {
+            "gbId": "3030-990",
+            "title": "Tony Hawk Pro Skater 2"
+        },
+        {
+            "title": "Virtua Tennis",
+            "gbId": "3030-10676",
+            "onHd": false
+        },
+        {
+            "title": "Wacky Races",
+            "gbId": "3030-21342",
+            "onHd": false
+        }
+    ]
 }
