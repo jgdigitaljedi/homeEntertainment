@@ -15,8 +15,14 @@
 
 	Giantbomb.$inject = ['$http', '$q'];
 
-	// not running this through express proxy simply because planning to host this on my media server for private use at home
 	function Giantbomb ($http, $q) {
+
+		// testing gb proxy setup and mongodb
+		(function () {
+			$http.get('http://localhost:8080/api/giantbomb/game/3030-20096').then(function (response) {
+				console.log('response', response.data.results);
+			});
+		})();
 
 		var apiKey;
 		function getApiKey () {

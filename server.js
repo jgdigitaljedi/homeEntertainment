@@ -6,6 +6,7 @@ var app        = express(); /* jshint ignore:line*/
 var fs = require('fs');
 var sh = require('shelljs');
 var port = process.env.PORT || 8080;
+var http = require('http');
 
 //db
 var mongoose = require('mongoose');
@@ -102,6 +103,30 @@ app.post('/api/writeLibrary', function (req, res) {
 		console.log('fileName', data.fileName);
 		res.send(writeToJson(newLib , data.fileName));
 		console.log('req', bodyString);
+	});
+});
+
+app.get('/api/giantbomb/:platform/:id', function (req, res) {
+	Keys.find({key: 'giantbomb_api_key'}, function (err, key) {
+		var auth = key[0].value,
+			options = {
+				host: 'www.giantbomb.com',
+				path: '/api/' + req.params.platform + '/' + req.params.id + '/?api_key=' + auth + '&format=json',
+				port: 80
+			};
+		http.get(options, function (response) {
+			var bs = '';
+
+			response.on('data', function (chunk) {
+				bs += chunk;
+			});
+
+			response.on('end', function () {
+				console.log('bs', bs);
+				res.send(bs);
+			});
+			console.log('response from gb proxy', response);
+		});
 	});
 });
 
