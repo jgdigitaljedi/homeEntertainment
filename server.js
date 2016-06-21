@@ -1,13 +1,15 @@
 'use-strict';
+/* jshint -W079 */
 
 //dependecies
 var express    = require('express');
-var app        = express(); /* jshint ignore:line*/
+var app        = express();
 var fs = require('fs');
 var sh = require('shelljs');
 var port = process.env.PORT || 8080;
 var http = require('http');
-var gameApi = require('./gamesApi.js');
+var gameApi = require('./gamesModule.js');
+var consoleApi = require('./consolesModule.js');
 
 //db
 var mongoose = require('mongoose');
@@ -17,8 +19,8 @@ db.on('error', console.error);
 
 //models
 var Keys = require('./schemas/keys.js');
-var Games = require('./schemas/games.js');
-var Consoles = require('./schemas/consoles.js');
+// var Games = require('./schemas/games.js');
+// var Consoles = require('./schemas/consoles.js');
 
 //how to manually add keys if ever necessary
 // var gbKey = Keys({
@@ -34,7 +36,9 @@ var Consoles = require('./schemas/consoles.js');
 // 	console.log('keys', keys);
 // });
 
-//private functions
+/********************
+private functions
+********************/
 function writeToJson (data, fileName) {
 	var output = {};
 	try {	
@@ -67,18 +71,10 @@ function proxy (url, res, req, callback) {
     });
 }
 
-//consoles
-app.get('/getConsoles', function (req, res) {
-	Consoles.find({}, function (err, consoles) {
-		res.send(consoles);
-	});
-});
-
-app.get('/getSpecificConsole', function (req, res) {
-
-});
-
-app.put('/addConsole', function (req, res) {
+/********************
+consoles
+********************/
+app.post('/api/addconsole', function (req, res) {
 	var bodyString = '';
 
 	req.on('data', function (chunk) {
@@ -87,10 +83,101 @@ app.put('/addConsole', function (req, res) {
 
 	req.on('end', function () {
 		var con = JSON.parse(bodyString);
+		consoleApi.addConsole(con, res);
 	});
 });
 
-//auth
+app.post('/api/deleteconsole', function (req, res) {
+	var bodyString = '';
+
+	req.on('data', function (chunk) {
+		bodyString += chunk.toString();
+	});
+
+	req.on('end', function () {
+		var con = JSON.parse(bodyString);
+		consoleApi.deleteConsole(con, res);
+	});
+});
+
+app.post('/api/editconsole', function (req, res) {
+	var bodyString = '';
+
+	req.on('data', function (chunk) {
+		bodyString += chunk.toString();
+	});
+
+	req.on('end', function () {
+		var con = JSON.parse(bodyString);
+		consoleApi.editConsole(con, res);
+	});
+});
+
+app.get('/api/getconsoles', function (req, res) {
+	consoleApi.getAllGames(res);
+});
+
+app.get('/api/getconsoleinfo/:con', function (req, res) {
+	consoleApi.getGameInfo(con, res);
+});
+
+/********************
+games
+********************/
+app.post('/api/addgame', function (req, res) {
+	var bodyString = '';
+
+	req.on('data', function (chunk) {
+		bodyString += chunk.toString();
+	});
+
+	req.on('end', function () {
+		var game = JSON.parse(bodyString);
+		gameApi.addGame(game, res);
+	});
+});
+
+app.post('/api/deletegame', function (req, res) {
+	var bodyString = '';
+
+	req.on('data', function (chunk) {
+		bodyString += chunk.toString();
+	});
+
+	req.on('end', function () {
+		var game = JSON.parse(bodyString);
+		gameApi.deleteGame(game, res);
+	});
+});
+
+app.post('/api/editgame', function (req, res) {
+	var bodyString = '';
+
+	req.on('data', function (chunk) {
+		bodyString += chunk.toString();
+	});
+
+	req.on('end', function () {
+		var game = JSON.parse(bodyString);
+		gameApi.editGame(game, res);
+	});
+});
+
+app.get('/api/getgames', function (req, res) {
+	gameApi.getAllGames(res);
+});
+
+app.get('/api/getconsolegames/:con', function (req, res) {
+	gameApi.getconsoleGames(cons, res);
+});
+
+app.get('/api/getgameinfo/:game', function (req, res) {
+	gameApi.getGameInfo(game, res);
+});
+
+/********************
+auth
+********************/
 app.post('/api/auth', function (req, res) {
 	var bodyString = '';
 
@@ -110,7 +197,9 @@ app.post('/api/auth', function (req, res) {
 	});
 });
 
-//json writes that will eventually go away
+/********************
+json writes that will eventually go away
+********************/
 app.post('/api/writeLibrary', function (req, res) {
 	var bodyString = '';
 
@@ -127,7 +216,9 @@ app.post('/api/writeLibrary', function (req, res) {
 	});
 });
 
-// proxies
+/********************
+proxies
+********************/
 app.get('/api/giantbomb/:platform/:id', function (req, res) {
 	Keys.find({key: 'giantbomb_api_key'}, function (err, key) {
 		if (!Array.isArray(key)) key = [key];
@@ -144,7 +235,9 @@ app.get('/api/getweather', function (req, res) {
 	});
 });
 
-//server info
+/********************
+server info
+********************/
 app.get('/api/serverInfo/:parm', function (req, res) {
 	var cmd;
 

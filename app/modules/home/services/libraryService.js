@@ -17,18 +17,43 @@
 
 	function Library ($q, $http) {
 
-		function addGameToLibrary (userGame, gbGame) {
+		function getIt (where, what) {
 			var def = $q.defer(),
-				game; // gonna have to combine the user form input with the gb call result to match the db model
+				opts = {
+					method: 'GET',
+					url: 'http://localhost:8080/api/' + where
+				};
+			if (what) opts.url += '/' + what;
+			
+			$http(opts).success(function (data, status) {
+				def.resolve(data);
+			}).error(function (data, status) {
+				def.resolve(data);
+			});
+			return def.promise;
+		}
+
+		function putIt (where, what) {
+			var def = $q.defer(); // gonna have to combine the user form input with the gb call result to match the db model
 
 			$http({
 				method: 'POST',
-				url: 'http://localhost:8080/api/addgame',
-				data: game
+				url: 'http://localhost:8080/api/' + where,
+				data: what
 			}).success(function (data, status) {
 				def.resolve(data);
 			}).error(function (data, status) {
 				def.resolve(data);
+			});
+			return def.promise;
+		}
+
+		function addGameToLibrary (userGame, gbGame) {
+			var def = $q.defer(),
+				game; // gonna have to combine the user form input with the gb call result to match the db model
+
+			putIt('addgame', game).then(function (result) {
+				// something with success or failure
 			});
 		}
 
@@ -36,138 +61,62 @@
 			var def = $q.defer(),
 				con; // gonna have to combine the user form input with the gb call result to match the db model
 
-			$http({
-				method: 'POST',
-				url: 'http://localhost:8080/api/addconsole',
-				data: con
-			}).success(function (data, status) {
-				def.resolve(data);
-			}).error(function (data, status) {
-				def.resolve(data);
+			putIt('addconsole', con).then(function (result) {
+				// something with success or failure
 			});
 		}
 
 		function deleteGameFromLibrary (game) {
-			var def = $q.defer();
-
-			$http({
-				method: 'POST',
-				url: 'http://localhost:8080/api/deletegame',
-				data: game
-			}).success(function (data, status) {
-				def.resolve(data);
-			}).error(function (data, status) {
-				def.resolve(data);
+			putIt('deletegame', game).then(function (result) {
+				// something with success or failure
 			});
 		}
 
 		function deleteConsoleFromLibrary (con) {
-			var def = $q.defer();
-
-			$http({
-				method: 'POST',
-				url: 'http://localhost:8080/api/deleteconsole',
-				data: con
-			}).success(function (data, status) {
-				def.resolve(data);
-			}).error(function (data, status) {
-				def.resolve(data);
+			putIt('deleteconsole', con).then(function (result) {
+				// something with success or failure
 			});
 		}
 
 		function editGameInLibrary (game) {
-			var def = $q.defer();
-
-			$http({
-				method: 'POST',
-				url: 'http://localhost:8080/api/editgame',
-				data: game
-			}).success(function (data, status) {
-				def.resolve(data);
-			}).error(function (data, status) {
-				def.resolve(data);
+			putIt('editgame', game).then(function (result) {
+				// something with success or failure
 			});
 		}
 
 		function editConsoleInLibrary (con) {
-			var def = $q.defer();
-
-			$http({
-				method: 'POST',
-				url: 'http://localhost:8080/api/editconsole',
-				data: con
-			}).success(function (data, status) {
-				def.resolve(data);
-			}).error(function (data, status) {
-				def.resolve(data);
+			putIt('editconsole', con).then(function (result) {
+				// something with success or failure
 			});
 		}
 
 		function getAllGamesInLibrary () {
-			var def = $q.defer();
-
-			$http({
-				method: 'GET',
-				url: 'http://localhost:8080/api/getgames'
-			}).success(function (data, status) {
-				def.resolve(data);
-			}).error(function (data, status) {
-				def.resolve(data);
+			getIt('getgames').then(function (result) {
+				// something with success or failure
 			});
 		}
 
 		function getGamesForConsole (con) {
-			var def = $q.defer();
-
-			$http({
-				method: 'GET',
-				url: 'http://localhost:8080/api/getconsolegames',
-				data: con
-			}).success(function (data, status) {
-				def.resolve(data);
-			}).error(function (data, status) {
-				def.resolve(data);
+			getIt('getconsolegames', con).then(function (result) {
+				// something with success or failure
 			});
 		}
 
 		function getGameInfo (game) {
-			var def = $q.defer();
-
-			$http({
-				method: 'GET',
-				url: 'http://localhost:8080/api/getgameinfo',
-				data: game
-			}).success(function (data, status) {
-				def.resolve(data);
-			}).error(function (data, status) {
-				def.resolve(data);
+			getIt('getgameinfo', game).then(function (result) {
+				// something with success or failure
 			});
 		}
 
 		function getAllConsoles () {
-			var def = $q.defer();
-
-			$http({
-				method: 'GET',
-				url: 'http://localhost:8080/api/getconsoles'
-			}).success(function (data, status) {
-				def.resolve(data);
-			}).error(function (data, status) {
-				def.resolve(data);
+			getIt('getconsoles').then(function (result) {
+				// something with success or failure
 			});
 		}
 
 		function getConsoleInfo (con) {
-			var def = $q.defer();
-
-			$http({
-				method: 'GET',
-				url: 'http://localhost:8080/api/getconsoleinfo',
-				data: con
-			}).success(function (data, status) {
-				def.resolve(data);
-			}).error(function (data, status) {
-				def.resolve(data);
+			getIt('getconsoleinfo', con).then(function (result) {
+				// something with success or failure
 			});
 		}
 
@@ -185,7 +134,6 @@
 			});
 			return def.promise;
 		}
-
 
 		return {
 			writeToLibrary: writeToLibrary,
