@@ -6,7 +6,7 @@
 				Library searching stuff here. Maybe tabs or radios for consoles and games.
 				</md-content>
 			</md-tab>
-			<md-tab label="edit consoles" ng-click="lc.currentTab = 'con'">
+			<md-tab label="consoles" ng-click="lc.currentTab = 'con'">
 				<md-content class="consoles-library md-padding">
 					<md-subheader flex layout-align="space-around center">
 						<md-radio-group ng-model="radios" flex layout="row" layout-xs="column" style="width: 100%;" ng-change="lc.changeAction(radios)">
@@ -21,12 +21,9 @@
 							</md-radio-button>
 						</md-radio-group>
 					</md-subheader>
-					<form name="editConsoles">
-						
-					</form>
 				</md-content>
 			</md-tab>
-			<md-tab label="edit games" ng-click="lc.currentTab = 'games'">
+			<md-tab label="games" ng-click="lc.currentTab = 'games'">
 				<md-content class="games-library md-padding">
 					<md-subheader flex layout-align="space-around center">
 						<md-radio-group ng-model="radios" flex layout="row" layout-xs="column" style="width: 100%;" ng-change="lc.changeAction(radios)">
@@ -41,11 +38,23 @@
 							</md-radio-button>
 						</md-radio-group>
 					</md-subheader>
-					<form name="editGames">
-						
-					</form>
 				</md-content>
 			</md-tab>
 		</md-tabs>
+		<md-subheader ng-if="lc.currentActivity !== 'add'">
+			<md-input-container>
+				<label> Search By: </label>
+				<md-select ng-model="lc.whichSearch">
+					<md-option ng-repeat="opts in lc.searchOptions[lc.currentTab]" ng-value="opts">
+						{{opts}}
+					</md-option>
+				</md-select>
+			</md-input-container>
+		</md-subheader>
+		<div name="editConsoles" ng-switch="lc.currentActivity" layout="row" layout-fill>
+			<form name="addConsole" ng-switch-when="add">
+
+			</form>
+		</div>
 	</md-content>
 </div>

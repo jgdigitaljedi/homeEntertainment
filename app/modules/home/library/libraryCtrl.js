@@ -13,10 +13,16 @@
 		.module('home-control')
 		.controller('LibraryCtrl', Library);
 
-	Library.$inject = ['$scope', '$state', 'LibraryService'];
+	Library.$inject = ['$scope', '$state', 'LibraryService', 'GiantbombService'];
 
-	function Library ($scope, $state, LibraryService) {
+	function Library ($scope, $state, LibraryService, GiantbombService) {
 		var lc = this;
+
+		lc.searchOptions = {
+			games: ['Name', 'Console', 'GB ID', 'Year Released', 'Genre'],
+			con: ['Name', 'Manufacturer', 'GB ID', 'Year Released'],
+			search: ['Games', 'Consoles']
+		};
 
 		lc.action = {
 			add: {
@@ -92,12 +98,13 @@
 
 		lc.changeAction = function (arr) {
 			arr = arr.split(',');
+			lc.currentActivity = arr[0];
 			lc.action[arr[0]][arr[1]]();
 		};
 
 		function initDefaults () {
 			lc.currentTab = 'search';
-			lc.currentActivity = 'add';
+			lc.currentActivity = 'search';
 		}
 
 
