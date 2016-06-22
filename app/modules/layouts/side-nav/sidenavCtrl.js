@@ -32,7 +32,8 @@
 			play: false,
 			watch: false,
 			home: true,
-			server: false
+			server: false,
+			library: false
 		};
 
 		vm.toggleMenu = function (which) {

@@ -2174,6 +2174,12 @@
   overflow: visible;
   clip: auto;
 }
+@font-face {
+  font-family: 'video-games';
+  src: url('../fonts/video_games-webfont.woff2') format('woff2'), url('../fonts/video_games-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
 body,
 md-content.md-blue-grey-theme {
   background-color: #eee;
@@ -2229,6 +2235,8 @@ ul {
   font-size: 1.2em;
   margin: -2px 0 2px -1px;
   padding: 2px 0;
+  text-align: left;
+  margin-left: 20px;
 }
 .activities-nav .activity-button .fa-caret-down {
   transition: 400ms ease;
@@ -2252,6 +2260,14 @@ ul {
   max-height: 540px;
   transition: max-height 400ms ease-in;
   overflow: hidden;
+  color: #90A4AE;
+  padding-left: 26px;
+}
+.activities-nav .nav-list .vg-icon {
+  font-family: 'video-games';
+  margin-right: 12px;
+  font-size: 2.3em;
+  color: #F44336;
 }
 .activities-nav .nav-list .console-list .console-image {
   max-height: 52px;

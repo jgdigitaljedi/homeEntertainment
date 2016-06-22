@@ -28,7 +28,8 @@
 			home: true,
 			play: false,
 			watch: false,
-			server: false
+			server: false,
+			library: false
 		};
 		vm.title = 'Gauthier Home Control Center';
 		vm.version = 'version 1.0.0';

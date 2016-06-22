@@ -18,7 +18,7 @@
             <md-list-item class="console-list" ng-repeat="item in vm.menu.play track by $index"
                 ng-class="{selected: item.link === vm.selected}"
                 ng-click="vm.highlightAndNavigate(item.link, $index, 'play', item.image)">
-                <h2>{{item.name}}</h2>
+                <span class="vg-icon">{{item.fontIcon}}</span><h2>{{item.name}}</h2>
                 <md-divider></md-divider>
             </md-list-item>
             <!-- <md-divider></md-divider>
@@ -42,6 +42,9 @@
                 <md-divider></md-divider>
             </md-list-item>
         </md-list>
+        <md-button class="activity-button" ng-class="{'button-selected': vm.state === 'library'}" ng-click="vm.toggleMenu('library')">
+            <i class="fa fa-archive fa-2x" aria-hidden="true"></i> &nbsp; Library
+        </md-button>
         <md-button class="activity-button" ng-class="{'button-selected': vm.state === 'server'}" ng-click="vm.toggleMenu('server')">
             <i class="fa fa-server fa-2x"></i> &nbsp; Server Info
         </md-button>

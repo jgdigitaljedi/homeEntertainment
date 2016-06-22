@@ -39,5 +39,10 @@ angular.module('home-control')
 				templateUrl: 'app/modules/home/server/server.html',
 				controller: 'ServerCtrl',
 				controllerAs: 'sc'
+			}).state('home.library', {
+				url: '/library',
+				templateUrl: 'app/modules/home/library/library.html',
+				controller: 'LibraryCtrl',
+				controllerAs: 'lc'
 			});			
 	}]);

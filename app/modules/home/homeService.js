@@ -36,7 +36,8 @@
 				{'feature': 'If you don\'t have any common sense then don\'t touch my stuff!'}
 
 			],
-			server: [{'feature': false}]
+			server: [{'feature': false}],
+			library: [{'feature': false}]
 		};
 
 		return {
