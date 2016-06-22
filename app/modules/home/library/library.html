@@ -41,7 +41,7 @@
 				</md-content>
 			</md-tab>
 		</md-tabs>
-		<md-subheader ng-if="lc.currentActivity !== 'add'">
+		<md-subheader ng-if="lc.currentActivity !== 'add'" layout="row">
 			<md-input-container>
 				<label> Search By: </label>
 				<md-select ng-model="lc.whichSearch">
@@ -50,7 +50,11 @@
 					</md-option>
 				</md-select>
 			</md-input-container>
+			<md-input-container class="l-search-container">
+				<input ng-model="lc.searchParam" placeholder="Search" />
+			</md-input-container>
 		</md-subheader>
+		<md-button ng-click=""
 		<div name="editConsoles" ng-switch="lc.currentActivity" layout="row" layout-fill>
 			<form name="addConsole" ng-switch-when="add">
 

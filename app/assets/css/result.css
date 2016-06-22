@@ -2594,3 +2594,11 @@ ul {
 .server-info .ram-usage {
   margin-left: 8px;
 }
+.library-container .l-search-container {
+  margin-left: 50px;
+  width: 400px;
+  font-size: 1.5em;
+}
+.library-container .l-search-container input {
+  margin-top: 23px;
+}
