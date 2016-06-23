@@ -108,6 +108,7 @@
 						styler = 'good';
 						break;
 					case 'ESRB: E':
+					case 'ESRB: K-A':
 						verdict = 'Absolutely!';
 						styler = 'good';
 						break;
