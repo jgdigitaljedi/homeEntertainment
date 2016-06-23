@@ -13,15 +13,32 @@
 		.module('home-control')
 		.controller('LibraryCtrl', Library);
 
-	Library.$inject = ['$scope', '$state', 'LibraryService', 'GiantbombService'];
+	Library.$inject = ['$scope', '$state', 'LibraryService', 'GiantbombService', 'HelpersService'];
 
-	function Library ($scope, $state, LibraryService, GiantbombService) {
+	function Library ($scope, $state, LibraryService, GiantbombService, HelpersService) {
 		var lc = this;
+		var dateFormats = HelpersService.dateFormats();
 
 		lc.searchOptions = {
-			games: ['Name', 'Console', 'GB ID', 'Year Released', 'Genre'],
-			con: ['Name', 'Manufacturer', 'GB ID', 'Year Released'],
-			search: ['Games', 'Consoles']
+			games: [{key: 'name', value: 'Name'}, {key: 'con', value: 'Console'}, {key: 'gbId', value: 'GB ID'}, 
+				{key: 'year', value: 'Year Released'}, {key: 'genre', value: 'Genre'}],
+			con: [{key: 'name', value: 'Name'}, {key: 'manufacturer', value: 'Manufacturer'}, {key: 'gbId', value: 'GB ID'}, {key: 'year', value: 'Year Released'}],
+			search: [{key: 'games', value: 'Games'}, {key: 'con', value: 'Consoles'}]
+		};
+
+		lc.lookupGbInfo = function (id) {
+			console.log('id', id);
+			var whichFunction;
+			if (lc.currentTab === 'games') {
+				whichFunction = 'lookupGame';
+			} else {
+				whichFunction = 'lookupConsole';
+			}
+			GiantbombService[whichFunction](id).then(function (result) {
+				console.log('result', result);
+				result.original_release_date = moment(result.original_release_date).format(dateFormats.abbrMonth);
+				lc.gbSearchResult = result;
+			});
 		};
 
 		lc.action = {
@@ -96,6 +113,12 @@
 			}
 		};
 
+		lc.searchRequested = function () {
+			console.log('first opts', lc.whichSearch);
+			console.log('second opts', lc.extraSearch);
+			console.log('search param', lc.searchParam);
+		};
+
 		lc.changeAction = function (arr) {
 			arr = arr.split(',');
 			lc.currentActivity = arr[0];
@@ -106,8 +129,6 @@
 			lc.currentTab = 'search';
 			lc.currentActivity = 'search';
 		}
-
-
 
 		(function () {
 			initDefaults();

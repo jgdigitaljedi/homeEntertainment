@@ -2607,3 +2607,12 @@ ul {
 .library-container .l-search-container input {
   margin-top: 23px;
 }
+.library-container md-input-container {
+  margin-left: 30px;
+}
+.library-container .giantbomb-results label {
+  font-style: italic;
+  text-decoration: underline;
+  font-weight: bold;
+  color: #ffb300;
+}

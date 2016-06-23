@@ -1,12 +1,11 @@
-<div layout-padding layout="row" class="library-container" flex>
+<div layout-padding layout="row" class="library-container" ng-cloak flex>
 	<md-content layout-fill>
 		<md-tabs md-dynamic-height md-border-bottom md-stretch-tabs="always">
-			<md-tab label="search" ng-click="lc.currentTab = 'search'">
+			<md-tab label="search" ng-click="lc.currentTab = 'search'; lc.currentActivity = 'search'">
 				<md-content class="search-library md-padding">
-				Library searching stuff here. Maybe tabs or radios for consoles and games.
 				</md-content>
 			</md-tab>
-			<md-tab label="consoles" ng-click="lc.currentTab = 'con'">
+			<md-tab label="consoles" ng-click="lc.currentTab = 'con'; radios = 'add,init'; lc.currentActivity = 'add'">
 				<md-content class="consoles-library md-padding">
 					<md-subheader flex layout-align="space-around center">
 						<md-radio-group ng-model="radios" flex layout="row" layout-xs="column" style="width: 100%;" ng-change="lc.changeAction(radios)">
@@ -23,7 +22,7 @@
 					</md-subheader>
 				</md-content>
 			</md-tab>
-			<md-tab label="games" ng-click="lc.currentTab = 'games'">
+			<md-tab label="games" ng-click="lc.currentTab = 'games'; radios = 'add,init'; lc.currentActivity = 'add'">
 				<md-content class="games-library md-padding">
 					<md-subheader flex layout-align="space-around center">
 						<md-radio-group ng-model="radios" flex layout="row" layout-xs="column" style="width: 100%;" ng-change="lc.changeAction(radios)">
@@ -41,24 +40,70 @@
 				</md-content>
 			</md-tab>
 		</md-tabs>
+		<md-divider ng-show="lc.currentTab !== 'search'"></md-divider>
 		<md-subheader ng-if="lc.currentActivity !== 'add'" layout="row">
 			<md-input-container>
 				<label> Search By: </label>
 				<md-select ng-model="lc.whichSearch">
-					<md-option ng-repeat="opts in lc.searchOptions[lc.currentTab]" ng-value="opts">
-						{{opts}}
+					<md-option ng-repeat="opts in lc.searchOptions[lc.currentTab]" ng-value="opts.key">
+						{{opts.value}}
+					</md-option>
+				</md-select>
+			</md-input-container>
+			<md-input-container ng-if="lc.currentTab === 'search' && lc.whichSearch" style="margin-left: 20px;">
+				<md-select ng-model="lc.extraSearch">
+					<md-option ng-repeat="exOpts in lc.searchOptions[lc.whichSearch]" ng-value="exOpts.key">
+						{{exOpts.value}}
 					</md-option>
 				</md-select>
 			</md-input-container>
 			<md-input-container class="l-search-container">
 				<input ng-model="lc.searchParam" placeholder="Search" />
 			</md-input-container>
+			<md-button ng-click="lc.searchRequested()">
+				<i class="fa fa-search"></i> &nbsp; Search
+			</md-button>
 		</md-subheader>
-		<md-button ng-click=""
-		<div name="editConsoles" ng-switch="lc.currentActivity" layout="row" layout-fill>
-			<form name="addConsole" ng-switch-when="add">
-
+		<div ng-switch="lc.currentActivity" layout="row" layout-fill>
+			<form name="addForm" ng-switch-when="add" layout="row" layout-xs="column" layout-wrap>
+				<md-input-container>
+					<label> Giantbomb ID </label>
+					<input ng-model="lc.addForm.gbId" ng-blur="lc.lookupGbInfo(lc.addForm.gbId)" ng-focus="lc.gbSearchResult = null" />
+				</md-input-container>
+				<md-input-container ng-model="lc.addForm.whichConsole" ng-show="lc.currentTab === 'games'">
+					<label> Which Console? </label>
+					<input ng-model="lc.addForm.gameConsole" />
+				</md-input-container>
+				<md-input-container ng-show="lc.currentTab === 'games'">
+					<md-checkbox ng-model="lc.addForm.onHd" ng-true-value="true" ng-false-value="false">
+						On Hard Drive?
+					</md-checkbox>
+				</md-input-container>
+				<md-input-container ng-show="lc.currentTab === 'con'">
+					<md-checkbox ng-model="lc.addForm.hasHd" ng-true-value="true" ng-false-value="false">
+						Has Hard Drive?
+					</md-checkbox>
+				</md-input-container>
 			</form>
+		</div>
+		<div class="giantbomb-results" ng-if="lc.currentActivity === 'add' && lc.gbSearchResult">
+			<div ng-switch="lc.currentTab">
+				<div ng-switch-when="games" layout="row" flex>
+					<div flex="50">
+						<div>
+							<div><label>Name: </label><span>{{lc.gbSearchResult.name}}</span></div><br />
+							<div><label>Description: </label><span>{{lc.gbSearchResult.deck}}</span></div><br />
+							<div><label>Original Release Date: </label><span>{{lc.gbSearchResult.original_release_date}}</span></div><br />
+						</div>
+					</div>
+					<div flex="50" layout-align="space-between start">
+						<img ng-src="{{lc.gbSearchResult.image.medium_url}}" style="max-width: 90%; max-height: 550px; margin-left: 45px;" />
+					</div>
+				</div>
+				<div ng-switch-when="con">
+					
+				</div>
+			</div> 
 		</div>
 	</md-content>
 </div>
