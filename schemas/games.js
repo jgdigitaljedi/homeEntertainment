@@ -8,16 +8,27 @@ var gamesSchema = new Schema({
 	deck: String,
 	genres: Array,
 	idShort: Number,
-	images: Array,
+	images: [
+		{icon_url: String},
+		{medium_url: String},
+		{screen_url: String},
+		{small_url: String},
+		{super_url: String},
+		{thumb_url: String},
+		{tiny_url: String}
+	],
 	name: String,
-	original_game_rating: Array,
+	original_game_rating: String,
 	original_release_date: String,
 	platforms: Array,
 	publishers: Array,
 	similar_games: Array,
-	dateAdded: Date,
+	dateAdded: String,
 	obHd: Boolean,
-	gbId: String
+	gbId: String,
+	year: Number,
+	case: Boolean,
+	burned: Boolean
 });
 
 var Games = mongoose.model('Games', gamesSchema);

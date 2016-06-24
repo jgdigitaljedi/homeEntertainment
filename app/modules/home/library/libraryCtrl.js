@@ -41,6 +41,7 @@
 			});
 		};
 
+
 		lc.action = {
 			add: {
 				init: function () {
@@ -56,7 +57,13 @@
 				submit: function (data) {
 					switch(lc.currentTab) {
 						case 'games':
-
+							if (!data.gameConsole || !data.gbId) {
+								console.log('you can\'t leave shit out');
+							} else {
+								LibraryService.addGame(data, lc.gbSearchResult).then(function (result) {
+									console.log('result from db add', result);
+								});								
+							}
 							break;
 						case 'con': 
 

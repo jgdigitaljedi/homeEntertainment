@@ -13,9 +13,16 @@
 		.module('home-control')
 		.factory('LibraryService', Library);
 
-	Library.$inject = ['$q', '$http'];
+	Library.$inject = ['$q', '$http', 'HelpersService'];
 
-	function Library ($q, $http) {
+	function Library ($q, $http, HelpersService) {
+		var dateFormats = HelpersService.dateFormats();
+
+		function filterResults (data, prop) {
+			return data[prop].map(function (item, index) {
+				return item.name;
+			});
+		}
 
 		function getIt (where, what) {
 			var def = $q.defer(),
@@ -48,13 +55,48 @@
 			return def.promise;
 		}
 
-		function addGameToLibrary (userGame, gbGame) {
-			var def = $q.defer(),
-				game; // gonna have to combine the user form input with the gb call result to match the db model
+		function addGameToLibrary (userData, gbData) {
+			var def = $q.defer();
+			var platforms = gbData.platforms && gbData.platforms.length > 0 ? filterResults(gbData, 'platforms') : ['UNKNOWN'],
+				publishers = gbData.publishers && gbData.publishers.length > 0 ? filterResults(gbData, 'publishers') : ['UNKNOWN'],
+				similar = gbData.similar_games && gbData.similar_games.length > 0 ? filterResults(gbData, 'similar_games') : ['UNKNOWN'],
+				gameGenres = gbData.genres && gbData.genres.length > 0 ? filterResults(gbData, 'genres') : ['UNKNOWN'],
+				gameRating;
 
-			putIt('addgame', game).then(function (result) {
-				// something with success or failure
-			});
+			if (gbData.original_game_rating && gbData.original_game_rating.length > 0) {
+				gbData.original_game_rating.forEach(function (item, index) {
+					if (item.name.substring(0, 4).toUpperCase() === 'ESRB') gameRating = item.name;
+				});								
+			} else {
+				gameRating = 'UNKNOWN';
+			}
+
+			var gameData = {
+				mySystem: userData.gameConsole,
+				gbId: userData.gbId,
+				deck: gbData.deck,
+				genres: gameGenres,
+				idShort: gbData.id,
+				images: gbData.image,
+				name: gbData.name,
+				original_game_rating: gameRating,
+				original_release_date: moment(gbData.original_release_date).format(dateFormats.abbrMonth),
+				platforms: platforms,
+				publishers: publishers,
+				similar_games: similar,
+				dateAdded: moment().format(dateFormats.abbrMonth),
+				onHd: userData.onHd ? true : false,
+				year: parseInt(moment(gbData.original_release_date).format(dateFormats.year)),
+				case: userData.hasCase ? true : false,
+				burned: userData.burnedCopy ? true : false
+			};
+
+			console.log('gameData', gameData);
+			// putIt('addgame', gameData).then(function (result) {
+			// 	// something with success or failure
+				// def.resolve(result);
+			// });
+			return def.promise;
 		}
 
 		function addConsoleToLibrary (userCon, gbCon) {

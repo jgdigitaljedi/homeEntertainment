@@ -2607,8 +2607,16 @@ ul {
 .library-container .l-search-container input {
   margin-top: 23px;
 }
-.library-container md-input-container {
+.library-container .add-form button {
+  margin-top: 22px;
+  height: 1.5em;
+}
+.library-container .add-form md-input-container,
+.library-container .add-form .md-button {
   margin-left: 30px;
+}
+.library-container .add-form md-checkbox {
+  margin-top: 10px;
 }
 .library-container .giantbomb-results label {
   font-style: italic;

@@ -27,7 +27,9 @@ var consolesSchema = new Schema({
 	controllers: String,
 	accessories: String,
 	mods: String,
-	avOutMethod: String
+	avOutMethod: String,
+	year: Number,
+	memoryCards: String
 });
 
 var Consoles = mongoose.model('Consoles', consolesSchema);

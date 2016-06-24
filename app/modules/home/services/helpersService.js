@@ -23,7 +23,8 @@
 
 		function dateFormats () {
 			return {
-				abbrMonth: 'MMM D, YYYY'
+				abbrMonth: 'MMM D, YYYY',
+				year: 'YYYY'
 			};
 		}
 

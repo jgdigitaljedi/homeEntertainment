@@ -64,7 +64,7 @@
 				<i class="fa fa-search"></i> &nbsp; Search
 			</md-button>
 		</md-subheader>
-		<div ng-switch="lc.currentActivity" layout="row" layout-fill>
+		<div ng-switch="lc.currentActivity" layout="row" layout-fill class="add-form">
 			<form name="addForm" ng-switch-when="add" layout="row" layout-xs="column" layout-wrap>
 				<md-input-container>
 					<label> Giantbomb ID </label>
@@ -79,11 +79,24 @@
 						On Hard Drive?
 					</md-checkbox>
 				</md-input-container>
+				<md-input-container ng-show="lc.currentTab === 'games'">
+					<md-checkbox ng-model="lc.addForm.hasCase" ng-true-value="true" ng-false-value="false">
+						Has Original Case?
+					</md-checkbox>
+				</md-input-container>
+				<md-input-container ng-show="lc.currentTab === 'games'">
+					<md-checkbox ng-model="lc.addForm.burnedCopy" ng-true-value="true" ng-false-value="false">
+						Burned Copy?
+					</md-checkbox>
+				</md-input-container>
 				<md-input-container ng-show="lc.currentTab === 'con'">
 					<md-checkbox ng-model="lc.addForm.hasHd" ng-true-value="true" ng-false-value="false">
 						Has Hard Drive?
 					</md-checkbox>
 				</md-input-container>
+				<md-button ng-click="lc.action[lc.currentActivity].submit(lc.addForm)" class="md-raised">
+					<i class="fa fa-paper-plane" aria-hidden="true"></i> &nbsp; Save
+				</md-button>
 			</form>
 		</div>
 		<div class="giantbomb-results" ng-if="lc.currentActivity === 'add' && lc.gbSearchResult">
