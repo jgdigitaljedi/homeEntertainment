@@ -92,7 +92,7 @@
 			};
 
 			console.log('gameData', gameData);
-			// putIt('addgame', gameData).then(function (result) {
+			// putIt('addgame', gameData).then(function (result) { // I comment this out when Im still not quite ready to hit the DB
 			// 	// something with success or failure
 				// def.resolve(result);
 			// });

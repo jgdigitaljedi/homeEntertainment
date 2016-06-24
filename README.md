@@ -2,11 +2,12 @@
 
 This is an app I developed to inform guests (and my wife) how to use all of the things plugged into my entertainment center.
 It also keeps track of my video game library, gets information about the games, and states whether or not they are
-appropriate for my son to play.
+appropriate for my son to play. I even added a section to view current info about my server. It uses a very simple 
+encyption system for passing authentication credentials just so no one in my home network can try to get my password.
 
 Future plans include:
   - home automation controls
-  - server monitoring and maintenence
+  - server maintenence
   - video game wishlists
   - shared Google calendar display and editing
   - "how to's" for additional things in my home
@@ -14,7 +15,7 @@ Future plans include:
 I also plan to migrate my key/value store to a MongoDB eventually and only did used JSON files for rapid prototyping.
 
 ### Version
-0.9
+1.0.0
 
 ### Installation
 Global npm installs:
@@ -51,7 +52,6 @@ Home Control Center uses a number of open source projects to work properly:
 
  - write tests
  - migrate to MongoDB
- - add authentication for game library adds and deletes
  - add more confirmation dialogs
 
 ### Additional Info
