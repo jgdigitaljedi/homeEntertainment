@@ -33,17 +33,19 @@
 		if (cs.activity === 'play') {
 			cs.activtyNotes = cs.consoleParams.params.notes || '';
 			cs.showNotes = cs.activityNotes !== '' ? true : false;
-			GiantbombService.lookupConsole(cs.consoleParams.params.gbId).then(function (response) {
-				console.log('console', response);
-				if (response.error) {
-					cs.showDetails = false;
-				} else {
-					cs.showDetails = true;
-					cs.consoleInfo = response;
-					cs.consoleInfo.release_date = moment(cs.consoleInfo.release_date).format(dateFormats.abbrMonth);
-					cs.consoleInfo.install_base = HelpersService.commafy(cs.consoleInfo.install_base);				
-				}
-			});
+			if (con !== 'pc') {
+				GiantbombService.lookupConsole(cs.consoleParams.params.gbId).then(function (response) {
+					console.log('console', response);
+					if (response.error) {
+						cs.showDetails = false;
+					} else {
+						cs.showDetails = true;
+						cs.consoleInfo = response;
+						cs.consoleInfo.release_date = moment(cs.consoleInfo.release_date).format(dateFormats.abbrMonth);
+						cs.consoleInfo.install_base = HelpersService.commafy(cs.consoleInfo.install_base);				
+					}
+				});				
+			}
 		} else {
 			cs.showDetails = false;
 			cs.showNotes = true;

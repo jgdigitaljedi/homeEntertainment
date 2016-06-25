@@ -100,12 +100,34 @@
 		}
 
 		function addConsoleToLibrary (userCon, gbCon) {
-			var def = $q.defer(),
-				con; // gonna have to combine the user form input with the gb call result to match the db model
-
-			putIt('addconsole', con).then(function (result) {
+			var def = $q.defer();
+			console.log('gbCon', gbCon);
+			console.log('userCon', userCon);
+			var conData = {
+				deck: gbCon.deck,
+				idShort: gbCon.id,
+				images: gbCon.image,
+				install_base: HelpersService.commafy(parseInt(gbCon.install_base)),
+				name: gbCon.name,
+				company: gbCon.company.name,
+				original_price: gbCon.original_price,
+				release_date: gbCon.release_date,
+				dateAdded: moment().format(dateFormats.abbrMonth),
+				hasHd: userCon.hasHd ? true : false,
+				portNumber: userCon.portNumber,
+				gbId: userCon.gbId,
+				notes: userCon.conNotes,
+				controllers: userCon.controllers,
+				accessories: userCon.accessories,
+				mods: userCon.mods,
+				avOutMethod: userCon.avOut,
+				memoryCards: userCon.memoryCards,
+				year: parseInt(moment(gbCon.release_date).format(dateFormats.year))
+			};
+			console.log('console data', conData);
+			// putIt('addconsole', conData).then(function (result) {
 				// something with success or failure
-			});
+			// });
 		}
 
 		function deleteGameFromLibrary (game) {

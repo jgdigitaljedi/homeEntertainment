@@ -2618,6 +2618,9 @@ ul {
 .library-container .add-form md-checkbox {
   margin-top: 10px;
 }
+.library-container .add-form .port-select {
+  width: 130px;
+}
 .library-container .giantbomb-results label {
   font-style: italic;
   text-decoration: underline;

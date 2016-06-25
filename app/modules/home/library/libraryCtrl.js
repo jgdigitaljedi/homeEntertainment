@@ -26,6 +26,8 @@
 			search: [{key: 'games', value: 'Games'}, {key: 'con', value: 'Consoles'}]
 		};
 
+		lc.portOptions = ['NA', '1', '2', '3', '4', '5', '6', '7', '8'];
+
 		lc.lookupGbInfo = function (id) {
 			console.log('id', id);
 			var whichFunction;
@@ -36,7 +38,12 @@
 			}
 			GiantbombService[whichFunction](id).then(function (result) {
 				console.log('result', result);
-				result.original_release_date = moment(result.original_release_date).format(dateFormats.abbrMonth);
+				if (result.original_release_date) {
+					result.original_release_date = moment(result.original_release_date).format(dateFormats.abbrMonth);
+				}
+				if (result.release_date) {
+					result.release_date = moment(result.release_date).format(dateFormats.abbrMonth);
+				}
 				lc.gbSearchResult = result;
 			});
 		};
@@ -61,12 +68,18 @@
 								console.log('you can\'t leave shit out');
 							} else {
 								LibraryService.addGame(data, lc.gbSearchResult).then(function (result) {
-									console.log('result from db add', result);
+									console.log('result from db game add', result);
 								});								
 							}
 							break;
 						case 'con': 
-
+							if (!data.gbId) {
+								console.log('you can\'t leave shit out');
+							} else {
+								LibraryService.addConsole(data, lc.gbSearchResult).then(function (result) {
+									console.log('result from db console add', result);
+								});								
+							}
 							break;
 					}
 				}

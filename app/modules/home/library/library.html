@@ -94,6 +94,38 @@
 						Has Hard Drive?
 					</md-checkbox>
 				</md-input-container>
+				<md-input-container ng-show="lc.currentTab === 'con'">
+					<label> Port Number: </label>
+					<md-select ng-model="lc.addForm.portNumber" class="port-select">
+						<md-option ng-repeat="portNumber in lc.portOptions">
+							{{portNumber}}
+						</md-option>
+					</md-checkbox>
+				</md-input-container>
+				<md-input-container ng-switch="lc-currentTab === 'con'">
+					<label> Notes (seperate with ;) </label>
+					<input ng-model="lc.addForm.conNotes" />
+				</md-input-container>
+				<md-input-container ng-switch="lc-currentTab === 'con'">
+					<label> Controllers (seperate with ;) </label>
+					<input ng-model="lc.addForm.controllers" />
+				</md-input-container>
+				<md-input-container ng-switch="lc-currentTab === 'con'">
+					<label> Accessories (seperate with ;) </label>
+					<input ng-model="lc.addForm.accessories" />
+				</md-input-container>
+				<md-input-container ng-switch="lc-currentTab === 'con'">
+					<label> Memory Cards (seperate with ;) </label>
+					<input ng-model="lc.addForm.memoryCards" />
+				</md-input-container>
+				<md-input-container ng-switch="lc-currentTab === 'con'">
+					<label> Mods (seperate with ;) </label>
+					<input ng-model="lc.addForm.mods" />
+				</md-input-container>
+				<md-input-container ng-switch="lc-currentTab === 'con'">
+					<label> AV Out Method </label>
+					<input ng-model="lc.addForm.avOut" />
+				</md-input-container>
 				<md-button ng-click="lc.action[lc.currentActivity].submit(lc.addForm)" class="md-raised">
 					<i class="fa fa-paper-plane" aria-hidden="true"></i> &nbsp; Save
 				</md-button>
@@ -107,21 +139,30 @@
 		</div>
 		<div class="giantbomb-results" ng-if="lc.currentActivity === 'add' && lc.gbSearchResult">
 			<div ng-switch="lc.currentTab">
-				<div ng-switch-when="games" layout="row" flex>
+				<div layout="row" flex>
 					<div flex="50">
 						<div>
 							<div><label>Name: </label><span>{{lc.gbSearchResult.name}}</span></div><br />
 							<div><label>Description: </label><span>{{lc.gbSearchResult.deck}}</span></div><br />
-							<div><label>Original Release Date: </label><span>{{lc.gbSearchResult.original_release_date}}</span></div><br />
+							<div>
+								<label>Original Release Date: </label>
+								<span ng-switch-when="games">{{lc.gbSearchResult.original_release_date}}</span>
+								<span ng-switch-when="con">{{lc.gbSearchResult.release_date}}</span>
+							</div><br />
 						</div>
 					</div>
 					<div flex="50" layout-align="space-between start">
 						<img ng-src="{{lc.gbSearchResult.image.medium_url}}" style="max-width: 90%; max-height: 550px; margin-left: 45px;" />
 					</div>
 				</div>
-				<div ng-switch-when="con">
-					
-				</div>
+				<!-- <div ng-switch-when="con" layout="row" flex>
+					<div flex="50">
+
+					</div>
+					<div flex="50">
+
+					</div>
+				</div> -->
 			</div> 
 		</div>
 	</md-content>

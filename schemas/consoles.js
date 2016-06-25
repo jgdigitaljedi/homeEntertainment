@@ -6,13 +6,16 @@ var consolesSchema = new Schema({
 	id: ObjectId,
 	deck: String,
 	idShort: Number,
-	image: {
-		icon_url: String,
-		tiny_url: String,
-		small_url: String,
-		medium_url: String,
-		large_url: String
-	},
+	images: [
+		{icon_url: String},
+		{medium_url: String},
+		{screen_url: String},
+		{small_url: String},
+		{super_url: String},
+		{thumb_url: String},
+		{tiny_url: String}
+	],
+	company: String,
 	install_base: String,
 	name: String,
 	original_price: String,
