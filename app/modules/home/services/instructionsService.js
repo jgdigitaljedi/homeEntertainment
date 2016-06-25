@@ -316,7 +316,10 @@
 
 		return {
 			getInstructionArray: getInstructionArray,
-			getConsoleInstructions: getConsoleInstructions
+			getConsoleInstructions: getConsoleInstructions,
+			getInsList: function () {
+				return insList;
+			}
 		};
 	}
 })();

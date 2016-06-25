@@ -13,9 +13,9 @@
 		.module('home-control')
 		.controller('LibraryCtrl', Library);
 
-	Library.$inject = ['$scope', '$state', 'LibraryService', 'GiantbombService', 'HelpersService'];
+	Library.$inject = ['$scope', '$state', 'LibraryService', 'GiantbombService', 'HelpersService', '$mdDialog'];
 
-	function Library ($scope, $state, LibraryService, GiantbombService, HelpersService) {
+	function Library ($scope, $state, LibraryService, GiantbombService, HelpersService, $mdDialog) {
 		var lc = this;
 		var dateFormats = HelpersService.dateFormats();
 
@@ -48,6 +48,19 @@
 			});
 		};
 
+		lc.openInstructionsDialog = function () {
+			$mdDialog.show({
+				templateUrl: 'app/modules/home/library/instructions.html',
+				controller: 'InsCtrl as ic',
+				clickOutsideToClose: true
+			}).then(function (result) {
+				if (result.result) {
+					console.log('goal is to have result be an instructions array', result);
+				} else {
+					console.log('something went wrong');
+				}
+			});
+		};
 
 		lc.action = {
 			add: {
