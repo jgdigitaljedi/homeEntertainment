@@ -1,26 +1,209 @@
 {
-	"games": [
-		{"gbId": "3030-45354", "title": "2014 FIFA World Cup Brazil", "onHd": false},
-		{"gbId": "3030-22928", "title": "Assassin's Creed II", "onHd": false},
-		{"gbId": "3030-29443", "title": "Batman Arkham City", "onHd": false},
-		{"gbId": "3030-20487", "title": "Borderlands", "onHd": false},
-		{"gbId": "3030-20700", "title": "Brutal Legend", "onHd": false},
-		{"gbId": "3030-38039", "title": "Call of Duty: Black Ops II", "onHd": false},
-		{"gbId": "3030-16019", "title": "The Eye of Judgment", "onHd": false},
-		{"gbId": "3030-38043", "title": "God of War Ascension", "onHd": false},
-		{"gbId": "3030-28001", "title": "God of War Collection", "onHd": false},
-		{"gbId": "3030-20461", "title": "God of War 3", "onHd": false},
-		{"gbId": "3030-20605", "title": "High Velocity Bowling", "onHd": true},
-		{"gbId": "3030-36765", "title": "Grand Theft Auto V", "onHd": false},
-		{"gbId": "3030-20602", "title": "Little Big Planet", "onHd": true},
-		{"gbId": "3030-34710", "title": "NBA Jam: On Fire Edition", "onHd": true},
-		{"gbId": "3030-9741", "title": "Resistence: Fall of Man", "onHd": false},
-		{"gbId": "3030-20699", "title": "Resistence 2", "onHd": false},
-		{"gbId": "3030-29021", "title": "Resistence 3", "onHd": false},
-		{"gbId": "3030-20714", "title": "Rockband 2", "onHd": false},
-		{"gbId": "3030-24218", "title": "Sonic's Ultimate Genesis Collection", "onHd": false},
-		{"gbId": "3030-30375", "title": "Trials of Topoq", "onHd": true},
-		{"gbId": "3030-20610", "title": "Wipeout HD Fury", "onHd": true},
-		{"gbId": "3030-36147", "title": "Worms Crazy Golf", "onHd": true}
-	]
+    "games": [
+        {
+            "gbId": "3030-45354",
+            "title": "2014 FIFA World Cup Brazil",
+            "onHd": false
+        },
+        {
+            "title": "AERO Racer",
+            "gbId": "3030-31576",
+            "onHd": true
+        },
+        {
+            "gbId": "3030-22928",
+            "title": "Assassin's Creed II",
+            "onHd": false
+        },
+        {
+            "gbId": "3030-29443",
+            "title": "Batman Arkham City",
+            "onHd": false
+        },
+        {
+            "title": "Bejeweled 2",
+            "gbId": "3030-22608",
+            "onHd": true
+        },
+        {
+            "gbId": "3030-20487",
+            "title": "Borderlands",
+            "onHd": false
+        },
+        {
+            "gbId": "3030-20700",
+            "title": "Brutal Legend",
+            "onHd": false
+        },
+        {
+            "gbId": "3030-38039",
+            "title": "Call of Duty: Black Ops II",
+            "onHd": false
+        },
+        {
+            "title": "Dungeon Hunter",
+            "gbId": "3030-28868",
+            "onHd": true
+        },
+        {
+            "title": "Echochrome",
+            "gbId": "3030-20604",
+            "onHd": true
+        },
+        {
+            "title": "Final Fantasy VII",
+            "gbId": "3030-13053",
+            "onHd": true
+        },
+        {
+            "gbId": "3030-20461",
+            "title": "God of War 3",
+            "onHd": false
+        },
+        {
+            "gbId": "3030-38043",
+            "title": "God of War Ascension",
+            "onHd": false
+        },
+        {
+            "gbId": "3030-28001",
+            "title": "God of War Collection",
+            "onHd": false
+        },
+        {
+            "gbId": "3030-36765",
+            "title": "Grand Theft Auto V",
+            "onHd": false
+        },
+        {
+            "title": "High Stakes on the Vegas Strip",
+            "gbId": "3030-22417",
+            "onHd": true
+        },
+        {
+            "gbId": "3030-20605",
+            "title": "High Velocity Bowling",
+            "onHd": true
+        },
+        {
+            "title": "Jeopardy!",
+            "gbId": "3030-40064",
+            "onHd": true
+        },
+        {
+            "title": "Let's Golf",
+            "gbId": "3030-28019",
+            "onHd": true
+        },
+        {
+            "gbId": "3030-20602",
+            "title": "Little Big Planet",
+            "onHd": true
+        },
+        {
+            "title": "Midnight Club 3",
+            "gbId": "3030-5875",
+            "onHd": true
+        },
+        {
+            "title": "Mortal Kombat II",
+            "gbId": "3030-3571",
+            "onHd": true
+        },
+        {
+            "gbId": "3030-34710",
+            "title": "NBA Jam: On Fire Edition",
+            "onHd": true
+        },
+        {
+            "title": "Operation Creature Feature",
+            "gbId": "3030-25830",
+            "onHd": true
+        },
+        {
+            "title": "Rampart",
+            "gbId": "3030-19146",
+            "onHd": true
+        },
+        {
+            "gbId": "3030-20699",
+            "title": "Resistence 2",
+            "onHd": false
+        },
+        {
+            "gbId": "3030-29021",
+            "title": "Resistence 3",
+            "onHd": false
+        },
+        {
+            "gbId": "3030-9741",
+            "title": "Resistence: Fall of Man",
+            "onHd": false
+        },
+        {
+            "gbId": "3030-20714",
+            "title": "Rockband 2",
+            "onHd": false
+        },
+        {
+            "title": "Sonic 2",
+            "gbId": "3030-1662",
+            "onHd": true
+        },
+        {
+            "title": "Sonic Adventure",
+            "gbId": "3030-7852",
+            "onHd": true
+        },
+        {
+            "title": "Sonic CD",
+            "gbId": "3030-14433",
+            "onHd": true
+        },
+        {
+            "gbId": "3030-24218",
+            "title": "Sonic's Ultimate Genesis Collection",
+            "onHd": false
+        },
+        {
+            "gbId": "3030-16019",
+            "title": "The Eye of Judgment",
+            "onHd": false
+        },
+        {
+            "title": "The Price is RIght",
+            "gbId": "3030-16675",
+            "onHd": true
+        },
+        {
+            "title": "Tom Clancy",
+            "gbId": "3030-26095",
+            "onHd": true
+        },
+        {
+            "gbId": "3030-30375",
+            "title": "Trials of Topoq",
+            "onHd": true
+        },
+        {
+            "gbId": "3030-20610",
+            "title": "Wipeout HD Fury",
+            "onHd": true
+        },
+        {
+            "title": "Wolfenstein 3D",
+            "gbId": "3030-7694",
+            "onHd": true
+        },
+        {
+            "title": "Worms",
+            "gbId": "3030-20815",
+            "onHd": true
+        },
+        {
+            "gbId": "3030-36147",
+            "title": "Worms Crazy Golf",
+            "onHd": true
+        }
+    ]
 }
