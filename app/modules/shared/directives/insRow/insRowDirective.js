@@ -19,7 +19,7 @@
 				link: link,
 				scope: {
 					selOptions: '=selOptions',
-					userSel: '=?userSelelected'
+					userSel: '=chosen'
 				},
 				restrict: 'EA',
 				transclude: true,
@@ -37,8 +37,7 @@
 
 				scope.newValue = function () {
 					console.log('insArr', scope.insArr);
-					scope.userSel = scope.insArr;
-					attrs.userSelected = scope.insArr;			
+					scope.userSel.result = scope.insArr;
 				};
 			}
 

@@ -1,12 +1,12 @@
 <section class="console-instructions-modal" layout="column" style="height: 400px; width: 400px;">
 	<md-dialog-content>
 		<h2>Add Console Instructions</h2>
-		<div id="ins-area" layout="column" layout-fill>
-			<ins-row sel-options="ic.insList" user-selected="ic.insDd"></ins-row>
-		</div>
+		<table id="ins-area" layout="column" layout-fill>
+			<!-- <ins-row sel-options="ic.insList" chosen="ic.insDd"></ins-row> -->
+		</table>
 	</md-dialog-content>
 	<md-dialog-actions>
-		<md-button class="md-raised">
+		<md-button class="md-raised" ng-click="ic.saveInstructions()">
 			<i class="fa fa-paper-plane"></i> &nbsp; Done
 		</md-button>
 	</md-dialog-actions>

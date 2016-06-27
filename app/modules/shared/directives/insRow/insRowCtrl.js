@@ -23,7 +23,7 @@
 			  return angular.element(document.querySelectorAll(selector));
 			};
 			vm.addAnother = function () {
-				var another = $compile('<ins-row sel-options="insList" user-selected="insDd"></ins-row>')($scope);
+				var another = $compile('<ins-row sel-options="insList" chosen="{result: \'\'}"></ins-row>')($scope);
 				$element.parent().append(another);
 			};
 		}
