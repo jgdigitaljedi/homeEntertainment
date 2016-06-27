@@ -54,9 +54,8 @@
 				controller: 'InsCtrl as ic',
 				clickOutsideToClose: true
 			}).then(function (result) {
-				if (result) {
-					lc.insDone = 'fa fa-check-circle fa-2x';
-					lc.insColor = '#2E7D32';
+				if (result && result.length > 0) {
+					lc.insDone = {icon: 'fa fa-check-circle fa-2x', color: '#2E7D32'};
 					console.log('goal is to have result be an instructions array', result);
 				} else {
 					console.log('something went wrong');
@@ -163,8 +162,7 @@
 		function initDefaults () {
 			lc.currentTab = 'search';
 			lc.currentActivity = 'search';
-			lc.insDone = 'fa fa-times-circle fa-2x';
-			lc.insColor = '#F44336';
+			lc.insDone = {icon: 'fa fa-times-circle fa-2x', color: '#F44336'};
 		}
 
 		(function () {

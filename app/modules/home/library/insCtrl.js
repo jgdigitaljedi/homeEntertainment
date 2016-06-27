@@ -47,7 +47,6 @@
 		}
 
 		ic.addAnother = function () {
-			console.log('so far', ic.insArr);
 			$('#ins-area').append(new newRow());
 			counter++;
 		};
@@ -57,7 +56,6 @@
 			for (var ins in ic.insArr) {
 				insSet.push(ic.insArr[ins]);
 			}
-			console.log('instructions array', insSet);
 			$mdDialog.hide(insSet);
 		};
 		
