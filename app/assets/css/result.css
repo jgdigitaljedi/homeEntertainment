@@ -2634,6 +2634,13 @@ ul {
   width: 100%;
   text-align: center;
 }
+.console-instructions-modal .ins-row div {
+  margin: 0;
+  padding: 0;
+  height: 30px;
+}
 .console-instructions-modal .ins-row md-input-container {
   width: 270px;
+  padding: 0;
+  margin: 0 4px;
 }

@@ -18,7 +18,8 @@
 			var directive = {
 				link: link,
 				scope: {
-					selOptions: '=selOptions'
+					selOptions: '=selOptions',
+					userSel: '=?userSelelected'
 				},
 				restrict: 'EA',
 				transclude: true,
@@ -31,7 +32,14 @@
 
 			function link(scope, element, attrs, ctrl, transclude) {
 				scope.insList = scope.selOptions;
-				
+
+				console.log('attrs', attrs);
+
+				scope.newValue = function () {
+					console.log('insArr', scope.insArr);
+					delete scope.insArr.$$mdSelectId;
+					scope.userSel = JSON.stringify(scope.insArr);				
+				};
 			}
 
 		}

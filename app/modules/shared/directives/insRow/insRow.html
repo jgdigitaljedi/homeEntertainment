@@ -1,9 +1,9 @@
-<div>
+<!-- <div> -->
 	<div layout="row" class="ins-row">
 		<div>
 			<md-input-container> 
-				<md-select ng-model="insArr">
-					<md-option ng-repeat="item in insList">
+				<md-select ng-model="insArr" ng-change="newValue()">
+					<md-option ng-repeat="item in insList" value="{{item.name}}">
 						{{item.ins}}
 					</md-option>
 				</md-select>
@@ -16,4 +16,4 @@
 		</div>
 	</div><br />	
 
-</div>
+<!-- </div> -->
