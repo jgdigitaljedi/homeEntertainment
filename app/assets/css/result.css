@@ -2627,3 +2627,13 @@ ul {
   font-weight: bold;
   color: #ffb300;
 }
+.console-instructions-modal {
+  color: white;
+}
+.console-instructions-modal h2 {
+  width: 100%;
+  text-align: center;
+}
+.console-instructions-modal .ins-row md-input-container {
+  width: 270px;
+}

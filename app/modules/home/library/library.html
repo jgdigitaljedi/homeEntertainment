@@ -126,7 +126,7 @@
 					<label> AV Out Method </label>
 					<input ng-model="lc.addForm.avOut" />
 				</md-input-container>
-				<md-button ng-switch="con" ng-click="lc.openInstructionsDialog()">
+				<md-button ng-switch="lc-currentTab === 'con'" ng-click="lc.openInstructionsDialog()">
 					<i class="fa fa-list-ol" aria-hidden="true"></i> &nbsp; Instructions
 				</md-button>
 				<md-button ng-click="lc.action[lc.currentActivity].submit(lc.addForm)" class="md-raised">

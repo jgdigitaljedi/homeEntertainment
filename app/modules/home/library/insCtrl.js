@@ -23,9 +23,9 @@
 		};
 
 
-		ic.addTemplate = angular.element(
-			'<div layout="row">' +
-				'<div layout="column">' +
+		var selectTemplate = //angular.element(
+			'<div layout="row" class="ins-row">' +
+				'<div>' +
 					'<md-input-container>' + 
 						'<md-select ng-model="ic.insArr">' +
 							'<md-option ng-repeat="item in ic.insList">' +
@@ -34,18 +34,23 @@
 						'</md-select>' +
 					'</md-input-container>' +
 				'</div>' +
-				'<div layout="column">' +
+				'<div>' +
 					'<md-button ng-click="ic.addAnother()">' +
 						'<i class="fa fa-plus" aria-hidden="true"></i>' +
 					'</md-button>' +
 				'</div>' +
-			'</div><br />'
-		);
+			'</div>';
+		//);
 
+			var insRows = '',
+				newRow;
 		ic.addAnother = function () {
-			console.log('adding row');
-			var newRow = $compile(ic.addTemplate)($scope);
-			$('#ins-area').append(newRow);
+			// $('#ins-area').append($compile('<ins-row sel-options="ic.insList"></ins-row>'));
+			// insRows += selectTemplate;
+			// newRow = $compile(angular.element(insRows))($scope);
+			// console.log('adding row', insRows);
+			// // $('#ins-area').append(selectTemplate);
+			// $('#ins-area').html(newRow);
 		};
 
 		(function () {

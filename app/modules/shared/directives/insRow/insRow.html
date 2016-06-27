@@ -1,0 +1,19 @@
+<div>
+	<div layout="row" class="ins-row">
+		<div>
+			<md-input-container> 
+				<md-select ng-model="insArr">
+					<md-option ng-repeat="item in insList">
+						{{item.ins}}
+					</md-option>
+				</md-select>
+			</md-input-container>
+		</div>
+		<div>
+			<md-button ng-click="vm.addAnother()">
+				<i class="fa fa-plus" aria-hidden="true"></i>
+			</md-button>
+		</div>
+	</div><br />	
+
+</div>
