@@ -37,8 +37,8 @@
 
 				scope.newValue = function () {
 					console.log('insArr', scope.insArr);
-					delete scope.insArr.$$mdSelectId;
-					scope.userSel = JSON.stringify(scope.insArr);				
+					scope.userSel = scope.insArr;
+					attrs.userSelected = scope.insArr;			
 				};
 			}
 

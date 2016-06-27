@@ -23,9 +23,8 @@
 			  return angular.element(document.querySelectorAll(selector));
 			};
 			vm.addAnother = function () {
-				var another = $compile('<ins-row sel-options="insList" user-selected=""></ins-row>')($scope);
+				var another = $compile('<ins-row sel-options="insList" user-selected="insDd"></ins-row>')($scope);
 				$element.parent().append(another);
-				console.log('directive ctrl', $element.parent());
 			};
 		}
 

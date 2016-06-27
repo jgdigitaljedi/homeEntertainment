@@ -21,6 +21,8 @@
 		var $ = function(selector){
 		  return angular.element(document.querySelectorAll(selector));
 		};
+
+		ic.insDd = 'test';
 		
 		(function () {
 			var insList = InstructionsService.getInsList();
