@@ -19,23 +19,13 @@
 		var lc = this;
 		var dateFormats = HelpersService.dateFormats();
 
-		lc.searchOptions = {
-			games: [{key: 'name', value: 'Name'}, {key: 'con', value: 'Console'}, {key: 'gbId', value: 'GB ID'}, 
-				{key: 'year', value: 'Year Released'}, {key: 'genre', value: 'Genre'}],
-			con: [{key: 'name', value: 'Name'}, {key: 'manufacturer', value: 'Manufacturer'}, {key: 'gbId', value: 'GB ID'}, {key: 'year', value: 'Year Released'}],
-			search: [{key: 'games', value: 'Games'}, {key: 'con', value: 'Consoles'}]
-		};
-
-		lc.portOptions = ['NA', '1', '2', '3', '4', '5', '6', '7', '8'];
-
-		var $ = function(selector){
+		var $ = function (selector){
 		  return angular.element(document.querySelectorAll(selector));
 		};
 
 		$scope.uploadLogo = function (files) {
 			var fd = new FormData();
-			console.log('file', files[0]);
-			lc.logoName = files[0].name;
+			lc.logoName = 'app/assets/images/' + files[0].name;
 			fd.append('file', files[0]);
 			if (!files[0]) {
 		    	$('#console-logo-upload').find('label').css({'background-color': '#F44336'});		
@@ -98,8 +88,18 @@
 						case 'games':
 							console.log('action is add.init with what === ' + lc.currentTab);
 							break;
-						case 'con': 
-							console.log('action is add.init with what === ' + lc.currentTab);
+						case 'con':
+							lc.insDone = {icon: 'fa fa-times-circle fa-2x', color: '#F44336'};
+							lc.imageMissing = true;
+							lc.searchOptions = {
+								games: [{key: 'name', value: 'Name'}, {key: 'con', value: 'Console'}, {key: 'gbId', value: 'GB ID'}, 
+									{key: 'year', value: 'Year Released'}, {key: 'genre', value: 'Genre'}],
+								con: [{key: 'name', value: 'Name'}, {key: 'manufacturer', value: 'Manufacturer'}, {key: 'gbId', value: 'GB ID'}, 
+									{key: 'year', value: 'Year Released'}],
+								search: [{key: 'games', value: 'Games'}, {key: 'con', value: 'Consoles'}]
+							};
+
+							lc.portOptions = ['NA', '1', '2', '3', '4', '5', '6', '7', '8'];
 							break;
 					}					
 				},
@@ -107,6 +107,7 @@
 					switch(lc.currentTab) {
 						case 'games':
 							if (!data.gameConsole || !data.gbId) {
+								// with form validation it should never get here
 								console.log('you can\'t leave shit out');
 							} else {
 								LibraryService.addGame(data, lc.gbSearchResult).then(function (result) {
@@ -116,6 +117,7 @@
 							break;
 						case 'con': 
 							if (!data.gbId) {
+								// with form validation it should never get here
 								console.log('you can\'t leave shit out');
 							} else {
 								data.instructions = lc.instructions;
@@ -193,8 +195,6 @@
 		function initDefaults () {
 			lc.currentTab = 'search';
 			lc.currentActivity = 'search';
-			lc.insDone = {icon: 'fa fa-times-circle fa-2x', color: '#F44336'};
-			lc.imageMissing = true;
 		}
 
 		(function () {
