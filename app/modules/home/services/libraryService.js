@@ -25,6 +25,13 @@
 			});
 		}
 
+		function handlePossibleArrays (what) {
+			if (!what) return 'NONE';
+			var whatSplit = what.split(';');
+			if (whatSplit.length === 1) return what;
+			return whatSplit;
+		}
+
 		function getIt (where, what) {
 			var def = $q.defer(),
 				opts = {
@@ -104,6 +111,7 @@
 			var def = $q.defer();
 			console.log('gbCon', gbCon);
 			console.log('userCon', userCon);
+
 			var conData = {
 				deck: gbCon.deck,
 				idShort: gbCon.id,
@@ -117,18 +125,23 @@
 				hasHd: userCon.hasHd ? true : false,
 				portNumber: userCon.portNumber,
 				gbId: userCon.gbId,
-				notes: userCon.conNotes,
-				controllers: userCon.controllers,
-				accessories: userCon.accessories,
-				mods: userCon.mods,
+				notes: handlePossibleArrays(userCon.conNotes),
+				controllers: handlePossibleArrays(userCon.controllers),
+				accessories: handlePossibleArrays(userCon.accessories),
+				mods: handlePossibleArrays(userCon.mods),
 				avOutMethod: userCon.avOut,
-				memoryCards: userCon.memoryCards,
-				year: parseInt(moment(gbCon.release_date).format(dateFormats.year))
+				memoryCards: handlePossibleArrays(userCon.memoryCards),
+				year: parseInt(moment(gbCon.release_date).format(dateFormats.year)),
+				listImage: userCon.listImage,
+				burnedGames: userCon.burnedGames ? true : false,
+				instructions: userCon.instructions
 			};
 			console.log('console data', conData);
 			// putIt('addconsole', conData).then(function (result) {
 				// something with success or failure
 			// });
+
+			
 		}
 
 		function deleteGameFromLibrary (game) {

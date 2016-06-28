@@ -1,7 +1,7 @@
 {
-  "name": "home-control",
-  "description": "Angular SPA",
-  "version": "0.0.1",
+  "name": "Home Control",
+  "description": "Angular SPA to track assets and control things at home",
+  "version": "2.0.1",
   "author": "Joey Gauthier",
   "engines": {
     "node": "0.10.x",
@@ -17,16 +17,15 @@
     "body-parser": "^1.15.1",
     "bower": "~1.3.8",
     "chalk": "~0.5",
-    "cors": "^2.7.1",
     "crypto-js": "^3.1.6",
     "express": "^4.13.4",
-    "express-fileupload": "0.0.5",
     "font-awesome": "^4.6.3",
     "glob": "~4.0.5",
     "grunt-cli": "~0.1.13",
     "http-proxy": "^1.13.3",
     "moment": "^2.13.0",
     "mongoose": "^4.5.0",
+    "multer": "^1.1.0",
     "shelljs": "^0.7.0"
   },
   "devDependencies": {

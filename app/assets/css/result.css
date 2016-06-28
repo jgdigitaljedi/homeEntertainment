@@ -2621,6 +2621,10 @@ ul {
 .library-container .add-form .port-select {
   width: 130px;
 }
+.library-container .logo-text {
+  position: absolute;
+  margin-left: 114px;
+}
 .library-container .giantbomb-results label {
   font-style: italic;
   text-decoration: underline;

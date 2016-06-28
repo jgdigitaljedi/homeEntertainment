@@ -10,6 +10,18 @@ var port = process.env.PORT || 8080;
 var http = require('http');
 var gameApi = require('./gamesModule.js');
 var consoleApi = require('./consolesModule.js');
+var multer = require('multer');
+// var uploadConsoleLogo = multer({ dest: 'app/assets/images/' });
+
+var consoleLogoStorage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, './app/assets/images/');
+    },
+    filename: function (req, file, cb) {
+        cb(null, file.originalname);
+    }
+});
+var uploadConsoleLogo = multer({storage: consoleLogoStorage});
 
 //db
 var mongoose = require('mongoose');
@@ -220,6 +232,15 @@ app.post('/api/writeLibrary', function (req, res) {
 		res.send(writeToJson(newLib , data.fileName));
 		console.log('req', bodyString);
 	});
+});
+
+/********************
+file uploads
+********************/
+app.post('/api/uploadconsolelogo', uploadConsoleLogo.single('file'), function (req, res, next) {
+	// req.file is the `photo` file 
+	console.log('hit the api upload point');
+	
 });
 
 /********************

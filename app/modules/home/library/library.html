@@ -90,6 +90,11 @@
 					</md-checkbox>
 				</md-input-container>
 				<md-input-container ng-show="lc.currentTab === 'con'">
+					<md-checkbox ng-model="lc.addForm.burnedGames" ng-true-value="true" ng-false-value="false">
+						Plays Burned Copies?
+					</md-checkbox>
+				</md-input-container>
+				<md-input-container ng-show="lc.currentTab === 'con'">
 					<md-checkbox ng-model="lc.addForm.hasHd" ng-true-value="true" ng-false-value="false">
 						Has Hard Drive?
 					</md-checkbox>
@@ -126,9 +131,13 @@
 					<label> AV Out Method </label>
 					<input ng-model="lc.addForm.avOut" />
 				</md-input-container>
-				<md-button ng-switch="lc-currentTab === 'con'" ng-click="lc.openInstructionsDialog()" ng-style="{'color': lc.insDone.color}">
+				<md-button ng-switch="lc.currentTab === 'con'" ng-click="lc.openInstructionsDialog()" ng-style="{'color': lc.insDone.color}">
 					<i class="fa fa-list-ol" aria-hidden="true"></i> &nbsp; Instructions &nbsp; &nbsp; <i ng-class="lc.insDone.icon"></i>
 				</md-button>
+				<md-input-container ng-switch="lc.currentTab === 'con'">
+					<input type="file" name="consoleLogo" onchange="angular.element(this).scope().uploadLogo(this.files)" />
+					<label class="logo-text"> Console Logo </label>
+				</md-input-container>
 				<md-button ng-click="lc.action[lc.currentActivity].submit(lc.addForm)" class="md-raised">
 					<i class="fa fa-paper-plane" aria-hidden="true"></i> &nbsp; Save
 				</md-button>

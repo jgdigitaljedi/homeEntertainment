@@ -13,9 +13,9 @@
 		.module('home-control')
 		.controller('LibraryCtrl', Library);
 
-	Library.$inject = ['$scope', '$state', 'LibraryService', 'GiantbombService', 'HelpersService', '$mdDialog'];
+	Library.$inject = ['$scope', '$state', 'LibraryService', 'GiantbombService', 'HelpersService', '$mdDialog', '$http'];
 
-	function Library ($scope, $state, LibraryService, GiantbombService, HelpersService, $mdDialog) {
+	function Library ($scope, $state, LibraryService, GiantbombService, HelpersService, $mdDialog, $http) {
 		var lc = this;
 		var dateFormats = HelpersService.dateFormats();
 
@@ -28,8 +28,20 @@
 
 		lc.portOptions = ['NA', '1', '2', '3', '4', '5', '6', '7', '8'];
 
+		$scope.uploadLogo = function (files) {
+			var fd = new FormData();
+			console.log('file', files[0]);
+			lc.logoName = files[0].name;
+			fd.append('file', files[0]);
+			$http.post('http://localhost:8080/api/uploadconsolelogo', fd, {
+		        headers: {'Content-Type': undefined },
+		        transformRequest: angular.identity
+		    }).then(function (result) {
+				console.log('result from upload', result);
+			});
+		};
+
 		lc.lookupGbInfo = function (id) {
-			console.log('id', id);
 			var whichFunction;
 			if (lc.currentTab === 'games') {
 				whichFunction = 'lookupGame';
@@ -56,6 +68,7 @@
 			}).then(function (result) {
 				if (result && result.length > 0) {
 					lc.insDone = {icon: 'fa fa-check-circle fa-2x', color: '#2E7D32'};
+					lc.instructions = result;
 					console.log('goal is to have result be an instructions array', result);
 				} else {
 					console.log('something went wrong');
@@ -90,9 +103,12 @@
 							if (!data.gbId) {
 								console.log('you can\'t leave shit out');
 							} else {
+								data.instructions = lc.instructions;
+								data.listImage = lc.logoName;
+								
 								LibraryService.addConsole(data, lc.gbSearchResult).then(function (result) {
 									console.log('result from db console add', result);
-								});								
+								});					
 							}
 							break;
 					}

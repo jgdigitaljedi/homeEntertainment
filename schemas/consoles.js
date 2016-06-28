@@ -32,7 +32,8 @@ var consolesSchema = new Schema({
 	mods: String,
 	avOutMethod: String,
 	year: Number,
-	memoryCards: String
+	memoryCards: String,
+	burnedGames: Boolean
 });
 
 var Consoles = mongoose.model('Consoles', consolesSchema);
