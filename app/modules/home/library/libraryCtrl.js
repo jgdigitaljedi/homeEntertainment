@@ -28,11 +28,23 @@
 
 		lc.portOptions = ['NA', '1', '2', '3', '4', '5', '6', '7', '8'];
 
+		var $ = function(selector){
+		  return angular.element(document.querySelectorAll(selector));
+		};
+
 		$scope.uploadLogo = function (files) {
 			var fd = new FormData();
 			console.log('file', files[0]);
 			lc.logoName = files[0].name;
 			fd.append('file', files[0]);
+			if (!files[0]) {
+				$('#console-logo-upload').find('label').text('SELECT A LOGO');
+				return;
+			} else {
+		    	$('#console-logo-upload').find('label').css({'background-color': '#2E7D32'});
+		    	// $('#console-logo-upload').find('label').text('Logo Uploaded!!');				
+		    	$('#console-logo-upload').find('label').html('<i class="fa fa-check"></i> &nbsp; Logo Uploaded!!');				
+			}
 			$http.post('http://localhost:8080/api/uploadconsolelogo', fd, {
 		        headers: {'Content-Type': undefined },
 		        transformRequest: angular.identity

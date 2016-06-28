@@ -239,6 +239,7 @@ file uploads
 ********************/
 app.post('/api/uploadconsolelogo', uploadConsoleLogo.single('file'), function (req, res, next) {
 	// req.file is the `photo` file 
+	res.send({error: false});
 	console.log('hit the api upload point');
 	
 });

@@ -2222,34 +2222,6 @@ code {
 ul {
   list-style: none;
 }
-.placeholder-red ::-webkit-input-placeholder {
-  color: #F44336;
-}
-.placeholder-red :-moz-placeholder {
-  /* Firefox 18- */
-  color: #F44336;
-}
-.placeholder-red ::-moz-placeholder {
-  /* Firefox 19+ */
-  color: #F44336;
-}
-.placeholder-red :-ms-input-placeholder {
-  color: #F44336;
-}
-.placeholder-green ::-webkit-input-placeholder {
-  color: #2E7D32;
-}
-.placeholder-green :-moz-placeholder {
-  /* Firefox 18- */
-  color: #2E7D32;
-}
-.placeholder-green ::-moz-placeholder {
-  /* Firefox 19+ */
-  color: #2E7D32;
-}
-.placeholder-green :-ms-input-placeholder {
-  color: #2E7D32;
-}
 @keyframes flipInX {
   0% {
     transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
@@ -2640,14 +2612,44 @@ ul {
   height: 1.5em;
 }
 .library-container .add-form md-input-container,
+.library-container .add-form #console-logo-upload,
 .library-container .add-form .md-button {
   margin-left: 30px;
+}
+.library-container .add-form #console-logo-upload {
+  width: 134px;
+}
+.library-container .add-form .submit-button {
+  margin-left: 106px !important;
 }
 .library-container .add-form md-checkbox {
   margin-top: 10px;
 }
 .library-container .add-form .port-select {
   width: 130px;
+}
+.library-container .add-form .file-input {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  z-index: -1;
+}
+.library-container .add-form .file-input + label {
+  font-size: 1.25em;
+  font-weight: 700;
+  color: white;
+  background-color: #37474F;
+  display: inline-block;
+  cursor: pointer;
+  padding: 10px;
+  margin-left: 0;
+  margin-top: 18px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+.library-container .add-form .file-input:focus + label,
+.library-container .add-form .file-input + label:hover {
+  background-color: #F44336;
 }
 .library-container .logo-text {
   position: absolute;

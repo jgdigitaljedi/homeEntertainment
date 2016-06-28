@@ -17,8 +17,16 @@
 			height: 1.5em;
 		}
 		
-		md-input-container, .md-button {
+		md-input-container, #console-logo-upload, .md-button {
 			margin-left: 30px;
+		}
+
+		#console-logo-upload {
+			width: 134px;
+		}
+
+		.submit-button {
+			margin-left: 106px !important;
 		}
 
 		md-checkbox {
@@ -27,6 +35,33 @@
 
 		.port-select {
 			width: 130px;
+		}
+
+		.file-input {
+			width: 0.1px;
+			height: 0.1px;
+			opacity: 0;
+			overflow: hidden;
+			// position: absolute;
+			z-index: -1;
+		}
+
+		.file-input + label {
+			font-size: 1.25em;
+		    font-weight: 700;
+		    color: white;
+		    background-color: @dark-blue;
+		    display: inline-block;
+		    cursor: pointer;
+		    padding: 10px;
+		    margin-left: 0;
+		    margin-top: 18px;
+		    .BoxShadowHelper(1);
+		}
+
+		.file-input:focus + label,
+		.file-input + label:hover {
+		    background-color: @warn-red;
 		}
 	}
 

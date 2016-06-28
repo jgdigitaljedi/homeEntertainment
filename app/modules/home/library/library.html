@@ -134,13 +134,13 @@
 				<md-button ng-switch="lc.currentTab === 'con'" ng-click="lc.openInstructionsDialog()" ng-style="{'color': lc.insDone.color}">
 					<i class="fa fa-list-ol" aria-hidden="true"></i> &nbsp; Instructions &nbsp; &nbsp; <i ng-class="lc.insDone.icon"></i>
 				</md-button>
-				<md-input-container ng-switch="lc.currentTab === 'con'">
-					<input type="file" name="consoleLogo" onchange="angular.element(this).scope().uploadLogo(this.files)" 
-						ng-class="lc.imageMissing ? 'placeholder-red' : 'placeholder-green'" />
-					<label class="logo-text"> Console Logo </label>
-				</md-input-container>
+				<div ng-switch="lc.currentTab === 'con'" id="console-logo-upload">
+					<input type="file" name="consoleLogo" id="consoleLogo" onchange="angular.element(this).scope().uploadLogo(this.files)" 
+						ng-class="lc.imageMissing ? 'placeholder-red' : 'placeholder-green'" class="file-input" />
+					<label for="consoleLogo" class="logo-text"> <i class="fa fa-upload" aria-hidden="true"></i> &nbsp; Upload Logo </label>
+				</div>
 				<!-- <md-button ng-click="lc.action[lc.currentActivity].submit(lc.addForm)" class="md-raised"> -->
-				<md-button class="md-raised md-accent" type="submit">
+				<md-button class="md-raised md-accent submit-button" type="submit">
 					<i class="fa fa-paper-plane" aria-hidden="true"></i> &nbsp; Save
 				</md-button>
 			</form>
