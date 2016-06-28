@@ -27,12 +27,12 @@ var consolesSchema = new Schema({
 	gbId: String,
 	instructions: Array,
 	notes: Array,
-	controllers: String,
+	controllers: Array,
 	accessories: String,
-	mods: String,
+	mods: Array,
 	avOutMethod: String,
 	year: Number,
-	memoryCards: String,
+	memoryCards: Array,
 	burnedGames: Boolean
 });
 

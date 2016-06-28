@@ -65,14 +65,14 @@
 			</md-button>
 		</md-subheader>
 		<div ng-switch="lc.currentActivity" layout="row" layout-fill class="add-form">
-			<form name="addForm" ng-switch-when="add" layout="row" layout-xs="column" layout-wrap>
+			<form name="addForm" ng-switch-when="add" layout="row" layout-xs="column" layout-wrap ng-submit="lc.action[lc.currentActivity].submit(lc.addForm)">
 				<md-input-container>
 					<label> Giantbomb ID </label>
-					<input ng-model="lc.addForm.gbId" ng-blur="lc.lookupGbInfo(lc.addForm.gbId)" ng-focus="lc.gbSearchResult = null" />
+					<input ng-model="lc.addForm.gbId" ng-blur="lc.lookupGbInfo(lc.addForm.gbId)" ng-focus="lc.gbSearchResult = null" required />
 				</md-input-container>
 				<md-input-container ng-model="lc.addForm.whichConsole" ng-show="lc.currentTab === 'games'">
 					<label> Which Console? </label>
-					<input ng-model="lc.addForm.gameConsole" /> <!-- eventually will be a select with my current consoles -->
+					<input ng-model="lc.addForm.gameConsole" required /> <!-- eventually will be a select with my current consoles -->
 				</md-input-container>
 				<md-input-container ng-show="lc.currentTab === 'games'">
 					<md-checkbox ng-model="lc.addForm.onHd" ng-true-value="true" ng-false-value="false">
@@ -113,7 +113,7 @@
 				</md-input-container>
 				<md-input-container ng-switch="lc-currentTab === 'con'">
 					<label> Controllers (seperate with ;) </label>
-					<input ng-model="lc.addForm.controllers" />
+					<input ng-model="lc.addForm.controllers" required />
 				</md-input-container>
 				<md-input-container ng-switch="lc-currentTab === 'con'">
 					<label> Accessories (seperate with ;) </label>
@@ -129,16 +129,18 @@
 				</md-input-container>
 				<md-input-container ng-switch="lc-currentTab === 'con'">
 					<label> AV Out Method </label>
-					<input ng-model="lc.addForm.avOut" />
+					<input ng-model="lc.addForm.avOut" required />
 				</md-input-container>
 				<md-button ng-switch="lc.currentTab === 'con'" ng-click="lc.openInstructionsDialog()" ng-style="{'color': lc.insDone.color}">
 					<i class="fa fa-list-ol" aria-hidden="true"></i> &nbsp; Instructions &nbsp; &nbsp; <i ng-class="lc.insDone.icon"></i>
 				</md-button>
 				<md-input-container ng-switch="lc.currentTab === 'con'">
-					<input type="file" name="consoleLogo" onchange="angular.element(this).scope().uploadLogo(this.files)" />
+					<input type="file" name="consoleLogo" onchange="angular.element(this).scope().uploadLogo(this.files)" 
+						ng-class="lc.imageMissing ? 'placeholder-red' : 'placeholder-green'" />
 					<label class="logo-text"> Console Logo </label>
 				</md-input-container>
-				<md-button ng-click="lc.action[lc.currentActivity].submit(lc.addForm)" class="md-raised">
+				<!-- <md-button ng-click="lc.action[lc.currentActivity].submit(lc.addForm)" class="md-raised"> -->
+				<md-button class="md-raised md-accent" type="submit">
 					<i class="fa fa-paper-plane" aria-hidden="true"></i> &nbsp; Save
 				</md-button>
 			</form>

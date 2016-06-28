@@ -57,6 +57,7 @@
 @dark-gray: #424242;
 @amber-selected: #ffb300;
 @light-blue-gray: #90A4AE;
+@success-green: #2E7D32;
 
 @font-face {
     font-family: 'video-games';
@@ -112,4 +113,40 @@ code {
 }
 ul {
     list-style: none
+}
+
+.placeholder-red {
+    ::-webkit-input-placeholder {
+       color: @warn-red;
+    }
+
+    :-moz-placeholder { /* Firefox 18- */
+       color: @warn-red;  
+    }
+
+    ::-moz-placeholder {  /* Firefox 19+ */
+       color: @warn-red;  
+    }
+
+    :-ms-input-placeholder {  
+       color: @warn-red;  
+    }
+}
+
+.placeholder-green {
+    ::-webkit-input-placeholder {
+       color: @success-green;
+    }
+
+    :-moz-placeholder { /* Firefox 18- */
+       color: @success-green;  
+    }
+
+    ::-moz-placeholder {  /* Firefox 19+ */
+       color: @success-green;  
+    }
+
+    :-ms-input-placeholder {  
+       color: @success-green;  
+    }
 }

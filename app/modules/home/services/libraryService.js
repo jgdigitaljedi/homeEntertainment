@@ -28,7 +28,7 @@
 		function handlePossibleArrays (what) {
 			if (!what) return 'NONE';
 			var whatSplit = what.split(';');
-			if (whatSplit.length === 1) return what;
+			if (whatSplit.length === 1) return [what];
 			return whatSplit;
 		}
 

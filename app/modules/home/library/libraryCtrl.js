@@ -37,6 +37,7 @@
 		        headers: {'Content-Type': undefined },
 		        transformRequest: angular.identity
 		    }).then(function (result) {
+		    	lc.imageMissing = false;
 				console.log('result from upload', result);
 			});
 		};
@@ -48,16 +49,18 @@
 			} else {
 				whichFunction = 'lookupConsole';
 			}
-			GiantbombService[whichFunction](id).then(function (result) {
-				console.log('result', result);
-				if (result.original_release_date) {
-					result.original_release_date = moment(result.original_release_date).format(dateFormats.abbrMonth);
-				}
-				if (result.release_date) {
-					result.release_date = moment(result.release_date).format(dateFormats.abbrMonth);
-				}
-				lc.gbSearchResult = result;
-			});
+			if (id) {
+				GiantbombService[whichFunction](id).then(function (result) {
+					console.log('result', result);
+					if (result.original_release_date) {
+						result.original_release_date = moment(result.original_release_date).format(dateFormats.abbrMonth);
+					}
+					if (result.release_date) {
+						result.release_date = moment(result.release_date).format(dateFormats.abbrMonth);
+					}
+					lc.gbSearchResult = result;
+				});				
+			}
 		};
 
 		lc.openInstructionsDialog = function () {
@@ -179,6 +182,7 @@
 			lc.currentTab = 'search';
 			lc.currentActivity = 'search';
 			lc.insDone = {icon: 'fa fa-times-circle fa-2x', color: '#F44336'};
+			lc.imageMissing = true;
 		}
 
 		(function () {

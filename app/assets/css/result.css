@@ -2222,6 +2222,34 @@ code {
 ul {
   list-style: none;
 }
+.placeholder-red ::-webkit-input-placeholder {
+  color: #F44336;
+}
+.placeholder-red :-moz-placeholder {
+  /* Firefox 18- */
+  color: #F44336;
+}
+.placeholder-red ::-moz-placeholder {
+  /* Firefox 19+ */
+  color: #F44336;
+}
+.placeholder-red :-ms-input-placeholder {
+  color: #F44336;
+}
+.placeholder-green ::-webkit-input-placeholder {
+  color: #2E7D32;
+}
+.placeholder-green :-moz-placeholder {
+  /* Firefox 18- */
+  color: #2E7D32;
+}
+.placeholder-green ::-moz-placeholder {
+  /* Firefox 19+ */
+  color: #2E7D32;
+}
+.placeholder-green :-ms-input-placeholder {
+  color: #2E7D32;
+}
 @keyframes flipInX {
   0% {
     transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
