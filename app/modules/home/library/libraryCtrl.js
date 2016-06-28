@@ -38,11 +38,11 @@
 			lc.logoName = files[0].name;
 			fd.append('file', files[0]);
 			if (!files[0]) {
-				$('#console-logo-upload').find('label').text('SELECT A LOGO');
+		    	$('#console-logo-upload').find('label').css({'background-color': '#F44336'});		
+		    	$('#console-logo-upload').find('label').html('<i class="fa fa-times"></i> &nbsp; SELECT LOGO!!');				
 				return;
 			} else {
-		    	$('#console-logo-upload').find('label').css({'background-color': '#2E7D32'});
-		    	// $('#console-logo-upload').find('label').text('Logo Uploaded!!');				
+		    	$('#console-logo-upload').find('label').css({'background-color': '#2E7D32'});		
 		    	$('#console-logo-upload').find('label').html('<i class="fa fa-check"></i> &nbsp; Logo Uploaded!!');				
 			}
 			$http.post('http://localhost:8080/api/uploadconsolelogo', fd, {
