@@ -13,10 +13,10 @@
 		.module('home-control')
 		.controller('JoeyAuthCtrl', JAuth);
 
-	JAuth.$inject = ['HelpersService', 'game', '$q', '$mdDialog', '$http', '$timeout'];
+	JAuth.$inject = ['HelpersService', '$q', '$mdDialog', '$http', '$timeout'];
 
 
-	function JAuth (HelpersService, game, $q, $mdDialog, $http, $timeout) {
+	function JAuth (HelpersService, $q, $mdDialog, $http, $timeout) {
 		var ja = this;
 
 		function getAuth (pass) {

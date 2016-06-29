@@ -2222,6 +2222,19 @@ code {
 ul {
   list-style: none;
 }
+.failed-auth-sub {
+  background-color: #F44336;
+  color: white;
+  font-style: italic;
+  font-weight: bold;
+}
+.failed-auth.ng-hide,
+.failed-auth-sub.ng-hide {
+  max-height: 0;
+  transition: max-height 500ms ease-in-out;
+  -webkit-transition: max-height 500ms ease-in-out;
+  -moz-transition: max-height 500ms ease-in-out;
+}
 @keyframes flipInX {
   0% {
     transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
@@ -2526,16 +2539,6 @@ ul {
 .add-game-area .input-area .md-button {
   background-color: #37474F;
   color: white;
-}
-.game-auth-message {
-  background-color: #B71C1C;
-  color: white;
-  font-style: italic;
-  font-weight: bold;
-}
-.add-game-area.ng-hide {
-  max-height: 0;
-  transition: max-height 500ms ease-in-out;
 }
 .game-dialog-container {
   color: white;

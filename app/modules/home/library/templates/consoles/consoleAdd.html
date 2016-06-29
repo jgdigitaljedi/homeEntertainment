@@ -1,3 +1,63 @@
 <section id="console-add">
-
+	<form name="addForm" ng-switch-when="add" layout="row" layout-xs="column" layout-wrap ng-submit="lc.action[lc.currentActivity].submit(lc.addForm)">
+		<md-input-container>
+			<label> Giantbomb ID </label>
+			<input ng-model="lc.addForm.gbId" ng-blur="lc.lookupGbInfo(lc.addForm.gbId)" ng-focus="lc.gbSearchResult = null" required />
+		</md-input-container><form name="addForm" ng-switch-when="add" layout="row" layout-xs="column" layout-wrap 
+			ng-submit="lc.action[lc.currentActivity].submit(lc.addForm)">
+		<md-input-container>
+			<label> Giantbomb ID </label>
+			<input ng-model="lc.addForm.gbId" ng-blur="lc.lookupGbInfo(lc.addForm.gbId)" ng-focus="lc.gbSearchResult = null" required />
+		</md-input-container>
+		<md-input-container ng-show="lc.currentTab === 'con'">
+			<md-checkbox ng-model="lc.addForm.burnedGames" ng-true-value="true" ng-false-value="false">
+				Plays Burned Copies?
+			</md-checkbox>
+		</md-input-container>
+		<md-input-container ng-show="lc.currentTab === 'con'">
+			<md-checkbox ng-model="lc.addForm.hasHd" ng-true-value="true" ng-false-value="false">
+				Has Hard Drive?
+			</md-checkbox>
+		</md-input-container>
+		<md-input-container ng-show="lc.currentTab === 'con'">
+			<label> Port Number: </label>
+			<md-select ng-model="lc.addForm.portNumber" class="port-select">
+				<md-option ng-repeat="portNumber in lc.portOptions">
+					{{portNumber}}
+				</md-option>
+			</md-checkbox>
+		</md-input-container>
+		<md-input-container ng-switch="lc-currentTab === 'con'">
+			<label> Notes (seperate with ;) </label>
+			<input ng-model="lc.addForm.conNotes" />
+		</md-input-container>
+		<md-input-container ng-switch="lc-currentTab === 'con'">
+			<label> Controllers (seperate with ;) </label>
+			<input ng-model="lc.addForm.controllers" required />
+		</md-input-container>
+		<md-input-container ng-switch="lc-currentTab === 'con'">
+			<label> Accessories (seperate with ;) </label>
+			<input ng-model="lc.addForm.accessories" />
+		</md-input-container>
+		<md-input-container ng-switch="lc-currentTab === 'con'">
+			<label> Memory Cards (seperate with ;) </label>
+			<input ng-model="lc.addForm.memoryCards" />
+		</md-input-container>
+		<md-input-container ng-switch="lc-currentTab === 'con'">
+			<label> Mods (seperate with ;) </label>
+			<input ng-model="lc.addForm.mods" />
+		</md-input-container>
+		<md-input-container ng-switch="lc-currentTab === 'con'">
+			<label> AV Out Method </label>
+			<input ng-model="lc.addForm.avOut" required />
+		</md-input-container>
+		<md-button ng-switch="lc.currentTab === 'con'" ng-click="lc.openInstructionsDialog()" ng-style="{'color': lc.insDone.color}">
+			<i class="fa fa-list-ol" aria-hidden="true"></i> &nbsp; Instructions &nbsp; &nbsp; <i ng-class="lc.insDone.icon"></i>
+		</md-button>
+		<div ng-switch="lc.currentTab === 'con'" id="console-logo-upload">
+			<input type="file" name="consoleLogo" id="consoleLogo" onchange="angular.element(this).scope().uploadLogo(this.files)" 
+				ng-class="lc.imageMissing ? 'placeholder-red' : 'placeholder-green'" class="file-input" />
+			<label for="consoleLogo" class="logo-text"> <i class="fa fa-upload" aria-hidden="true"></i> &nbsp; Upload Logo </label>
+		</div>
+	</form>
 </section>

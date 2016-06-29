@@ -93,12 +93,12 @@
 
 		gc.openAuthDialog = function ($event) {
 			$mdDialog.show({
-				templateUrl: 'app/modules/home/games/joeyAuth.html',
+				templateUrl: 'app/modules/shared/modals/joeyAuth.html',
 				controller: 'JoeyAuthCtrl as ja',
 				clickOutsideToClose: true,
-				locals: {
-					game: gc.newGame
-				},
+				// locals: {
+				// 	game: gc.newGame
+				// },
 				targetEvent: $event
 			}).then(function (result) {
 				if (result.result) {

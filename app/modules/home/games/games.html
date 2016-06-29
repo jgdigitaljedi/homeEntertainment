@@ -44,9 +44,10 @@
 		</div>
 	</div>
 </md-subheader>
-<md-subheader ng-show="gc.showNoJoe.show" class="add-game-area game-auth-message" layout="row" flex layout-align="center center">
+<!-- <md-subheader ng-show="gc.showNoJoe.show" class="add-game-area game-auth-message" layout="row" flex layout-align="center center">
 		<h2>{{gc.showNoJoe.message}}</h2>
-</md-subheader>
+</md-subheader> -->
+<failed-auth ng-show="gc.showNoJoe.show" failure-message="gc.showNoJoe.message" layout="row" flex layout-align="center center"></failed-auth>
 
 <section class="games-section" layout-padding layout-wrap flex layout="row">
 	<md-progress-linear md-mode="indeterminate" ng-show="gc.showLoader"></md-progress-linear>

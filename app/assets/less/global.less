@@ -130,3 +130,18 @@ ul {
         @rules();
     }
 }
+
+
+.failed-auth-sub {
+    background-color: @warn-red;
+    color: white;
+    font-style: italic;
+    font-weight: bold;
+}
+
+.failed-auth.ng-hide, .failed-auth-sub.ng-hide{
+    max-height: 0;
+    transition: max-height 500ms ease-in-out;
+    -webkit-transition: max-height 500ms ease-in-out;
+    -moz-transition: max-height 500ms ease-in-out;
+}

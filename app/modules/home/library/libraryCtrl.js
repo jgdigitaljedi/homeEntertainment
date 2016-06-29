@@ -13,14 +13,33 @@
 		.module('home-control')
 		.controller('LibraryCtrl', Library);
 
-	Library.$inject = ['$scope', '$state', 'LibraryService', 'GiantbombService', 'HelpersService', '$mdDialog', '$http'];
+	Library.$inject = ['$scope', '$state', 'LibraryService', 'GiantbombService', 'HelpersService', '$mdDialog', '$http', '$timeout'];
 
-	function Library ($scope, $state, LibraryService, GiantbombService, HelpersService, $mdDialog, $http) {
+	function Library ($scope, $state, LibraryService, GiantbombService, HelpersService, $mdDialog, $http, $timeout) {
 		var lc = this;
 		var dateFormats = HelpersService.dateFormats();
 
 		var $ = function (selector){
 		  return angular.element(document.querySelectorAll(selector));
+		};
+		
+		lc.searchOptions = {
+			games: [{key: 'name', value: 'Name'}, {key: 'con', value: 'Console'}, {key: 'gbId', value: 'GB ID'}, 
+				{key: 'year', value: 'Year Released'}, {key: 'genre', value: 'Genre'}],
+			con: [{key: 'name', value: 'Name'}, {key: 'manufacturer', value: 'Manufacturer'}, {key: 'gbId', value: 'GB ID'}, 
+				{key: 'year', value: 'Year Released'}],
+			search: [{key: 'games', value: 'Games'}, {key: 'con', value: 'Consoles'}]
+		};
+
+		lc.portOptions = ['NA', '1', '2', '3', '4', '5', '6', '7', '8'];
+
+		lc.openAuthDialog = function ($event) {
+			return $mdDialog.show({
+				templateUrl: 'app/modules/shared/modals/joeyAuth.html',
+				controller: 'JoeyAuthCtrl as ja',
+				clickOutsideToClose: true,
+				targetEvent: $event
+			});
 		};
 
 		$scope.uploadLogo = function (files) {
@@ -31,15 +50,15 @@
 		    	$('#console-logo-upload').find('label').css({'background-color': '#F44336'});		
 		    	$('#console-logo-upload').find('label').html('<i class="fa fa-times"></i> &nbsp; SELECT LOGO!!');				
 				return;
-			} else {
-		    	$('#console-logo-upload').find('label').css({'background-color': '#2E7D32'});		
-		    	$('#console-logo-upload').find('label').html('<i class="fa fa-check"></i> &nbsp; Logo Uploaded!!');				
 			}
+
 			$http.post('http://localhost:8080/api/uploadconsolelogo', fd, {
 		        headers: {'Content-Type': undefined },
 		        transformRequest: angular.identity
 		    }).then(function (result) {
 		    	lc.imageMissing = false;
+		    	$('#console-logo-upload').find('label').css({'background-color': '#2E7D32'});		
+		    	$('#console-logo-upload').find('label').html('<i class="fa fa-check"></i> &nbsp; Logo Uploaded!!');				
 				console.log('result from upload', result);
 			});
 		};
@@ -91,15 +110,6 @@
 						case 'con':
 							lc.insDone = {icon: 'fa fa-times-circle fa-2x', color: '#F44336'};
 							lc.imageMissing = true;
-							lc.searchOptions = {
-								games: [{key: 'name', value: 'Name'}, {key: 'con', value: 'Console'}, {key: 'gbId', value: 'GB ID'}, 
-									{key: 'year', value: 'Year Released'}, {key: 'genre', value: 'Genre'}],
-								con: [{key: 'name', value: 'Name'}, {key: 'manufacturer', value: 'Manufacturer'}, {key: 'gbId', value: 'GB ID'}, 
-									{key: 'year', value: 'Year Released'}],
-								search: [{key: 'games', value: 'Games'}, {key: 'con', value: 'Consoles'}]
-							};
-
-							lc.portOptions = ['NA', '1', '2', '3', '4', '5', '6', '7', '8'];
 							break;
 					}					
 				},
@@ -120,12 +130,25 @@
 								// with form validation it should never get here
 								console.log('you can\'t leave shit out');
 							} else {
-								data.instructions = lc.instructions;
-								data.listImage = lc.logoName;
-								
-								LibraryService.addConsole(data, lc.gbSearchResult).then(function (result) {
-									console.log('result from db console add', result);
-								});					
+								lc.openAuthDialog().then(function (result) {
+									console.log('result from auth', result);
+
+									if (result.result) {
+										data.instructions = lc.instructions;
+										data.listImage = lc.logoName;
+										
+										LibraryService.addConsole(data, lc.gbSearchResult).then(function (result) {
+											console.log('result from db console add', result);
+										});										
+									} else {
+										lc.failureMessage = 'You failed to authenticate. You cannot edit the library database.';
+										// lc.failedAuth = true;
+										$timeout(function () {
+											// lc.failedAuth = false;
+											lc.failureMessage = null;
+										}, 4000);
+									}
+								});
 							}
 							break;
 					}
