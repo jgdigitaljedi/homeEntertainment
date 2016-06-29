@@ -21,7 +21,6 @@
 					failureMessage: '=failureMessage'
 				},
 				restrict: 'EA',
-				transclude: true,
 				templateUrl:'app/modules/shared/directives/failedAuth/failedAuth.html',
 				controller: 'FailedAuthCtrl as fa'
 				
@@ -30,7 +29,7 @@
 			return directive;
 
 			function link(scope, element, attrs, ctrl, transclude) {
-				
+
 			}
 
 		}

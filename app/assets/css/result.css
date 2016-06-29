@@ -2228,8 +2228,19 @@ ul {
   font-style: italic;
   font-weight: bold;
 }
+.failed-auth,
+.failed-auth .failed-auth-sub {
+  max-height: 200px;
+  transition: max-height 500ms ease-in-out;
+}
+.failed-auth.hg-hide-add,
+.failed-auth.ng-hide-remove {
+  display: block!important;
+}
 .failed-auth.ng-hide,
-.failed-auth-sub.ng-hide {
+.failed-auth-sub.ng-hide,
+.failed-auth.ng-hide .failed-auth-sub,
+.failed-auth-sub.ng-hide .failed-auth-sub {
   max-height: 0;
   transition: max-height 500ms ease-in-out;
   -webkit-transition: max-height 500ms ease-in-out;
