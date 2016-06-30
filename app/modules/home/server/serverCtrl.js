@@ -14,10 +14,11 @@
 		.module('home-control')
 		.controller('ServerCtrl', Server);
 
-	Server.$inject = ['ServerService', '$compile'];
+	Server.$inject = ['ServerService', '$compile', '$rootScope'];
 
-	function Server(ServerService, $compile) {
+	function Server(ServerService, $compile, $rootScope) {
 		var sc = this;
+		$rootScope.forceStateChange('server'); // I hate rootScope, but this was a quick way to get the sidenav to highlight on refresh
 
 		ServerService.getServerInfo().then(function (response) {
 			response.forEach(function (item, index) {

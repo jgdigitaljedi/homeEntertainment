@@ -13,20 +13,17 @@
 		.module('home-control')
 		.controller('LibraryCtrl', Library);
 
-	Library.$inject = ['$scope', '$state', 'LibraryService', 'GiantbombService', 'HelpersService', '$mdDialog', '$http', '$timeout'];
+	Library.$inject = ['$scope', '$state', 'LibraryService', 'GiantbombService', 'HelpersService', '$mdDialog', '$http', '$timeout', '$rootScope'];
 
-	function Library ($scope, $state, LibraryService, GiantbombService, HelpersService, $mdDialog, $http, $timeout) {
+	function Library ($scope, $state, LibraryService, GiantbombService, HelpersService, $mdDialog, $http, $timeout, $rootScope) {
 		var lc = this;
 		var dateFormats = HelpersService.dateFormats();
+		$scope.$parent.vm.state = 'library';
 
 		var $ = function (selector){
 		  return angular.element(document.querySelectorAll(selector));
 		};
 
-		lc.consoleData = function () {
-			console.log('current tab', lc.currentTab);
-		}
-		
 		lc.searchOptions = {
 			games: [{key: 'name', value: 'Name'}, {key: 'con', value: 'Console'}, {key: 'gbId', value: 'GB ID'}, 
 				{key: 'year', value: 'Year Released'}, {key: 'genre', value: 'Genre'}],
@@ -226,6 +223,7 @@
 
 		(function () {
 			initDefaults();
+			$rootScope.forceStateChange('library'); // I hate rootScope, but this was a quick way to get the sidenav to highlight on refresh
 		})();
 	}
 })();

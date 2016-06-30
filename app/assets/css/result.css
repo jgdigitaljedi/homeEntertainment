@@ -2229,7 +2229,8 @@ ul {
   font-weight: bold;
 }
 .failed-auth,
-.failed-auth .failed-auth-sub {
+.failed-auth .failed-auth-sub,
+.add-game-area {
   max-height: 200px;
   transition: max-height 500ms ease-in-out;
 }
@@ -2240,7 +2241,8 @@ ul {
 .failed-auth.ng-hide,
 .failed-auth-sub.ng-hide,
 .failed-auth.ng-hide .failed-auth-sub,
-.failed-auth-sub.ng-hide .failed-auth-sub {
+.failed-auth-sub.ng-hide .failed-auth-sub,
+.add-game-area.ng-hide {
   max-height: 0;
   transition: max-height 500ms ease-in-out;
   -webkit-transition: max-height 500ms ease-in-out;

@@ -47,6 +47,7 @@
 
 			}
 		};
+
 		$http.get('http://localhost:8080/api/weather/conditions')
 			.then(function (response) {
 				vm.weather = response.data.current_observation;
