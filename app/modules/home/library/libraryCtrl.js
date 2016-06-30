@@ -18,7 +18,6 @@
 	function Library ($scope, $state, LibraryService, GiantbombService, HelpersService, $mdDialog, $http, $timeout, $rootScope) {
 		var lc = this;
 		var dateFormats = HelpersService.dateFormats();
-		$scope.$parent.vm.state = 'library';
 
 		var $ = function (selector){
 		  return angular.element(document.querySelectorAll(selector));

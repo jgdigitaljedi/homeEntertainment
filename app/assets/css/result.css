@@ -2438,6 +2438,9 @@ ul {
   max-height: 0;
   transition: max-height 400ms ease-out;
 }
+.console-template {
+  animation-duration: 0.5s;
+}
 .console-template .console-head h1,
 .console-template .console-head p,
 .console-template .console-head table {
@@ -2622,6 +2625,15 @@ ul {
 }
 .library-container .l-search-container input {
   margin-top: 23px;
+}
+.library-container .add-form .gb-area a {
+  color: white;
+}
+.library-container .add-form .gb-area a:visited {
+  color: #ffb300;
+}
+.library-container .add-form .gb-area a:hover {
+  color: #F44336;
 }
 .library-container .add-form button {
   margin-top: 22px;

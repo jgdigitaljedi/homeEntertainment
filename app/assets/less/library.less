@@ -12,6 +12,20 @@
 
 	.add-form {
 
+		.gb-area {
+			a {
+				color: white;
+			}
+
+			a:visited {
+				color: @amber-selected;
+			}
+
+			a:hover {
+				color: @warn-red;
+			}
+		}
+
 		button {
 			margin-top: 22px;
 			height: 1.5em;
@@ -20,6 +34,14 @@
 		md-input-container, #console-logo-upload, .md-button {
 			margin-left: 30px;
 		}
+
+		// md-input-container.ng-hide-add, #console-logo-upload.ng-hide-add, .md-button.ng-hide-add {
+		// 	animation-name: fadeOut;
+		// 	animation-duration: 0.2s;
+		// }
+		// md-input-container.ng-hide-remove, #console-logo-upload.ng-hide-remove, .md-button.ng-hide-remove {
+		// 	animation-duration: 0.2s;
+		// }
 
 		#console-logo-upload {
 			width: 134px;

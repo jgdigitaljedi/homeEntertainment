@@ -41,7 +41,7 @@
 			</md-tab>
 		</md-tabs>
 		<md-divider ng-show="lc.currentTab !== 'search'"></md-divider>
-		<md-subheader ng-if="lc.currentActivity !== 'add'" layout="row">
+		<md-subheader ng-if="lc.currentActivity !== 'add'" layout="row" class="fadeIn">
 			<md-input-container>
 				<label> Search By: </label>
 				<md-select ng-model="lc.whichSearch">
@@ -67,40 +67,43 @@
 		<failed-auth class="failed-auth" ng-show="lc.failureMessage" failure-message=lc.failureMessage></failed-auth>
 		<div ng-switch="lc.currentActivity" layout="row" layout-fill class="add-form">
 			<form name="addForm" ng-switch-when="add" layout="row" layout-xs="column" layout-wrap ng-submit="lc.action[lc.currentActivity].submit(lc.addForm)">
-				<md-input-container>
-					<label> Giantbomb ID </label>
-					<input ng-model="lc.addForm.gbId" ng-blur="lc.lookupGbInfo(lc.addForm.gbId)" ng-focus="lc.gbSearchResult = null" required />
-				</md-input-container>
-				<md-input-container ng-model="lc.addForm.whichConsole" ng-show="lc.currentTab === 'games'">
+				<div class="gb-area">
+					<md-input-container class="fadeIn">
+						<label> Giantbomb ID </label>
+						<input ng-model="lc.addForm.gbId" ng-blur="lc.lookupGbInfo(lc.addForm.gbId)" ng-focus="lc.gbSearchResult = null" required />
+					</md-input-container>
+					<a href="http://www.giantbomb.com/" target="_blank"><i class="fa fa-question-circle" aria-hidden="true"></i></a>
+				</div>
+				<md-input-container ng-model="lc.addForm.whichConsole" ng-show="lc.currentTab === 'games'" class="fadeIn">
 					<label for="whichConsole"> Which Console? </label>
 					<input ng-model="lc.addForm.gameConsole" name="whichConsole" ng-required="lc.currentTab === 'games'" /> <!-- eventually will be a select with my current consoles -->
 				</md-input-container>
-				<md-input-container ng-if="lc.currentTab === 'games'">
+				<md-input-container ng-if="lc.currentTab === 'games'" class="fadeIn">
 					<md-checkbox ng-model="lc.addForm.onHd" ng-true-value="true" ng-false-value="false">
 						On Hard Drive?
 					</md-checkbox>
 				</md-input-container>
-				<md-input-container ng-if="lc.currentTab === 'games'">
+				<md-input-container ng-if="lc.currentTab === 'games'" class="fadeIn">
 					<md-checkbox ng-model="lc.addForm.hasCase" ng-true-value="true" ng-false-value="false">
 						Has Original Case?
 					</md-checkbox>
 				</md-input-container>
-				<md-input-container ng-if="lc.currentTab === 'games'">
+				<md-input-container ng-if="lc.currentTab === 'games'" class="fadeIn">
 					<md-checkbox ng-model="lc.addForm.burnedCopy" ng-true-value="true" ng-false-value="false">
 						Burned Copy?
 					</md-checkbox>
 				</md-input-container>
-				<md-input-container ng-if="lc.currentTab === 'con'">
+				<md-input-container ng-if="lc.currentTab === 'con'" class="fadeIn">
 					<md-checkbox ng-model="lc.addForm.burnedGames" ng-true-value="true" ng-false-value="false">
 						Plays Burned Copies?
 					</md-checkbox>
 				</md-input-container>
-				<md-input-container ng-if="lc.currentTab === 'con'">
+				<md-input-container ng-if="lc.currentTab === 'con'" class="fadeIn">
 					<md-checkbox ng-model="lc.addForm.hasHd" ng-true-value="true" ng-false-value="false">
 						Has Hard Drive?
 					</md-checkbox>
 				</md-input-container>
-				<md-input-container ng-if="lc.currentTab === 'con'">
+				<md-input-container ng-if="lc.currentTab === 'con'" class="fadeIn">
 					<label> Port Number: </label>
 					<md-select ng-model="lc.addForm.portNumber" class="port-select">
 						<md-option ng-repeat="portNumber in lc.portOptions">
@@ -108,34 +111,34 @@
 						</md-option>
 					</md-checkbox>
 				</md-input-container>
-				<md-input-container ng-if="lc.currentTab === 'con'">
+				<md-input-container ng-if="lc.currentTab === 'con'" class="fadeIn">
 					<label> Notes (; delimited) </label>
 					<input ng-model="lc.addForm.conNotes" />
 				</md-input-container>
-				<md-input-container ng-if="lc.currentTab === 'con'">
+				<md-input-container ng-if="lc.currentTab === 'con'" class="fadeIn">
 					<label for="controllers"> Controllers (; delimited) </label>
 					<input ng-model="lc.addForm.controllers" name="controllers" ng-required="lc.currentTab === 'con'" />
 				</md-input-container>
-				<md-input-container ng-if="lc.currentTab === 'con'">
+				<md-input-container ng-if="lc.currentTab === 'con'" class="fadeIn">
 					<label> Accessories (; delimited) </label>
 					<input ng-model="lc.addForm.accessories" />
 				</md-input-container>
-				<md-input-container ng-if="lc.currentTab === 'con'">
+				<md-input-container ng-if="lc.currentTab === 'con'" class="fadeIn">
 					<label> Memory Cards (; delimited) </label>
 					<input ng-model="lc.addForm.memoryCards" />
 				</md-input-container>
-				<md-input-container ng-if="lc.currentTab === 'con'">
+				<md-input-container ng-if="lc.currentTab === 'con'" class="fadeIn">
 					<label> Mods (; delimited) </label>
 					<input ng-model="lc.addForm.mods" />
 				</md-input-container>
-				<md-input-container ng-if="lc.currentTab === 'con'">
+				<md-input-container ng-if="lc.currentTab === 'con'" class="fadeIn">
 					<label for="avOut"> AV Out Method </label>
 					<input ng-model="lc.addForm.avOut" name="avOut" ng-required="lc.currentTab === 'con'" />
 				</md-input-container>
-				<md-button ng-if="lc.currentTab === 'con'" ng-click="lc.openInstructionsDialog()" ng-style="{'color': lc.insDone.color}">
+				<md-button ng-if="lc.currentTab === 'con'" ng-click="lc.openInstructionsDialog()" ng-style="{'color': lc.insDone.color}" class="fadeIn">
 					<i class="fa fa-list-ol" aria-hidden="true"></i> &nbsp; Instructions &nbsp; &nbsp; <i ng-class="lc.insDone.icon"></i>
 				</md-button>
-				<div ng-if="lc.currentTab === 'con'" id="console-logo-upload">
+				<div ng-if="lc.currentTab === 'con'" id="console-logo-upload" class="fadeIn">
 					<input type="file" name="consoleLogo" id="consoleLogo" onchange="angular.element(this).scope().uploadLogo(this.files)" 
 						ng-class="lc.imageMissing ? 'placeholder-red' : 'placeholder-green'" ng-model="lc.doesntMatter" class="file-input" />
 					<label for="consoleLogo" class="logo-text"> <i class="fa fa-upload" aria-hidden="true"></i> &nbsp; Upload Logo </label>
