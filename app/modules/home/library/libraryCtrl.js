@@ -22,6 +22,10 @@
 		var $ = function (selector){
 		  return angular.element(document.querySelectorAll(selector));
 		};
+
+		lc.consoleData = function () {
+			console.log('current tab', lc.currentTab);
+		}
 		
 		lc.searchOptions = {
 			games: [{key: 'name', value: 'Name'}, {key: 'con', value: 'Console'}, {key: 'gbId', value: 'GB ID'}, 

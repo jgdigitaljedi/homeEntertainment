@@ -13,7 +13,7 @@
 		.module('home-control')
 		.controller('HomeCtrl', Home);
 
-	Home.$inject = ['homeService', '$scope', '$state'];
+	Home.$inject = ['homeService', '$scope', '$state', '$http'];
 
 	/*
 	* recommend
@@ -21,7 +21,7 @@
 	* and bindable members up top.
 	*/
 
-	function Home(homeService, $scope, $state) {
+	function Home(homeService, $scope, $state, $http) {
 		/*jshint validthis: true */
 		var vm = this;
 		vm.activity = {
@@ -32,7 +32,7 @@
 			library: false
 		};
 		vm.title = 'Gauthier Home Control Center';
-		vm.version = 'version 1.0.0';
+		vm.version = 'version 2.0.0a';
 
 		vm.changeActivity = function (activities) {
 			vm.activity = activities;
@@ -47,6 +47,11 @@
 
 			}
 		};
+		$http.get('http://localhost:8080/api/weather/conditions')
+			.then(function (response) {
+				vm.weather = response.data.current_observation;
+				vm.weatherIcon = 'app/assets/images/weather/' + vm.weather.icon + '.png';
+			});
 	}
 
 })();
