@@ -17,12 +17,7 @@
 
 		function FailedAuth($element, $compile, $scope) {
 			/*jshint validthis: true */
-			var fa = this;
-
-			var $ = function(selector){
-			  return angular.element(document.querySelectorAll(selector));
-			};
-			
+			var fa = this;			
 		}
 
 })();

@@ -28,7 +28,7 @@
 
 			return directive;
 
-			function link(scope, element, attrs, ctrl, transclude) {
+			function link (scope, element, attrs, ctrl) {
 
 			}
 

@@ -11,6 +11,7 @@ var http = require('http');
 var gameApi = require('./gamesModule.js');
 var consoleApi = require('./consolesModule.js');
 var multer = require('multer');
+var Weather = require('./weather.js');
 // var uploadConsoleLogo = multer({ dest: 'app/assets/images/' });
 
 var consoleLogoStorage = multer.diskStorage({
@@ -36,7 +37,7 @@ var Keys = require('./schemas/keys.js');
 
 //how to manually add keys if ever necessary
 // var gbKey = Keys({
-// 	key: 'key contents here', value: 'key value here'
+// 	key: 'weatherKey', value: 'de8912b8925c600c'
 // });
 
 // gbKey.save(function (err) {
@@ -88,6 +89,13 @@ function proxy (url, res, req, callback) {
         });
     });
 }
+
+/********************
+weather
+********************/
+app.route('/api/weather/conditions').get(Weather.conditions);
+
+// app.route('/api/weather/forecast').get(Weather.forecast);
 
 /********************
 consoles
@@ -252,14 +260,6 @@ app.get('/api/giantbomb/:platform/:id', function (req, res) {
 		if (!Array.isArray(key)) key = [key];
 		var auth = key[0].value;
 		proxy('http://www.giantbomb.com/api/' + req.params.platform + '/' + req.params.id + '/?api_key=' + auth + '&format=json', res);
-	});
-});
-
-app.get('/api/getweather', function (req, res) {
-	Keys.find({key: 'wu_api_key'}, function (err, key) {
-		if (!Array.isArray(key)) key = [key];
-		var auth = key[0].value;
-		proxy('http://api.wunderground.com/api/' + auth + '/conditions/q/TX/Manor.json', res);
 	});
 });
 
