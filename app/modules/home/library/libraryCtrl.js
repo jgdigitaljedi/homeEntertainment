@@ -13,9 +13,12 @@
 		.module('home-control')
 		.controller('LibraryCtrl', Library);
 
-	Library.$inject = ['$scope', '$state', 'LibraryService', 'GiantbombService', 'HelpersService', '$mdDialog', '$http', '$timeout', '$rootScope'];
+	Library.$inject = ['$scope', '$state', 'LibraryService', 'GiantbombService', 'HelpersService', '$mdDialog', 
+		'$http', '$timeout', '$rootScope', 'UploadImageService'];
 
-	function Library ($scope, $state, LibraryService, GiantbombService, HelpersService, $mdDialog, $http, $timeout, $rootScope) {
+	function Library ($scope, $state, LibraryService, GiantbombService, HelpersService, $mdDialog, 
+		$http, $timeout, $rootScope, UploadImageService) {
+
 		var lc = this;
 		var dateFormats = HelpersService.dateFormats();
 
@@ -42,25 +45,56 @@
 			});
 		};
 
-		$scope.uploadLogo = function (files) {
-			var fd = new FormData();
-			lc.logoName = 'app/assets/images/' + files[0].name;
-			fd.append('file', files[0]);
-			if (!files[0]) {
-		    	$('#console-logo-upload').find('label').css({'background-color': '#F44336'});		
-		    	$('#console-logo-upload').find('label').html('<i class="fa fa-times"></i> &nbsp; SELECT LOGO!!');				
-				return;
+		// $scope.uploadLogo = function (files) {
+		$scope.uploadImage = {
+			logo: function (files) {
+				var fd = new FormData();
+				lc.logoName = 'app/assets/images/' + files[0].name;
+				fd.append('file', files[0]);
+				if (!files[0]) {
+			    	$('#console-logo-upload').find('label').css({'background-color': '#F44336'});		
+			    	$('#console-logo-upload').find('label').html('<i class="fa fa-times"></i> &nbsp; SELECT LOGO!!');				
+					return;
+				}
+				UploadImageService.upload(fd, 'logo').then(function (result) {
+					lc.imageMissing.logo = false;
+			    	$('#console-logo-upload').find('label').css({'background-color': '#2E7D32'});		
+			    	$('#console-logo-upload').find('label').html('<i class="fa fa-check"></i> &nbsp; Logo Uploaded!!');				
+					console.log('result from logo', result);
+				});
+			},
+			loadGame: function (files) {
+				var fd = new FormData();
+				lc.loadGame = 'app/assets/images/insertGame/' + files[0].name;
+				fd.append('file', files[0]);
+				if (!files[0]) {
+			    	$('#load-game-image').find('label').css({'background-color': '#F44336'});		
+			    	$('#load-game-image').find('label').html('<i class="fa fa-times"></i> &nbsp; SELECT LOAD IMAGE!!');				
+					return;
+				}
+				UploadImageService.upload(fd, 'load').then(function (result) {
+					lc.imageMissing.load = false;
+			    	$('#load-game-image').find('label').css({'background-color': '#2E7D32'});		
+			    	$('#load-game-image').find('label').html('<i class="fa fa-check"></i> &nbsp; Load Image Uploaded!!');				
+					console.log('result from load game image', result);
+				});
+			},
+			powerButton: function (files) {
+				var fd = new FormData();
+				lc.powerButton = 'app/assets/images/power/' + files[0].name;
+				fd.append('file', files[0]);
+				if (!files[0]) {
+			    	$('#power-image').find('label').css({'background-color': '#F44336'});		
+			    	$('#power-image').find('label').html('<i class="fa fa-times"></i> &nbsp; SELECT POWER IMAGE!!');				
+					return;
+				}
+				UploadImageService.upload(fd, 'power').then(function (result) {
+					lc.imageMissing.power = false;
+			    	$('#power-image').find('label').css({'background-color': '#2E7D32'});		
+			    	$('#power-image').find('label').html('<i class="fa fa-check"></i> &nbsp; Power Image Uploaded!!');				
+					console.log('result from load power image', result);
+				});
 			}
-
-			$http.post('http://localhost:8080/api/uploadconsolelogo', fd, {
-		        headers: {'Content-Type': undefined },
-		        transformRequest: angular.identity
-		    }).then(function (result) {
-		    	lc.imageMissing = false;
-		    	$('#console-logo-upload').find('label').css({'background-color': '#2E7D32'});		
-		    	$('#console-logo-upload').find('label').html('<i class="fa fa-check"></i> &nbsp; Logo Uploaded!!');				
-				console.log('result from upload', result);
-			});
 		};
 
 		lc.lookupGbInfo = function (id) {
@@ -109,7 +143,11 @@
 							break;
 						case 'con':
 							lc.insDone = {icon: 'fa fa-times-circle fa-2x', color: '#F44336'};
-							lc.imageMissing = true;
+							lc.imageMissing = {
+								logo: true,
+								load: true,
+								power: true
+							};
 							break;
 					}					
 				},
@@ -136,6 +174,8 @@
 									if (result.result) {
 										data.instructions = lc.instructions;
 										data.listImage = lc.logoName;
+										data.powerButton = lc.powerButton;
+										data.loadGame = lc.loadGame;
 										
 										LibraryService.addConsole(data, lc.gbSearchResult).then(function (result) {
 											console.log('result from db console add', result);

@@ -134,11 +134,13 @@
 				year: parseInt(moment(gbCon.release_date).format(dateFormats.year)),
 				listImage: userCon.listImage,
 				burnedGames: userCon.burnedGames ? true : false,
-				instructions: userCon.instructions
+				instructions: userCon.instructions,
+				powerButton: userCOn.powerButton,
+				loadGame: userCon.loadGame
 			};
 			console.log('console data', conData);
 			// putIt('addconsole', conData).then(function (result) {
-				// something with success or failure
+			// 	console.log('result from db', result);
 			// });
 
 			

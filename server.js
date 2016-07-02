@@ -22,7 +22,29 @@ var consoleLogoStorage = multer.diskStorage({
         cb(null, file.originalname);
     }
 });
+
+var consolePowerButtonStorage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, './app/assets/images/power/');
+    },
+    filename: function (req, file, cb) {
+        cb(null, file.originalname);
+    }
+});
+
+var consoleLoadGameStorage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, './app/assets/images/insertGame/');
+    },
+    filename: function (req, file, cb) {
+        cb(null, file.originalname);
+    }
+});
+
+
 var uploadConsoleLogo = multer({storage: consoleLogoStorage});
+var uploadPowerButton = multer({storage: consolePowerButtonStorage});
+var uploadLoadGame = multer({storage: consoleLoadGameStorage});
 
 //db
 var mongoose = require('mongoose');
@@ -37,7 +59,7 @@ var Keys = require('./schemas/keys.js');
 
 //how to manually add keys if ever necessary
 // var gbKey = Keys({
-// 	key: 'weatherKey', value: 'de8912b8925c600c'
+// 	key: 'someKey', value: 'someValue'
 // });
 
 // gbKey.save(function (err) {
@@ -251,6 +273,21 @@ app.post('/api/uploadconsolelogo', uploadConsoleLogo.single('file'), function (r
 	console.log('hit the api upload point');
 	
 });
+
+app.post('/api/uploadloadgame', uploadLoadGame.single('file'), function (req, res, next) {
+	// req.file is the `photo` file 
+	res.send({error: false});
+	console.log('hit the api upload point');
+	
+});
+
+app.post('/api/uploadpowerbutton', uploadPowerButton.single('file'), function (req, res, next) {
+	// req.file is the `photo` file 
+	res.send({error: false});
+	console.log('hit the api upload point');
+	
+});
+
 
 /********************
 proxies

@@ -138,10 +138,27 @@
 				<md-button ng-if="lc.currentTab === 'con'" ng-click="lc.openInstructionsDialog()" ng-style="{'color': lc.insDone.color}" class="fadeIn">
 					<i class="fa fa-list-ol" aria-hidden="true"></i> &nbsp; Instructions &nbsp; &nbsp; <i ng-class="lc.insDone.icon"></i>
 				</md-button>
-				<div ng-if="lc.currentTab === 'con'" id="console-logo-upload" class="fadeIn">
-					<input type="file" name="consoleLogo" id="consoleLogo" onchange="angular.element(this).scope().uploadLogo(this.files)" 
-						ng-class="lc.imageMissing ? 'placeholder-red' : 'placeholder-green'" ng-model="lc.doesntMatter" class="file-input" />
+				<div ng-if="lc.currentTab === 'con'" id="console-logo-upload" class="image-upload">
+					<input type="file" name="consoleLogo" id="consoleLogo" 
+						onchange="angular.element(this).scope().uploadImage.logo(this.files)" 
+						ng-class="lc.imageMissing.logo ? 'placeholder-red' : 'placeholder-green'" ng-model="lc.doesntMatter" class="file-input" />
 					<label for="consoleLogo" class="logo-text"> <i class="fa fa-upload" aria-hidden="true"></i> &nbsp; Upload Logo </label>
+				</div>
+				<div ng-if="lc.currentTab === 'con'" id="load-game-image" class="image-upload">
+					<input type="file" name="loadGame" id="loadGame" 
+						onchange="angular.element(this).scope().uploadImage.load(this.files)" 
+						ng-class="lc.imageMissing.load ? 'placeholder-red' : 'placeholder-green'" ng-model="lc.doesntMatter" class="file-input" />
+					<label for="loadGame" class="logo-text"> 
+						<i class="fa fa-upload" aria-hidden="true"></i> &nbsp; Load Game Image 
+					</label>
+				</div>
+				<div ng-if="lc.currentTab === 'con'" id="power-image" class="image-upload">
+					<input type="file" name="powerButton" id="powerButton" 
+						onchange="angular.element(this).scope().uploadImage.power(this.files)" 
+						ng-class="lc.imageMissing.power ? 'placeholder-red' : 'placeholder-green'" ng-model="lc.doesntMatter" class="file-input" />
+					<label for="powerButton" class="logo-text"> 
+						<i class="fa fa-upload" aria-hidden="true"></i> &nbsp; Power Button Image 
+					</label>
 				</div>
 				<!-- <md-button ng-click="lc.action[lc.currentActivity].submit(lc.addForm)" class="md-raised"> -->
 				<md-button class="md-raised md-accent submit-button" type="submit">

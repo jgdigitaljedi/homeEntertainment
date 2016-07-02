@@ -2640,15 +2640,12 @@ ul {
   height: 1.5em;
 }
 .library-container .add-form md-input-container,
-.library-container .add-form #console-logo-upload,
+.library-container .add-form .image-upload,
 .library-container .add-form .md-button {
   margin-left: 30px;
 }
-.library-container .add-form #console-logo-upload {
-  width: 134px;
-}
 .library-container .add-form .submit-button {
-  margin-left: 106px !important;
+  margin: 0 auto 0 40px !important;
 }
 .library-container .add-form md-checkbox {
   margin-top: 10px;
@@ -2668,7 +2665,6 @@ ul {
   font-weight: 700;
   color: white;
   background-color: #37474F;
-  display: inline-block;
   cursor: pointer;
   padding: 10px;
   margin-left: 0;
@@ -2680,13 +2676,13 @@ ul {
   background-color: #F44336;
 }
 .library-container .logo-text {
-  position: absolute;
   margin-left: 114px;
 }
 .library-container .giantbomb-results label {
   font-style: italic;
   text-decoration: underline;
   font-weight: bold;
+  margin-right: 20px;
   color: #ffb300;
 }
 .console-instructions-modal {
