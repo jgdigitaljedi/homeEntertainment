@@ -2626,6 +2626,9 @@ ul {
 .library-container .l-search-container input {
   margin-top: 23px;
 }
+.library-container .add-form {
+  margin-bottom: 20px;
+}
 .library-container .add-form .gb-area a {
   color: white;
 }
@@ -2677,6 +2680,9 @@ ul {
 }
 .library-container .logo-text {
   margin-left: 114px;
+}
+.library-container .giantbomb-results {
+  margin-top: 20px;
 }
 .library-container .giantbomb-results label {
   font-style: italic;

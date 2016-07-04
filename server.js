@@ -16,7 +16,7 @@ var Weather = require('./weather.js');
 
 var consoleLogoStorage = multer.diskStorage({
     destination: function (req, file, cb) {
-        cb(null, './app/assets/images/');
+        cb(null, './app/assets/images/consoles/');
     },
     filename: function (req, file, cb) {
         cb(null, file.originalname);

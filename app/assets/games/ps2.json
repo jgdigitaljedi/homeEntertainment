@@ -1,29 +1,109 @@
 {
-	"games": [
-		{"gbId": "3030-1787", "title": "2006 FIFA World Cup"},
-		{"gbId": "3030-1420", "title": "Amplitude"},
-		{"gbId": "3030-10866", "title": "Buzz! The Mega Quiz"},
-		{"gbId": "3030-13072", "title": "Devil May Cry"},
-		{"gbId": "3030-6959", "title": "God of War"},
-		{"gbId": "3030-7120", "title": "Grand Theft Auto San Andreas"},
-		{"gbId": "3030-6311", "title": "Guitar Hero"},
-		{"gbId": "3030-14916", "title": "Guitar Hero II"},
-		{"gbId": "3030-4031", "title": "Guitar Hero III"},
-		{"gbId": "3030-12241", "title": "Guitar Hero Encore: Rock the 80's"},
-		{"gbId": "3030-17108", "title": "Heroes of Might and Magic"},
-		{"gbId": "3030-7004", "title": "Hitman 2"},
-		{"gbId": "3030-11691", "title": "Hot Shots Golf 2"},
-		{"gbId": "3030-7527", "title": "Marvel Ultimate Alliance"},
-		{"gbId": "3030-2414", "title": "Max Payne"},
-		{"gbId": "3030-36264", "title": "Micro Machines v4"},
-		{"gbId": "3030-5875", "title": "Midnight Club: Dub Edition Remix"},
-		{"gbId": "3030-18579", "title": "Midway Arcade Classics"},
-		{"gbId": "3030-9966", "title": "Scarface: The World is Yours Collectors Edition"},
-		{"gbId": "3030-14843", "title": "Spy Hunter"},
-		{"gbId": "3030-17149", "title": "SSX3"},
-		{"gbId": "3030-21429", "title": "Taiko Drum Master"},
-		{"gbId": "3030-14116", "title": "Tetris Worlds"},
-		{"gbId": "3030-12077", "title": "Tony Hawk's Project 8"},
-		{"gbId": "3030-522", "title": "Worms 3D"}
-	]
+    "games": [
+        {
+            "gbId": "3030-1787",
+            "title": "2006 FIFA World Cup"
+        },
+        {
+            "gbId": "3030-1420",
+            "title": "Amplitude"
+        },
+        {
+            "gbId": "3030-10866",
+            "title": "Buzz! The Mega Quiz"
+        },
+        {
+            "gbId": "3030-13072",
+            "title": "Devil May Cry"
+        },
+        {
+            "gbId": "3030-6959",
+            "title": "God of War"
+        },
+        {
+            "gbId": "3030-7120",
+            "title": "Grand Theft Auto San Andreas"
+        },
+        {
+            "gbId": "3030-6311",
+            "title": "Guitar Hero"
+        },
+        {
+            "gbId": "3030-12241",
+            "title": "Guitar Hero Encore: Rock the 80's"
+        },
+        {
+            "gbId": "3030-14916",
+            "title": "Guitar Hero II"
+        },
+        {
+            "gbId": "3030-4031",
+            "title": "Guitar Hero III"
+        },
+        {
+            "gbId": "3030-17108",
+            "title": "Heroes of Might and Magic"
+        },
+        {
+            "gbId": "3030-7004",
+            "title": "Hitman 2"
+        },
+        {
+            "gbId": "3030-11691",
+            "title": "Hot Shots Golf 2"
+        },
+        {
+            "gbId": "3030-7527",
+            "title": "Marvel Ultimate Alliance"
+        },
+        {
+            "gbId": "3030-2414",
+            "title": "Max Payne"
+        },
+        {
+            "gbId": "3030-36264",
+            "title": "Micro Machines v4"
+        },
+        {
+            "gbId": "3030-5875",
+            "title": "Midnight Club: Dub Edition Remix"
+        },
+        {
+            "gbId": "3030-18579",
+            "title": "Midway Arcade Classics"
+        },
+        {
+            "gbId": "3030-17149",
+            "title": "SSX3"
+        },
+        {
+            "gbId": "3030-9966",
+            "title": "Scarface: The World is Yours Collectors Edition"
+        },
+        {
+            "gbId": "3030-14843",
+            "title": "Spy Hunter"
+        },
+        {
+            "gbId": "3030-21429",
+            "title": "Taiko Drum Master"
+        },
+        {
+            "gbId": "3030-14116",
+            "title": "Tetris Worlds"
+        },
+        {
+            "gbId": "3030-12077",
+            "title": "Tony Hawk's Project 8"
+        },
+        {
+            "title": "Twisted Metal: Black",
+            "gbId": "3030-6426",
+            "onHd": false
+        },
+        {
+            "gbId": "3030-522",
+            "title": "Worms 3D"
+        }
+    ]
 }

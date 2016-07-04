@@ -49,7 +49,7 @@
 		$scope.uploadImage = {
 			logo: function (files) {
 				var fd = new FormData();
-				lc.logoName = 'app/assets/images/' + files[0].name;
+				lc.logoName = 'app/assets/images/consoles/' + files[0].name;
 				fd.append('file', files[0]);
 				if (!files[0]) {
 			    	$('#console-logo-upload').find('label').css({'background-color': '#F44336'});		
