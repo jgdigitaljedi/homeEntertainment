@@ -4,6 +4,8 @@ This is an app I developed to inform guests (and my wife) how to use all of the 
 It also keeps track of my video game library, gets information about the games, and states whether or not they are
 appropriate for my son to play.
 
+MONGO BRANCH HAS THE GOOD STUFF, JUST NOT YET COMPLETED
+
 Future plans include:
   - home automation controls
   - server monitoring and maintenence
