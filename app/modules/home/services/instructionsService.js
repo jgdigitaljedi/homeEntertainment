@@ -149,7 +149,7 @@
 		function getInstructionArray (con) {
 			var consoleArrs = {
 				genesis: {
-					arr: ['remTvMedia', 'remTvInput', 'tvNavAv', 'remAvrGame', 'remFive', 'commentDvr', 'eightPortSwitch', 'loadGame',
+					arr: ['remTvMedia', 'remTvInput', 'tvNavHdmi2', 'remAvrGame', 'remFive', 'commentDvr', 'eightPortSwitch', 'loadGame',
 						'powerOn', 'finishedOn'],
 					params: {
 						portNumber: '1',
@@ -160,7 +160,7 @@
 					}
 				},
 				gamecube: {
-					arr: ['remTvMedia', 'remTvInput', 'tvNavAv', 'remAvrGame', 'remFive', 'commentDvr', 'eightPortSwitch', 'loadGame',
+					arr: ['remTvMedia', 'remTvInput', 'tvNavHdmi2', 'remAvrGame', 'remFive', 'commentDvr', 'eightPortSwitch', 'loadGame',
 						'powerOn', 'finishedOn'],
 					params: {
 						portNumber: '2',
@@ -171,7 +171,7 @@
 					}
 				},
 				nes: {
-					arr: ['remTvMedia', 'remTvInput', 'tvNavAv', 'remAvrGame', 'remFive', 'commentDvr', 'eightPortSwitch', 'loadGame',
+					arr: ['remTvMedia', 'remTvInput', 'tvNavHdmi2', 'remAvrGame', 'remFive', 'commentDvr', 'eightPortSwitch', 'loadGame',
 						'powerOn', 'finishedOn'],
 					params: {
 						portNumber: '3',
@@ -183,7 +183,7 @@
 					}
 				},
 				n64: {
-					arr: ['remTvMedia', 'remTvInput', 'tvNavAv', 'remAvrGame', 'remFive', 'commentDvr', 'eightPortSwitch', 'loadGame',
+					arr: ['remTvMedia', 'remTvInput', 'tvNavHdmi2', 'remAvrGame', 'remFive', 'commentDvr', 'eightPortSwitch', 'loadGame',
 						'powerOn', 'finishedOn'],
 					params: {
 						portNumber: '4',
@@ -194,7 +194,7 @@
 					}
 				},
 				dreamcast: {
-					arr: ['remTvMedia', 'remTvInput', 'tvNavAv', 'remAvrGame', 'remFive', 'commentDvr', 'eightPortSwitch', 'loadGame',
+					arr: ['remTvMedia', 'remTvInput', 'tvNavHdmi2', 'remAvrGame', 'remFive', 'commentDvr', 'eightPortSwitch', 'loadGame',
 						'powerOn', 'finishedOn'],
 					params: {
 						portNumber: '5',

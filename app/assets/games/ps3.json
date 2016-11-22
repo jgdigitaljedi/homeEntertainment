@@ -86,6 +86,16 @@
             "onHd": true
         },
         {
+            "gbId": "3030-20599",
+            "title": "InFamous",
+            "onHd": false
+        },
+        {
+            "gbId": "3030-31150",
+            "title": "InFamous 2",
+            "onHd": false
+        },
+        {
             "title": "Jeopardy!",
             "gbId": "3030-40064",
             "onHd": true

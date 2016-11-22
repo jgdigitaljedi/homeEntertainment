@@ -2,7 +2,9 @@
 	"games": [
 		{"gbId": "3030-9890", "title": "Cruisin' USA"},
 		{"gbId": "3030-15000", "title": "Donkey Kong 64"},	
-		{"gbId": "3030-3764", "title": "F1 Pole Position 64"},	
+		{"gbId": "3030-3764", "title": "F1 Pole Position 64"},
+		{"gbId": "3030-3166", "title": "Goldeneye 007"},
+		{"gbId": "3030-12572", "title": "The Legend of Zelda: Ocarina of Time"},
 		{"gbId": "3030-21256", "title": "Perfect Dark"},	
 		{"gbId": "3030-8458", "title": "San Fransisco Rush: Extreme Racing"},	
 		{"gbId": "3030-8845", "title": "South Park"},	

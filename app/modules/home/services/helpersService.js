@@ -18,7 +18,9 @@
 	function Helpers ($q) {
 
 		function commafy (num) {
-			return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+			if (num && num.length) {
+				return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");				
+			}
 		}
 
 		function dateFormats () {

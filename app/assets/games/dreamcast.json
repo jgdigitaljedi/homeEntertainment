@@ -21,7 +21,8 @@
         },
         {
             "gbId": "3030-4652",
-            "title": "Mortal Konbat Gold"
+            "title": "Mortal Kombat Gold",
+            "onHd": false
         },
         {
             "title": "Rush 2049",
@@ -48,8 +49,13 @@
             "onHd": false
         },
         {
-            "title": "bxcvb",
+            "title": "Sonic Adventure",
             "gbId": "3030-7852",
+            "onHd": false
+        },
+        {
+            "title": "Worms Armageddon",
+            "gbId": "3030-17255",
             "onHd": false
         }
     ]
