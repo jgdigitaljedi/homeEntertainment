@@ -180,6 +180,7 @@ module.exports = function (grunt) {
 				files: {
 					'index.html': [
 						'app/assets/css/**/*.css',
+						'app/assets/css/*.css',
 						'app/assets/js/*.js'
 					]
 
